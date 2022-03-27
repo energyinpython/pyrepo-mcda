@@ -6,7 +6,7 @@ import pandas as pd
 
 # Part 1 - Methods for visualization for basic usage of PyREPO library
 # bar chart for basic version
-def plot_barplot(df_plot):
+def plot_barplot(df_plot, title = 'MCDA methods'):
     """Visualization method to display column chart of alternatives rankings obtained with 
     different methods.
 
@@ -15,6 +15,9 @@ def plot_barplot(df_plot):
         df_plot : DataFrame
             DataFrame containing rankings of alternatives obtained with different methods.
             The particular rankings are contained in subsequent columns of DataFrame.
+
+        title : str
+            Title of chart
     """
     step = 1
     list_rank = np.arange(1, len(df_plot) + 1, step)
@@ -30,7 +33,7 @@ def plot_barplot(df_plot):
     ax.set_ylim(0, len(df_plot) + 1)
 
     plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc='lower left',
-    ncol=4, mode="expand", borderaxespad=0., edgecolor = 'black', title = 'Methods', fontsize = 12)
+    ncol=4, mode="expand", borderaxespad=0., edgecolor = 'black', title = title, fontsize = 12)
 
     ax.grid(True, linestyle = ':')
     ax.set_axisbelow(True)
@@ -49,6 +52,12 @@ def plot_barplot_sensitivity(df_plot, method_name, criterion_name):
             DataFrame containing rankings of alternatives obtained with different weight of
             selected criterion. The particular rankings are contained in subsequent columns of 
             DataFrame.
+
+        method_name : str
+            Name of chosen MCDA method, i.e. `TOPSIS`, `VIKOR`, `CODAS`, `WASPAS`, 'MULTIMOORA`, `MABAC`, `EDAS`, `SPOTIS`
+        
+        criterion_name : str
+            Name of chosen criterion whose weight is modified
     """
     step = 1
     list_rank = np.arange(1, len(df_plot) + 1, step)
@@ -83,6 +92,12 @@ def plot_lineplot_sensitivity(data_sens, method_name, criterion_name):
             DataFrame containing rankings of alternatives obtained with different weight of
             selected criterion. The particular rankings are contained in subsequent columns of 
             DataFrame.
+
+        method_name : str
+            Name of chosen MCDA method, i.e. `TOPSIS`, `VIKOR`, `CODAS`, `WASPAS`, 'MULTIMOORA`, `MABAC`, `EDAS`, `SPOTIS`
+        
+        criterion_name : str
+            Name of chosen criterion whose weight is modified
     """
     plt.figure(figsize = (6, 3))
     for j in range(data_sens.shape[0]):
@@ -114,15 +129,16 @@ def draw_heatmap(df_new_heatmap, title):
     ----------
         data : DataFrame
             DataFrame with correlation values between compared rankings
+
         title : str
             title of chart containing name of used correlation coefficient
     """
     plt.figure(figsize = (8,5))
-    sns.set(font_scale=1.4)
+    sns.set(font_scale=1.2)
     heatmap = sns.heatmap(df_new_heatmap, annot=True, fmt=".2f", cmap="PuBu",
                           linewidth=0.5, linecolor='w')
     plt.yticks(va="center")
-    plt.xlabel('Methods')
+    plt.xlabel('MCDA methods')
     plt.title('Correlation: ' + title)
     plt.tight_layout()
     plt.show()
@@ -210,7 +226,7 @@ def plot_boxplot_2(data, mcda_name):
     plt.show()
 
 
-# Part 2 - Methods for visualization for simulations with PyREPO library
+# Part 2 - Methods for visualization for simulations with pyrepo-mcda library
 
 # plot box chart of results obtained in simulations
 def plot_boxplot_simulation(data, x, y, xtitle, ytitle, title, flag_rotation = True):

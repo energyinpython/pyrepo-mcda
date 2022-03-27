@@ -6,7 +6,7 @@ Usage
 Installation
 ------------
 
-To use PyREPO, first install it using pip:
+To use pyrepo-mcda, first install it using pip:
 
 .. code-block:: python
 
@@ -539,7 +539,7 @@ Output
 Methods for determining compromise rankings
 _____________________________________________
 	
-The Borda count and Copeland Method for compromise ranking
+The Copeland Method for compromise ranking
 
 Parameters
 	matrix : ndarray
@@ -566,8 +566,8 @@ Returns
 	[9, 10, 9, 10, 10, 9],
 	[5, 6, 3, 2, 6, 5]])
 	
-	# Calculate the compromise ranking using `borda_copeland_compromise_ranking` method
-	result = compromises.borda_copeland_compromise_ranking(matrix)
+	# Calculate the compromise ranking using `copeland` method
+	result = compromises.copeland(matrix)
 	
 	print('Copeland compromise ranking: ', result)
 	

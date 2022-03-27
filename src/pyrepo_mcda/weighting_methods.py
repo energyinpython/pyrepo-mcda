@@ -20,7 +20,8 @@ def equal_weighting(matrix):
             vector of criteria weights
     """
     N = np.shape(matrix)[1]
-    return np.ones(N) / N
+    w = np.ones(N) / N
+    return w
 
 
 # Entropy weighting
@@ -78,7 +79,8 @@ def std_weighting(matrix):
     # Calculate the standard deviation of each criterion in decision matrix
     stdv = np.sqrt((np.sum(np.square(matrix - np.mean(matrix, axis = 0)), axis = 0)) / (matrix.shape[0]))
     # Calculate criteria weights by dividing the standard deviations by their sum
-    return stdv / np.sum(stdv)
+    w = stdv / np.sum(stdv)
+    return w
 
 
 # CRITIC weighting

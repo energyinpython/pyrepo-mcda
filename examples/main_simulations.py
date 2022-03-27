@@ -10,16 +10,7 @@ from pyrepo_mcda import correlations as corrs
 from pyrepo_mcda import normalizations as norms
 
 from pyrepo_mcda.additions import rank_preferences
-
-from pyrepo_mcda.mcda_methods import CODAS
-from pyrepo_mcda.mcda_methods import TOPSIS
-from pyrepo_mcda.mcda_methods import WASPAS
-from pyrepo_mcda.mcda_methods import VIKOR
-from pyrepo_mcda.mcda_methods import SPOTIS
-from pyrepo_mcda.mcda_methods import EDAS
-from pyrepo_mcda.mcda_methods import MABAC
-from pyrepo_mcda.mcda_methods import MULTIMOORA
-
+from pyrepo_mcda.mcda_methods import CODAS, TOPSIS, WASPAS, VIKOR, SPOTIS, EDAS, MABAC, MULTIMOORA
 from pyrepo_mcda.sensitivity_analysis import Sensitivity_analysis_weights
 
 
@@ -132,7 +123,6 @@ def main():
     pref = mabac(matrix, weights, types)
     rank = rank_preferences(pref, reverse = True)
     rank_results['MABAC'] = rank
-
 
     #MULTIMOORA
     multimoora = MULTIMOORA()
@@ -469,6 +459,7 @@ def main():
     header = header + list(df_rank_mean.columns)
     print('The average number of changes in all rankings with weights modification:')
     print(tabulate(df_rank_mean, headers = header, tablefmt='github'))
+
     plot_barplot_simulations(df_rank_mean, xtitle = 'MCDA methods', 
                              ytitle = 'Mean number of changes in rankings', 
                              title = 'MCDA methods', wider = True)

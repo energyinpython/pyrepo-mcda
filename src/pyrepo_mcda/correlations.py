@@ -86,4 +86,5 @@ def WS_coeff(R, Q):
     N = len(R)
     numerator = 2**(-R.astype(np.float)) * np.abs(R - Q)
     denominator = np.max((np.abs(R - 1), np.abs(R - N)), axis = 0)
-    return 1 - np.sum(numerator / denominator)
+    ws = 1 - np.sum(numerator / denominator)
+    return ws

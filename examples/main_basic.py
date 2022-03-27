@@ -16,9 +16,6 @@ from pyrepo_mcda.additions import rank_preferences
 from pyrepo_mcda.sensitivity_analysis import Sensitivity_analysis_weights
 
 
-
-
-
 # Create dictionary class
 class Create_dictionary(dict):
   
@@ -43,18 +40,12 @@ def main():
     header = [df_data.index.name]
     header = header + list(df_data.columns)
     print(tabulate(df_data, headers = header, tablefmt='github'))
-    
-    print('types')
-    print(types)
 
     list_alt_names = [r'$A_{' + str(i) + '}$' for i in range(1, df_data.shape[0] + 1)]
 
     matrix = df_data.to_numpy()
 
-    print('weights')
-    print(weights)
-
-    # part 1 w zaleznosci od metryki odleglosciowej - testy z roznymi metrykami
+    # Exploration of results for different chosen distance metrics
     distance_metrics = [
         dists.euclidean,
         dists.manhattan,
@@ -63,7 +54,8 @@ def main():
         dists.bray_curtis,
         dists.canberra,
         dists.lorentzian,
-        dists.jaccard
+        dists.jaccard,
+        dists.std_euclidean
     ]
 
     # Create dataframes for preference function values and rankings determined using distance metrics
@@ -80,20 +72,17 @@ def main():
         
 
     print(df_rankings)
-    # plot box chart of alternatives preference values
-    plot_barplot(df_rankings)
+    # plot bar chart of alternatives rankings
+    plot_barplot(df_rankings, 'Distance metrics')
 
     # plot box chart of alternatives preference values
-    # plot_boxplot_old(df_preferences.T, mcda_name = 'TOPSIS')
     plot_boxplot(df_preferences.T)
 
-    
-    #####
     rank_results = pd.DataFrame()
     rank_results['Ai'] = list(list_alt_names)
 
     # TOPSIS
-    # TOPSIS preferences are sorted in descending order
+    # TOPSIS preferences must be sorted in descending order
     topsis = TOPSIS(normalization_method = norms.minmax_normalization, distance_metric = dists.euclidean)
     pref = topsis(matrix, weights, types)
     rank = rank_preferences(pref, reverse = True)
@@ -101,7 +90,7 @@ def main():
 
 
     # CODAS
-    # descending order
+    # CODAS preferences must be sorted in descending order
     codas = CODAS(normalization_method = norms.linear_normalization, distance_metric = dists.euclidean, tau = 0.02)
     pref = codas(matrix, weights, types)
     rank = rank_preferences(pref, reverse = True)
@@ -109,7 +98,7 @@ def main():
 
 
     # VIKOR
-    # VIKOR preferences are sorted in ascending order
+    # VIKOR preferences must be sorted in ascending order
     vikor = VIKOR(normalization_method = norms.minmax_normalization)
     pref = vikor(matrix, weights, types)
     rank = rank_preferences(pref, reverse = False)
@@ -117,7 +106,7 @@ def main():
 
 
     # SPOTIS
-    # SPOTIS preferences are sorted in ascending order
+    # SPOTIS preferences must be sorted in ascending order
     bounds_min = np.amin(matrix, axis = 0)
     bounds_max = np.amax(matrix, axis = 0)
     bounds = np.vstack((bounds_min, bounds_max))
@@ -128,7 +117,7 @@ def main():
 
 
     # EDAS 
-    # descending order
+    # EDAS preferences must be sorted in descending order
     edas = EDAS()
     pref = edas(matrix, weights, types)
     rank = rank_preferences(pref, reverse = True)
@@ -136,7 +125,7 @@ def main():
 
 
     # MABAC
-    # descending order
+    # MABAC preferences must be sorted in descending order
     mabac = MABAC(normalization_method = norms.minmax_normalization)
     pref = mabac(matrix, weights, types)
     rank = rank_preferences(pref, reverse = True)
@@ -144,14 +133,14 @@ def main():
 
 
     # MULTIMOORA
-    # descending order
+    # MULTIMOORA method returns rank
     multimoora = MULTIMOORA()
     rank = multimoora(matrix, weights, types)
     rank_results['MMOORA'] = rank
 
 
     # WASPAS
-    # descending order
+    # WASPAS preferences must be sorted descending order
     waspas = WASPAS(normalization_method = norms.linear_normalization, lambda_param = 0.5)
     pref = waspas(matrix, weights, types)
     rank = rank_preferences(pref, reverse = True)
@@ -163,9 +152,9 @@ def main():
     header = header + list(rank_results.columns)
     print(tabulate(rank_results, headers = header, tablefmt='orgtbl'))
 
-    # compromise ranking
+    # compromise ranking prepared with the Copeland compromise ranking
 
-    compromise_ranking = compromises.borda_copeland_compromise_ranking(rank_results)
+    compromise_ranking = compromises.copeland(rank_results)
 
     rank_results_final = copy.deepcopy(rank_results)
     rank_results_final['Compromise'] = compromise_ranking
@@ -178,7 +167,7 @@ def main():
     # barplot
 
     df_plot = copy.deepcopy(rank_results)
-    plot_barplot(df_plot)
+    plot_barplot(df_plot, 'MCDA methods')
     
     data = copy.deepcopy(rank_results_final)
     method_types = list(data.columns)
@@ -190,12 +179,14 @@ def main():
 
     dict_new_heatmap_ws = copy.deepcopy(dict_new_heatmap_rw)
     dict_new_heatmap_pearson = copy.deepcopy(dict_new_heatmap_rw)
+    dict_new_heatmap_spearman = copy.deepcopy(dict_new_heatmap_rw)
 
     # heatmaps for correlations coefficients
     for i, j in [(i, j) for i in method_types[::-1] for j in method_types]:
         dict_new_heatmap_rw[j].append(corrs.weighted_spearman(data[i], data[j]))
         dict_new_heatmap_ws[j].append(corrs.WS_coeff(data[i], data[j]))
         dict_new_heatmap_pearson[j].append(corrs.pearson_coeff(data[i], data[j]))
+        dict_new_heatmap_spearman[j].append(corrs.spearman(data[i], data[j]))
         
 
     df_new_heatmap_rw = pd.DataFrame(dict_new_heatmap_rw, index = method_types[::-1])
@@ -207,6 +198,9 @@ def main():
     df_new_heatmap_pearson = pd.DataFrame(dict_new_heatmap_pearson, index = method_types[::-1])
     df_new_heatmap_pearson.columns = method_types
 
+    df_new_heatmap_spearman = pd.DataFrame(dict_new_heatmap_spearman, index = method_types[::-1])
+    df_new_heatmap_spearman.columns = method_types
+
 
     # correlation matrix with rw coefficient
     draw_heatmap(df_new_heatmap_rw, r'$r_w$')
@@ -216,6 +210,9 @@ def main():
 
     # correlation matrix with Pearson coefficient
     draw_heatmap(df_new_heatmap_pearson, r'$Pearson$')
+
+    # correlation matrix with Spearman coefficient
+    draw_heatmap(df_new_heatmap_spearman, r'$r_s$')
     
 
     #plot radar chart

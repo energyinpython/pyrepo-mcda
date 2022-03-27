@@ -62,5 +62,5 @@ class TOPSIS(MCDA_method):
         Dm = np.array([distance_metric(x, nis) for x in weighted_matrix])
 
         self.Dp = Dp
-
-        return Dm / (Dm + Dp)
+        C = Dm / (Dm + Dp)
+        return C

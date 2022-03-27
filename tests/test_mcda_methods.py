@@ -19,8 +19,6 @@ from pyrepo_mcda.additions import rank_preferences
 import unittest
 import numpy as np
 
-import copy
-
 
 # Test for the VIKOR method
 class Test_VIKOR(unittest.TestCase):
@@ -263,49 +261,6 @@ class Test_MULTIMOORA(unittest.TestCase):
         self.assertEqual(list(test_result), list(real_result))
 
 
-# Test for borda copeland compromise ranking
-class Test_Copeland(unittest.TestCase):
-
-    def test_copeland(self):
-        """Ecer, F. (2021). A consolidated MCDM framework for performance assessment of 
-        battery electric vehicles based on ranking strategies. Renewable and Sustainable 
-        Energy Reviews, 143, 110916."""
-
-        matrix = np.array([[7, 8, 7, 6, 7, 7],
-        [4, 7, 5, 7, 5, 4],
-        [8, 9, 8, 8, 9, 8],
-        [1, 4, 1, 1, 1, 1],
-        [2, 2, 2, 4, 3, 2],
-        [3, 1, 4, 3, 2, 3],
-        [10, 5, 10, 9, 8, 10],
-        [6, 3, 6, 5, 4, 6],
-        [9, 10, 9, 10, 10, 9],
-        [5, 6, 3, 2, 6, 5]])
-
-        test_result = compromises.borda_copeland_compromise_ranking(matrix)
-        real_result = np.array([7, 6, 8, 1, 2, 3, 9, 5, 10, 4])
-
-        self.assertEqual(list(test_result), list(real_result))
-
-
-# Test for dominance directed graph compromise ranking
-class Test_Dominance_Directed_Graph(unittest.TestCase):
-
-    def test_dominance_directed_graph(self):
-        """Karabasevic, D., Stanujkic, D., Urosevic, S., & Maksimovic, M. (2015). Selection of 
-        candidates in the mining industry based on the application of the SWARA and the 
-        MULTIMOORA methods. Acta Montanistica Slovaca, 20(2)."""
-
-        matrix = np.array([[3, 2, 3],
-        [2, 3, 2],
-        [1, 1, 1]])
-
-        test_result = compromises.dominance_directed_graph(matrix)
-        real_result = np.array([3, 2, 1])
-
-        self.assertEqual(list(test_result), list(real_result))
-
-
 # Test for rank preferences
 class Test_Rank_preferences(unittest.TestCase):
 
@@ -347,12 +302,6 @@ def main():
 
     test_multimoora = Test_MULTIMOORA()
     test_multimoora.test_multimoora()
-
-    test_copeland = Test_Copeland()
-    test_copeland.test_copeland()
-
-    test_dominance_directed_graph = Test_Dominance_Directed_Graph()
-    test_dominance_directed_graph.test_dominance_directed_graph()
 
 
 if __name__ == '__main__':

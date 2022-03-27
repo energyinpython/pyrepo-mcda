@@ -20,8 +20,8 @@ def euclidean(A, B):
         float
             distance value between two vetors
     """
-    tmp = np.sum(np.square(A - B))
-    return np.sqrt(tmp)
+    tmp = np.sqrt(np.sum(np.square(A - B)))
+    return tmp
 
 # manhattan distance
 def manhattan(A, B):
@@ -63,7 +63,8 @@ def hausdorff_distance(A, B):
 
 
 # hausdorff distance
-"""
+def hausdorff(A, B):
+    """
     Calculate Hausdorff distance between two vectors `A` and `B`.
 
     Parameters
@@ -78,10 +79,10 @@ def hausdorff_distance(A, B):
         float
             distance value between two vetors
     """
-def hausdorff(A, B):
     ah = hausdorff_distance(A, B)
     bh = hausdorff_distance(B, A)
-    return max(ah, bh)
+    tmp = max(ah, bh)
+    return tmp
 
 
 # correlation distance
@@ -105,7 +106,8 @@ def correlation(A, B):
     denominator = np.sqrt(np.sum((A - np.mean(A)) ** 2)) * np.sqrt(np.sum((B - np.mean(B)) ** 2))
     if denominator == 0:
         denominator = 1
-    return 1 - (numerator / denominator)
+    tmp = 1 - (numerator / denominator)
+    return tmp
 
 
 # chebyshev distance
@@ -156,7 +158,8 @@ def std_euclidean(A, B):
     stdv = np.sqrt(stdv / tab_std.shape[0])
     stdv[stdv == 0] = 1
     tmp = np.sum(np.square((A - B) / stdv))
-    return np.sqrt(tmp)
+    tmp = np.sqrt(tmp)
+    return tmp
 
 
 # cosine distance
@@ -180,7 +183,8 @@ def cosine(A, B):
     denominator = (np.sqrt(np.sum(np.square(A)))) * (np.sqrt(np.sum(np.square(B))))
     if denominator == 0:
         denominator = 1
-    return 1 - (numerator / denominator)
+    tmp = 1 - (numerator / denominator)
+    return tmp
 
 
 # cosine similarity measure
@@ -204,7 +208,8 @@ def csm(A, B):
     denominator = (np.sqrt(np.sum(A))) * (np.sqrt(np.sum(B)))
     if denominator == 0:
         denominator = 1
-    return numerator / denominator
+    tmp = numerator / denominator
+    return tmp
 
 
 # squared euclidean distance
@@ -249,7 +254,8 @@ def bray_curtis(A, B):
     denominator = np.sum(A + B)
     if denominator == 0:
         denominator = 1
-    return numerator / denominator
+    tmp = numerator / denominator
+    return tmp
 
 
 # canberra distance
@@ -318,7 +324,8 @@ def jaccard(A, B):
     denominator = np.sum(A ** 2) + np.sum(B ** 2) - np.sum(A * B)
     if denominator == 0:
         denominator = 1
-    return numerator / denominator
+    tmp = numerator / denominator
+    return tmp
 
 
 # dice distance
@@ -342,7 +349,8 @@ def dice(A, B):
     denominator = np.sum(A ** 2) + np.sum(B ** 2)
     if denominator == 0:
         denominator = 1
-    return numerator / denominator
+    tmp = numerator / denominator
+    return tmp
 
 
 # bhattacharyya distance
@@ -390,7 +398,8 @@ def hellinger(A, B):
     value = 1 - np.sum(np.sqrt(A * B))
     if value < 0:
         value = 0
-    return 2 * np.sqrt(value)
+    tmp = 2 * np.sqrt(value)
+    return tmp
 
 
 # matusita distance
@@ -413,7 +422,8 @@ def matusita(A, B):
     value = 2 - 2 * (np.sum(np.sqrt(A * B)))
     if value < 0:
         value = 0
-    return np.sqrt(value)
+    tmp = np.sqrt(value)
+    return tmp
 
 
 # squared-chord distance

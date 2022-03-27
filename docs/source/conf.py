@@ -7,7 +7,7 @@ copyright = '2022, energyinpython'
 author = 'energyinpython'
 
 release = '0.1'
-version = '0.0.1'
+version = '0.0.2'
 
 # -- General configuration
 

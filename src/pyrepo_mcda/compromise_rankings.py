@@ -5,10 +5,10 @@ from .additions import rank_preferences
 from .normalizations import *
 
 
-# Borda count and Copeland Method for compromise ranking
-def borda_copeland_compromise_ranking(matrix):
+# Copeland Method for compromise ranking
+def copeland(matrix):
     """Calculate the compromise ranking considering several rankings obtained using different
-    methods using Borda count and Copeland compromise ranking methodology
+    methods using the Copeland compromise ranking methodology
 
     Parameters
     ----------
