@@ -62,7 +62,7 @@ This library includes:
 	
 - Methods for determination of compromise rankings based on several rankings obtained with different MCDA methods:
 
-	- `borda_copeland_compromise_ranking` (Borda count and Copeland Method for compromise ranking)
+	- `copeland` (the Copeland method for compromise ranking)
 	- `dominance_directed_graph` (Dominance Directed Graph for compromise ranking)
 	- `rank_position_method` (Rank Position Method for compromise ranking)
 	- `improved_borda_rule` (Improved Borda Rule method for compromise for MULTIMOORA method)
