@@ -928,7 +928,7 @@ Returns
 		distance value between two vectors
 
 .. code-block:: python
-
+	
 	import numpy as np
 	from pyrepo_mcda import distance_metrics as dists
 	
@@ -957,7 +957,7 @@ Returns
 		distance value between two vectors
 
 .. code-block:: python
-
+	
 	import numpy as np
 	from pyrepo_mcda import distance_metrics as dists
 	
@@ -993,7 +993,7 @@ Returns
 		Normalized decision matrix
 
 .. code-block:: python
-
+	
 	import numpy as np
 	from pyrepo_mcda import normalizations as norms
 
@@ -1012,7 +1012,7 @@ Returns
 Output
 
 .. code-block:: console
-
+	
 	Normalized matrix:  [[0.4126 0.3769 0.1525 0.0928]
 	 [0.2579 0.1615 0.5337 0.4642]
 	 [0.361  0.2692 0.4575 0.3714]
