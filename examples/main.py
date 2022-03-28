@@ -175,6 +175,7 @@ def main():
     df_plot = copy.deepcopy(rank_results)
     plot_barplot(df_plot, legend_title='MCDA methods')
     
+    # correlations heatmaps
     data = copy.deepcopy(rank_results_final)
     method_types = list(data.columns)
 
@@ -221,13 +222,13 @@ def main():
     
     matplotlib.rc_file_defaults()
     print('Sensitivity analysis')
-    #sensitivity analysis
+    # Sensitivity analysis
 
     # load input vector with percentage values of chosen criterion weights modification for sensitivity analysis
     # percentages = np.arange(0.25, 0.55, 0.1)
     percentages = np.arange(0.05, 0.55, 0.1)
 
-    #create the chosen MCDA object
+    # Create the object of chosen MCDA method
     method = TOPSIS(normalization_method=norms.minmax_normalization, distance_metric=dists.euclidean)
     
     # Create the sensitivity analysis method object
@@ -243,23 +244,8 @@ def main():
         print(tabulate(data_sens, headers = header, tablefmt='github'))
         #plot_barplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j])
 
-        #plot
         #plot_lineplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j])
         plot_radar(data_sens, method.__class__.__name__ + ', Criterion ' + list_crit_names[j] + ' weight change', j)
-
-        # nowe jednak nie uzyte
-        '''
-        new_data_sens = pd.melt(data_sens)
-        num_tiles = len(new_data_sens) / len(list_alt_names)
-        new_data_sens['Alternative'] = np.tile(np.array(list_alt_names), int(num_tiles))
-        new_data_sens = new_data_sens.rename(columns = {"variable" : 'Weight', 'value' : 'Rank'})
-        print(new_data_sens)
-
-        w = [weights[j] + weights[j] * float(new_data_sens.iloc[i, 0][:-1]) / 100 for i in range(new_data_sens.shape[0])]
-        new_data_sens['Weight'] = w
-        print(new_data_sens)
-        plot_boxplot_simulation(new_data_sens, 'Alternative', 'Weight', 'Rank' , 'Alternative', 'Weight', 'Criterion ' + list_crit_names[j] + ' weight change', 'robustness_weights_' + str(j + 1))
-        '''
 
     # Robustness analysis
     # Create object of chosen MCDA method
@@ -302,6 +288,7 @@ def main():
         # Iterate by all Alternatives
         for i in range(matrix.shape[0]):
             vec = np.arange(asp[j], isp[j] + types[j] * change_val, types[j] * change_val)
+            # Iterate by all performance values of chosen criterion
             for v in vec:
                 new_matrix = copy.deepcopy(matrix)
                 new_matrix[i, j] = v
