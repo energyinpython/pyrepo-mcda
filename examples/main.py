@@ -51,6 +51,7 @@ def main():
 
     print(weights)
 
+    # Distance metrics used with TOPSIS
     # Exploration of results for different chosen distance metrics
     distance_metrics = [
         dists.euclidean,
@@ -83,7 +84,7 @@ def main():
     # plot box chart of alternatives preference values
     plot_boxplot(df_preferences.T, 'TOPSIS, preference values distribution')
 
-    
+    # MCDA methods
     rank_results = pd.DataFrame()
     rank_results['Ai'] = list(list_alt_names)
 
@@ -275,11 +276,10 @@ def main():
         3 : 0.1
     }
     
-    # Perform simulation for each criterion
     # Iterate by all criteria
     for j in range(matrix.shape[1]):
         change_val = indexes[j]
-        # dictionary for collecting variability in TOPSIS preferences after weights change using different distance metrics
+        # dictionary for collecting ranking values after modification of performance values
         dict_results_sim = {
             'Rank' : [],
             'Performance' : [],
@@ -304,8 +304,5 @@ def main():
         plot_boxplot_simulation(df_results_sim, 'Alternative', 'Performance', 'Rank' , 'Alternative', 'Performance', 'TOPSIS, Criterion ' + list_crit_names[j] + ' performance change', 'robustness_' + str(j + 1))
 
 
-    
-
 if __name__ == "__main__":
     main()
-
