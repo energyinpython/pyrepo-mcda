@@ -92,7 +92,7 @@ Returns
 	from pyrepo_mcda.additions import rank_preferences
 
 	# provide decision matrix in array numpy.darray
-	
+
 	matrix = np.array([[256, 8, 41, 1.6, 1.77, 7347.16],
 	[256, 8, 32, 1.0, 1.8, 6919.99],
 	[256, 8, 53, 1.6, 1.9, 8400],
@@ -101,23 +101,23 @@ Returns
 	[256, 4, 35, 1.6, 1.7, 7499.99]])
 
 	# provide criteria weights in array numpy.darray. All weights must sum to 1.
-	
+
 	weights = np.array([0.405, 0.221, 0.134, 0.199, 0.007, 0.034])
 
 	# provide criteria types in array numpy.darray. Profit criteria are represented by 1 and cost criteria by -1.
-	
+
 	types = np.array([1, 1, 1, 1, -1, -1])
 
 	# Create the TOPSIS method object providing normalization method and distance metric.
-	
+
 	topsis = TOPSIS(normalization_method = norms.minmax_normalization, distance_metric = dists.euclidean)
 
 	# Calculate the TOPSIS preference values of alternatives
-	
+
 	pref = topsis(matrix, weights, types)
 
 	# Generate ranking of alternatives by sorting alternatives descendingly according to the TOPSIS algorithm (reverse = True means sorting in descending order) according to preference values
-	
+
 	rank = rank_preferences(pref, reverse = True)
 
 	print('Preference values: ', np.round(pref, 4))
@@ -565,10 +565,10 @@ Returns
 	[6, 3, 6, 5, 4, 6],
 	[9, 10, 9, 10, 10, 9],
 	[5, 6, 3, 2, 6, 5]])
-	
+
 	# Calculate the compromise ranking using `copeland` method
 	result = compromises.copeland(matrix)
-	
+
 	print('Copeland compromise ranking: ', result)
 	
 Output
@@ -598,10 +598,10 @@ Returns
 	matrix = np.array([[3, 2, 3],
 	[2, 3, 2],
 	[1, 1, 1]])
-	
+
 	# Calculate the compromise ranking using `dominance_directed_graph` method
 	result = compromises.dominance_directed_graph(matrix)
-	
+
 	print('Dominance directed graph compromise ranking: ', result)
 	
 Output
@@ -630,10 +630,10 @@ Returns
 	matrix = np.array([[3, 2, 3],
 	[2, 3, 2],
 	[1, 1, 1]])
-	
+
 	# Calculate the compromise ranking using `rank_position_method` method
 	result = compromises.rank_position_method(matrix)
-	
+
 	print('Rank position compromise ranking: ', result)
 	
 Output
@@ -835,9 +835,9 @@ Returns
 	[19, 54, 86, 29],
 	[19, 15, 85, 28.9],
 	[68, 70, 60, 29]])
-	
+
 	weights = mcda_weights.entropy_weighting(matrix)
-	
+
 	print('Entropy weights: ', np.round(weights, 4))
 	
 Output
@@ -866,9 +866,9 @@ Returns
 	[2000, 3, 2, 3, 4, 3],
 	[600, 4, 3, 1, 2, 2],
 	[800, 2, 4, 3, 3, 4]])
-	
+
 	weights = mcda_weights.critic_weighting(matrix)
-	
+
 	print('CRITIC weights: ', np.round(weights, 4))
 	
 Output
@@ -897,9 +897,9 @@ Returns
 	[0.458, 0.698, 0.771],
 	[0.777, 0.631, 0.491],
 	[0.567, 0.992, 0.968]])
-	
+
 	weights = mcda_weights.std_weighting(matrix)
-	
+
 	print('Standard deviation weights: ', np.round(weights, 4))
 	
 Output
@@ -931,12 +931,12 @@ Returns
 	
 	import numpy as np
 	from pyrepo_mcda import distance_metrics as dists
-	
-	A = np.array([0.165, 0.113, 0.015, 0.019])
-    B = np.array([0.227, 0.161, 0.053, 0.130])
 
-    dist = dists.euclidean(A, B)
-    print('Distance: ', np.round(dist, 4))
+	A = np.array([0.165, 0.113, 0.015, 0.019])
+	B = np.array([0.227, 0.161, 0.053, 0.130])
+
+	dist = dists.euclidean(A, B)
+	print('Distance: ', np.round(dist, 4))
 	
 Output
 
@@ -960,12 +960,12 @@ Returns
 	
 	import numpy as np
 	from pyrepo_mcda import distance_metrics as dists
-	
-	A = np.array([0.165, 0.113, 0.015, 0.019])
-    B = np.array([0.227, 0.161, 0.053, 0.130])
 
-    dist = dists.manhattan(A, B)
-    print('Distance: ', np.round(dist, 4))
+	A = np.array([0.165, 0.113, 0.015, 0.019])
+	B = np.array([0.227, 0.161, 0.053, 0.130])
+
+	dist = dists.manhattan(A, B)
+	print('Distance: ', np.round(dist, 4))
 	
 Output
 
@@ -998,27 +998,27 @@ Returns
 	from pyrepo_mcda import normalizations as norms
 
 	matrix = np.array([[8, 7, 2, 1],
-    [5, 3, 7, 5],
-    [7, 5, 6, 4],
-    [9, 9, 7, 3],
-    [11, 10, 3, 7],
-    [6, 9, 5, 4]])
+	[5, 3, 7, 5],
+	[7, 5, 6, 4],
+	[9, 9, 7, 3],
+	[11, 10, 3, 7],
+	[6, 9, 5, 4]])
 
-    types = np.array([1, 1, 1, 1])
+	types = np.array([1, 1, 1, 1])
 
-    norm_matrix = norms.vector_normalization(matrix, types)
-    print('Normalized matrix: ', np.round(norm_matrix, 4))
+	norm_matrix = norms.vector_normalization(matrix, types)
+	print('Normalized matrix: ', np.round(norm_matrix, 4))
 	
 Output
 
 .. code-block:: console
 	
 	Normalized matrix:  [[0.4126 0.3769 0.1525 0.0928]
-	 [0.2579 0.1615 0.5337 0.4642]
-	 [0.361  0.2692 0.4575 0.3714]
-	 [0.4641 0.4845 0.5337 0.2785]
-	 [0.5673 0.5384 0.2287 0.6499]
-	 [0.3094 0.4845 0.3812 0.3714]]
+	[0.2579 0.1615 0.5337 0.4642]
+	[0.361  0.2692 0.4575 0.3714]
+	[0.4641 0.4845 0.5337 0.2785]
+	[0.5673 0.5384 0.2287 0.6499]
+	[0.3094 0.4845 0.3812 0.3714]]
 
 	
 Method for sensitivity analysis considering criteria weights modification
@@ -1051,7 +1051,7 @@ Returns
 
 	import numpy as np
 	from pyrepo_mcda.sensitivity_analysis import Sensitivity_analysis_weights
-	
+
 	import numpy as np
 	from pyrepo_mcda.mcda_methods import CODAS
 
@@ -1065,19 +1065,19 @@ Returns
 
 	# provide criteria weights in array numpy.darray. All weights must sum to 1.
 	weights = np.array([0.2857, 0.3036, 0.2321, 0.1786])
-	
+
 	# provide criteria types in array numpy.darray. Profit criteria are represented by 1 and cost criteria by -1.
 	types = np.array([1, -1, 1, 1])
-	
+
 	# provide vector with percentage values of chosen criterion weight modification
 	percentages = np.arange(0.05, 0.5, 0.1)
-	
+
 	#create the chosen MCDA object
-    method = TOPSIS(normalization_method=norms.minmax_normalization, distance_metric=dists.euclidean)
-	
+	method = TOPSIS(normalization_method=norms.minmax_normalization, distance_metric=dists.euclidean)
+
 	# provide index of j-th chosen criterion whose weight will be modified in sensitivity analysis, for example j = 1 for criterion in the second column
 	j = 1
-	
+
 	# Create the Sensitivity_analysis_weights object
 	sensitivity_analysis = Sensitivity_analysis_weights()
 
