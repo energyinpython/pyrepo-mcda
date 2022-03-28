@@ -24,7 +24,7 @@ class Sensitivity_analysis_weights():
         pass
 
 
-    def __call__(self, matrix, weights, types, percentages, mcda_name, j):
+    def __call__(self, matrix, weights, types, percentages, method, j, dir_list):
         """
         Method for sensitivity analysis. This method determines rankings of alternatives using chosen
         MCDA method name `mcda_name` for different modifications of criterion `j` weight.
@@ -45,12 +45,17 @@ class Sensitivity_analysis_weights():
             percentages : ndarray
                 Vector with percentage values of given criteria weight modification.
 
-            mcda_name : str
-                Name of applied MCDA method
+            method : class
+                Initialized object of class of chosen MCDA method
 
             j : int
                 Index of column in decision matrix `matrix` that indicates for which criterion
                 the weight is modified.
+
+            dir_list : list
+                list with directions (signs of value) of criterion weight modification. 1 denotes increasing,
+                and -1 denotes decreasing weight value. You can provide [-1, 1] for increasing and
+                decreasing, [-1] for only decreasing, or [1] for only increasing chosen criterion weight.
 
         Returns
         --------
@@ -58,7 +63,7 @@ class Sensitivity_analysis_weights():
                 dataframe with rankings calculated for subsequent modifications of criterion j weight
         """
         list_alt_names = [r'$A_{' + str(i) + '}$' for i in range(1, matrix.shape[0] + 1)]
-        return Sensitivity_analysis_weights._sensitivity_analysis_weights(self, matrix, weights, types, percentages, mcda_name, list_alt_names, j)
+        return Sensitivity_analysis_weights._sensitivity_analysis_weights(self, matrix, weights, types, percentages, method, list_alt_names, j, dir_list)
 
 
     def _change_weights(self, j, weights, change_val):
@@ -96,14 +101,14 @@ class Sensitivity_analysis_weights():
 
 
     @staticmethod
-    def _sensitivity_analysis_weights(self, matrix, weights, types, percentages, mcda_name, list_alt_names, j):
+    def _sensitivity_analysis_weights(self, matrix, weights, types, percentages, method, list_alt_names, j, dir_list):
         # Create a dataframe for sensitivity analysis results (rankings)
         data_sens = pd.DataFrame()
         # Assisgn indexes (alternatives symbols) to dataframe `datasens`
         data_sens['Ai'] = list_alt_names
         # Iterate by two directions of weight modification: -1 for weight decreasing
         # and 1 for weight increasing
-        for dir in [-1, 1]:
+        for dir in dir_list:
             # Sorting percentages in appropriate order for visualization results
             if dir == -1:
                 direct_percentages = copy.deepcopy(percentages[::-1])
@@ -116,46 +121,38 @@ class Sensitivity_analysis_weights():
 
                 # Calculate alternatives ranking using selected MCDA method, `matrix``, vector of new weights
                 # `weights_copy` and criteria types `types`
-                if mcda_name == 'TOPSIS':
-                    topsis = TOPSIS(normalization_method = minmax_normalization, distance_metric = euclidean)
-                    pref = topsis(matrix, weights_copy, types)
+                if method.__class__.__name__ == 'TOPSIS':
+                    pref = method(matrix, weights_copy, types)
                     rank = rank_preferences(pref, reverse = True)
 
-                elif mcda_name == 'CODAS':
-                    codas = CODAS(normalization_method = linear_normalization, distance_metric = euclidean, tau = 0.02)
-                    pref = codas(matrix, weights_copy, types)
+                elif method.__class__.__name__ == 'CODAS':
+                    pref = method(matrix, weights_copy, types)
                     rank = rank_preferences(pref, reverse = True)
 
-                elif mcda_name == 'VIKOR':
-                    vikor = VIKOR(normalization_method = minmax_normalization)
-                    pref = vikor(matrix, weights_copy, types)
+                elif method.__class__.__name__ == 'VIKOR':
+                    pref = method(matrix, weights_copy, types)
                     rank = rank_preferences(pref, reverse = False)
 
-                elif mcda_name == 'SPOTIS':
+                elif method.__class__.__name__ == 'SPOTIS':
                     bounds_min = np.amin(matrix, axis = 0)
                     bounds_max = np.amax(matrix, axis = 0)
                     bounds = np.vstack((bounds_min, bounds_max))
-                    spotis = SPOTIS()
-                    pref = spotis(matrix, weights_copy, types, bounds)
+                    pref = method(matrix, weights_copy, types, bounds)
                     rank = rank_preferences(pref, reverse = False)
 
-                elif mcda_name == 'EDAS':
-                    edas = EDAS()
-                    pref = edas(matrix, weights_copy, types)
+                elif method.__class__.__name__ == 'EDAS':
+                    pref = method(matrix, weights_copy, types)
                     rank = rank_preferences(pref, reverse = True)
 
-                elif mcda_name == 'MABAC':
-                    mabac = MABAC(normalization_method = minmax_normalization)
-                    pref = mabac(matrix, weights_copy, types)
+                elif method.__class__.__name__ == 'MABAC':
+                    pref = method(matrix, weights_copy, types)
                     rank = rank_preferences(pref, reverse = True)
 
-                elif mcda_name == 'MULTIMOORA':
-                    multimoora = MULTIMOORA()
-                    pref_tab, rank = multimoora(matrix, weights_copy, types)
+                elif method.__class__.__name__ == 'MULTIMOORA':
+                    rank = method(matrix, weights_copy, types)
 
-                elif mcda_name == 'WASPAS':
-                    waspas = WASPAS(normalization_method = linear_normalization, lambda_param = 0.5)
-                    pref = waspas(matrix, weights_copy, types)
+                elif method.__class__.__name__ == 'WASPAS':
+                    pref = method(matrix, weights_copy, types)
                     rank = rank_preferences(pref, reverse = True)
                 
                 # Assign calculated ranking to column with value of j criterion weight change in `data_sens` dataframe

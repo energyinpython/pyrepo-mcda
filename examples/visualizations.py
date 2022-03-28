@@ -4,9 +4,8 @@ import numpy as np
 import pandas as pd
 
 
-# Part 1 - Methods for visualization for basic usage of PyREPO library
-# bar chart for basic version
-def plot_barplot(df_plot, title = 'MCDA methods'):
+# bar chart
+def plot_barplot(df_plot, legend_title):
     """Visualization method to display column chart of alternatives rankings obtained with 
     different methods.
 
@@ -15,7 +14,6 @@ def plot_barplot(df_plot, title = 'MCDA methods'):
         df_plot : DataFrame
             DataFrame containing rankings of alternatives obtained with different methods.
             The particular rankings are contained in subsequent columns of DataFrame.
-
         title : str
             Title of chart
     """
@@ -33,15 +31,16 @@ def plot_barplot(df_plot, title = 'MCDA methods'):
     ax.set_ylim(0, len(df_plot) + 1)
 
     plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc='lower left',
-    ncol=4, mode="expand", borderaxespad=0., edgecolor = 'black', title = title, fontsize = 12)
+    ncol=4, mode="expand", borderaxespad=0., edgecolor = 'black', title = legend_title, fontsize = 12)
 
     ax.grid(True, linestyle = ':')
     ax.set_axisbelow(True)
     plt.tight_layout()
+    plt.savefig('./results/' + 'bar_chart_' + legend_title + '.pdf')
     plt.show()
 
 
-# bar chart for sensitivity analysis in basic version
+# bar chart for sensitivity analysis
 def plot_barplot_sensitivity(df_plot, method_name, criterion_name):
     """Visualization method to display column chart of alternatives rankings obtained with 
     modification of weight of given criterion.
@@ -52,7 +51,6 @@ def plot_barplot_sensitivity(df_plot, method_name, criterion_name):
             DataFrame containing rankings of alternatives obtained with different weight of
             selected criterion. The particular rankings are contained in subsequent columns of 
             DataFrame.
-
         method_name : str
             Name of chosen MCDA method, i.e. `TOPSIS`, `VIKOR`, `CODAS`, `WASPAS`, 'MULTIMOORA`, `MABAC`, `EDAS`, `SPOTIS`
         
@@ -78,6 +76,7 @@ def plot_barplot_sensitivity(df_plot, method_name, criterion_name):
     ax.grid(True, linestyle = ':')
     ax.set_axisbelow(True)
     plt.tight_layout()
+    plt.savefig('./results/' + 'sensitivity_' + 'hist_' + method_name + '_' + criterion_name + '.pdf')
     plt.show()
 
 
@@ -92,7 +91,6 @@ def plot_lineplot_sensitivity(data_sens, method_name, criterion_name):
             DataFrame containing rankings of alternatives obtained with different weight of
             selected criterion. The particular rankings are contained in subsequent columns of 
             DataFrame.
-
         method_name : str
             Name of chosen MCDA method, i.e. `TOPSIS`, `VIKOR`, `CODAS`, `WASPAS`, 'MULTIMOORA`, `MABAC`, `EDAS`, `SPOTIS`
         
@@ -117,6 +115,7 @@ def plot_lineplot_sensitivity(data_sens, method_name, criterion_name):
     plt.title(method_name + ', modification of ' + criterion_name + ' weights')
     plt.grid(True, linestyle = ':')
     plt.tight_layout()
+    plt.savefig('./results/' + 'sensitivity_' + 'lineplot_' + method_name + '_' + criterion_name + '.pdf')
     plt.show()
 
 
@@ -129,7 +128,6 @@ def draw_heatmap(df_new_heatmap, title):
     ----------
         data : DataFrame
             DataFrame with correlation values between compared rankings
-
         title : str
             title of chart containing name of used correlation coefficient
     """
@@ -138,14 +136,15 @@ def draw_heatmap(df_new_heatmap, title):
     heatmap = sns.heatmap(df_new_heatmap, annot=True, fmt=".2f", cmap="PuBu",
                           linewidth=0.5, linecolor='w')
     plt.yticks(va="center")
-    plt.xlabel('MCDA methods')
+    plt.xlabel('Methods')
     plt.title('Correlation: ' + title)
     plt.tight_layout()
+    plt.savefig('./results/' + 'correlations_' + title + '.pdf')
     plt.show()
 
 
 # radar plot for basic version
-def plot_radar(data):
+def plot_radar(data, title, j):
     """
     Visualization method to display rankings of alternatives obtained with different methods
     on the radar chart.
@@ -155,6 +154,10 @@ def plot_radar(data):
         data : DataFrame
             DataFrame containing containing rankings of alternatives obtained with different 
             methods. The particular rankings are contained in subsequent columns of DataFrame.
+        title : str
+            Chart title
+        j : int
+            Index of criterion chosen for weight modification in sensitivity analysis
     """
     fig=plt.figure()
     ax = fig.add_subplot(111, polar = True)
@@ -172,20 +175,22 @@ def plot_radar(data):
         lista.append(data.index[0])
         labels=np.array(lista)
 
-        ax.plot(angles, stats, '-D', linewidth=1)
-        ax.fill_between(angles, stats, alpha=0.05)
+        ax.plot(angles, stats, '-o', linewidth=2)
+        #ax.fill_between(angles, stats, alpha=0.05)
     
     ax.set_thetagrids(angles * 180/np.pi, labels)
     ax.grid(True)
     ax.set_axisbelow(True)
     plt.legend(data.columns, bbox_to_anchor=(1.0, 0.95, 0.4, 0.2), loc='upper left')
+    plt.title(title)
     plt.tight_layout()
+    plt.savefig('./results/' + 'radar_chart_' + str(j + 1) + '.pdf')
     plt.show()
 
-
-def plot_boxplot(data):
+# Examplary visualization method
+def plot_boxplot(data, title):
     """
-    Display boxplot showing distribution of criteria weights determined with different methods.
+    Display boxplot showing distribution of preference values determined with different methods.
     Parameters
     ----------
     data : dataframe
@@ -194,42 +199,19 @@ def plot_boxplot(data):
     
     df_melted = pd.melt(data)
     plt.figure(figsize = (7, 4))
-    ax = sns.boxplot(x = 'variable', y = 'value', data = df_melted, width = 0.6)
+    ax = sns.boxplot(x = 'variable', y = 'value', data = df_melted, width = 0.4)
     ax.grid(True, linestyle = '--')
     ax.set_axisbelow(True)
     ax.set_xlabel('Alternatives', fontsize = 12)
     ax.set_ylabel('Preference distribution', fontsize = 12)
+    plt.title(title)
     plt.tight_layout()
+    plt.savefig('./results/' + 'TOPSIS_boxplot' + '.pdf')
     plt.show()
 
 
-def plot_boxplot_2(data, mcda_name):
-    """
-    Display boxplot showing distribution of criteria weights determined with different methods.
-    Parameters
-    ----------
-        data : DataFrame
-            DataFrame with correlation values between compared rankings
-
-        mcda_name : str
-            name of MCDA method applied with different distance metrics
-    """
-
-    fig, ax = plt.subplots(figsize = (7, 4))
-    ax.boxplot(data)
-    ax.set_xticklabels(data.columns)
-    ax.grid(True, linestyle = '--')
-    ax.set_axisbelow(True)
-    ax.set_xlabel('Alternatives', fontsize = 12)
-    ax.set_ylabel(mcda_name + ' preference distribution', fontsize = 12)
-    plt.tight_layout()
-    plt.show()
-
-
-# Part 2 - Methods for visualization for simulations with pyrepo-mcda library
-
-# plot box chart of results obtained in simulations
-def plot_boxplot_simulation(data, x, y, xtitle, ytitle, title, flag_rotation = True):
+# plot box chart of results obtained in robustness analysis
+def plot_boxplot_simulation(data, x, y, hue, xtitle, ytitle, title, filename):
     """
     Visualization method to display box chart of results obtained in simulations performed for
     different methods.
@@ -244,6 +226,8 @@ def plot_boxplot_simulation(data, x, y, xtitle, ytitle, title, flag_rotation = T
 
         y : str
             Name of column in DataFrame with variable values in axis y on chart
+        hue : str
+            Name of hue
 
         xtitle : str
             Name of axis x title
@@ -254,87 +238,18 @@ def plot_boxplot_simulation(data, x, y, xtitle, ytitle, title, flag_rotation = T
         title : str
             Chart title
 
-        flag_rotation : bool
-            This parameter indicates if text of ticks in axis y has to be rotated (True) or not (False)
+        filename : str
+            Name of file in which chart will be saved
 
     """
     plt.figure(figsize = (9,5))
-    ax = sns.boxplot(x = x, y = y, hue = 'Weight change', palette = 'Blues', data = data)
-    if flag_rotation:
-        ax.tick_params(axis = 'x', labelsize = 12, rotation = 90)
-    else:
-        ax.tick_params(axis = 'x', labelsize = 12)
+    ax = sns.boxplot(x = x, y = y, hue = hue, palette='husl', data = data)
     ax.set_xlabel(xtitle, fontsize = 12)
     ax.set_ylabel(ytitle, fontsize = 12)
     ax.grid(True, linestyle = ':')
     ax.set_axisbelow(True)
-
-    plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc='lower left',
-    ncol=4, mode="expand", borderaxespad=0., edgecolor = 'black', title = 'Weights change', fontsize = 12)
+    plt.legend(bbox_to_anchor=(1.0, 0.82, 0.3, 0.2), loc='upper left', title = 'Rank', edgecolor = 'black', fontsize = 12)
+    plt.title(title)
     plt.tight_layout()
-    plt.show()
-
-
-# bar chart for simulations
-def plot_barplot_simulations(df_plot, xtitle, ytitle, title, wider = False, flag_rotation = True):
-    """
-    Visualization method to display bar chart of results obtained in simulations performed for
-    different methods.
-
-    Parameters
-    ----------
-        data : DataFrame
-            DataFrame containing results
-
-        x : str
-            Name of column in DataFrame with variable names in axis x on chart
-
-        y : str
-            Name of column in DataFrame with variable values in axis y on chart
-
-        xtitle : str
-            Name of axis x title
-
-        ytitle : str
-            Name of axis y title
-
-        title : str
-            Chart title
-
-        wider : bool
-            Parameter for customizing location of text over bars on chart
-
-        flag_rotation : bool
-            This parameter indicates if text of ticks in axis y has to be rotated (True) or not (False)
-
-    """
-    ax = df_plot.plot(kind='bar', width = 0.6, stacked=False, edgecolor = 'black', figsize = (9,5), colormap = 'Blues')
-    ax.set_xlabel(xtitle, fontsize = 12)
-    ax.set_ylabel(ytitle, fontsize = 12)
-
-    if flag_rotation == True:
-        ax.set_xticklabels(df_plot.index, rotation = 90)
-    else:
-        ax.set_xticklabels(df_plot.index, rotation = 'horizontal')
-    #ax.tick_params(axis = 'x', labelsize = 12, rotation = 90)
-    ax.tick_params(axis='both', labelsize=12)
-    y_ticks = ax.yaxis.get_major_ticks()
-
-    if wider:
-        x_offset = -0.115
-    else:
-        x_offset = -0.075
-    y_offset = 0.04
-
-    for p in ax.patches:
-        b = p.get_bbox()
-        val = "{:.1f}".format(b.y1 + b.y0)        
-        ax.annotate(val, ((b.x0 + b.x1)/2 + x_offset, b.y1 + y_offset), fontsize = 8)
-
-    plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc='lower left',
-    ncol=4, mode="expand", borderaxespad=0., edgecolor = 'black', title = 'Weights change', fontsize = 12)
-
-    ax.grid(True, linestyle = ':')
-    ax.set_axisbelow(True)
-    plt.tight_layout()
+    plt.savefig('./results/' + filename + '.pdf')
     plt.show()

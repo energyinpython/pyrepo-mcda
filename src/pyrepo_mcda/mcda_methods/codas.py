@@ -74,7 +74,6 @@ class CODAS(MCDA_method):
 
         # Calculate chosen distance (for example Euclidean) and Taxicab distance from anti-ideal solution
         E = np.array([distance_metric(x, nis) for x in weighted_matrix])
-        self.E = E
 
         # Calculate Taxicab (Manhattan) distance
         T = np.sum(np.abs(weighted_matrix - nis), axis=1)

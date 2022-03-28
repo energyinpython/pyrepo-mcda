@@ -42,11 +42,11 @@ class TOPSIS(MCDA_method):
                 Vector with preference values of each alternative. The best alternative has the highest preference value. 
         """
         TOPSIS._verify_input_data(matrix, weights, types)
-        return TOPSIS._topsis(self, matrix, weights, types, self.normalization_method, self.distance_metric)
+        return TOPSIS._topsis(matrix, weights, types, self.normalization_method, self.distance_metric)
 
 
     @staticmethod
-    def _topsis(self, matrix, weights, types, normalization_method, distance_metric):
+    def _topsis(matrix, weights, types, normalization_method, distance_metric):
         # Normalize matrix using chosen normalization (for example linear normalization)
         norm_matrix = normalization_method(matrix, types)
 
@@ -61,6 +61,5 @@ class TOPSIS(MCDA_method):
         Dp = np.array([distance_metric(x, pis) for x in weighted_matrix])
         Dm = np.array([distance_metric(x, nis) for x in weighted_matrix])
 
-        self.Dp = Dp
         C = Dm / (Dm + Dp)
         return C

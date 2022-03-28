@@ -13,6 +13,7 @@ from pyrepo_mcda import normalizations as norms
 from pyrepo_mcda import weighting_methods as mcda_weights
 from pyrepo_mcda import compromise_rankings as compromises
 from pyrepo_mcda.additions import rank_preferences
+
 from pyrepo_mcda.sensitivity_analysis import Sensitivity_analysis_weights
 
 
@@ -30,20 +31,25 @@ class Create_dictionary(dict):
 
 def main():
     # load name of file with input data
-    data = pd.read_csv('data.csv', index_col = 'Ai')
-
+    data = pd.read_csv('data' + '.csv', index_col = 'Ai')
     df_data = data.iloc[:len(data) - 2, :]
     weights = data.iloc[len(data) - 2, :].to_numpy()
     types = data.iloc[len(data) - 1, :].to_numpy()
 
-    print('dataset:')
+    matrix = df_data.to_numpy()
+
     header = [df_data.index.name]
     header = header + list(df_data.columns)
     print(tabulate(df_data, headers = header, tablefmt='github'))
+    
+    print(types)
 
     list_alt_names = [r'$A_{' + str(i) + '}$' for i in range(1, df_data.shape[0] + 1)]
-
+    list_crit_names = [r'$C_{' + str(i) + '}$' for i in range(1, df_data.shape[1] + 1)]
+    
     matrix = df_data.to_numpy()
+
+    print(weights)
 
     # Exploration of results for different chosen distance metrics
     distance_metrics = [
@@ -54,8 +60,7 @@ def main():
         dists.bray_curtis,
         dists.canberra,
         dists.lorentzian,
-        dists.jaccard,
-        dists.std_euclidean
+        dists.jaccard
     ]
 
     # Create dataframes for preference function values and rankings determined using distance metrics
@@ -72,12 +77,13 @@ def main():
         
 
     print(df_rankings)
-    # plot bar chart of alternatives rankings
-    plot_barplot(df_rankings, 'Distance metrics')
+    # plot box chart of alternatives preference values
+    plot_barplot(df_rankings, legend_title = 'Distance metrics')
 
     # plot box chart of alternatives preference values
-    plot_boxplot(df_preferences.T)
+    plot_boxplot(df_preferences.T, 'TOPSIS, preference values distribution')
 
+    
     rank_results = pd.DataFrame()
     rank_results['Ai'] = list(list_alt_names)
 
@@ -161,13 +167,13 @@ def main():
     header = [rank_results_final.index.name]
     header = header + list(rank_results_final.columns)
     print(tabulate(rank_results_final, headers = header, tablefmt='github'))
+    rank_results_final.to_csv('./results/' + 'results.csv')
 
     #=======================================================================================================
     # visualization
     # barplot
-
     df_plot = copy.deepcopy(rank_results)
-    plot_barplot(df_plot, 'MCDA methods')
+    plot_barplot(df_plot, legend_title='MCDA methods')
     
     data = copy.deepcopy(rank_results_final)
     method_types = list(data.columns)
@@ -200,8 +206,7 @@ def main():
 
     df_new_heatmap_spearman = pd.DataFrame(dict_new_heatmap_spearman, index = method_types[::-1])
     df_new_heatmap_spearman.columns = method_types
-
-
+    
     # correlation matrix with rw coefficient
     draw_heatmap(df_new_heatmap_rw, r'$r_w$')
 
@@ -214,33 +219,104 @@ def main():
     # correlation matrix with Spearman coefficient
     draw_heatmap(df_new_heatmap_spearman, r'$r_s$')
     
-
-    #plot radar chart
     matplotlib.rc_file_defaults()
-    plot_radar(df_plot)
-    
     print('Sensitivity analysis')
     #sensitivity analysis
 
-    # load Input vector with percentage values of weights modification for sensitivity analysis
-    # percentages = [0.0, 0.05, 0.2, 0.35, 0.5]
-    percentages = np.arange(0.05, 0.5, 0.1)
+    # load input vector with percentage values of chosen criterion weights modification for sensitivity analysis
+    # percentages = np.arange(0.25, 0.55, 0.1)
+    percentages = np.arange(0.05, 0.55, 0.1)
 
-    #load MCDA name: choose from: TOPSIS, CODAS, VIKOR, SPOTIS, EDAS, MABAC, MULTIMOORA, WASPAS
-    mcda_name = 'SPOTIS'
+    #create the chosen MCDA object
+    method = TOPSIS(normalization_method=norms.minmax_normalization, distance_metric=dists.euclidean)
     
+    # Create the sensitivity analysis method object
     sensitivity_analysis = Sensitivity_analysis_weights()
+    
+    # Perform sensitivity analysis with weights modification for chosen criteria
     for j in [0, 1, 2, 3]:
-        data_sens = sensitivity_analysis(matrix, weights, types, percentages, mcda_name, j)
+        data_sens = sensitivity_analysis(matrix, weights, types, percentages, method, j, [1])
 
         header = [data_sens.index.name]
         header = header + list(data_sens.columns)
         print('Sensitivity analysis for C' + str(j + 1))
         print(tabulate(data_sens, headers = header, tablefmt='github'))
-        plot_barplot_sensitivity(data_sens, mcda_name, r'$C_{' + str(j + 1) + '}$')
+        #plot_barplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j])
 
         #plot
-        plot_lineplot_sensitivity(data_sens, mcda_name, r'$C_{' + str(j + 1) + '}$')
+        #plot_lineplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j])
+        plot_radar(data_sens, method.__class__.__name__ + ', Criterion ' + list_crit_names[j] + ' weight change', j)
+
+        # nowe jednak nie uzyte
+        '''
+        new_data_sens = pd.melt(data_sens)
+        num_tiles = len(new_data_sens) / len(list_alt_names)
+        new_data_sens['Alternative'] = np.tile(np.array(list_alt_names), int(num_tiles))
+        new_data_sens = new_data_sens.rename(columns = {"variable" : 'Weight', 'value' : 'Rank'})
+        print(new_data_sens)
+
+        w = [weights[j] + weights[j] * float(new_data_sens.iloc[i, 0][:-1]) / 100 for i in range(new_data_sens.shape[0])]
+        new_data_sens['Weight'] = w
+        print(new_data_sens)
+        plot_boxplot_simulation(new_data_sens, 'Alternative', 'Weight', 'Rank' , 'Alternative', 'Weight', 'Criterion ' + list_crit_names[j] + ' weight change', 'robustness_weights_' + str(j + 1))
+        '''
+
+    # Robustness analysis
+    # Create object of chosen MCDA method
+    topsis = TOPSIS(normalization_method=norms.minmax_normalization, distance_metric=dists.euclidean)
+
+    # Create minimum bounds of criteria performance
+    bounds_min = np.amin(matrix, axis = 0)
+    # Create maximum bounds of criteria performance
+    bounds_max = np.amax(matrix, axis = 0)
+    bounds = np.vstack((bounds_min, bounds_max))
+
+    # Create ideal Solution `isp`
+    isp = np.zeros(matrix.shape[1])
+    isp[types == 1] = bounds[1, types == 1]
+    isp[types == -1] = bounds[0, types == -1]
+
+    # Create anti-Ideal Solution `asp`
+    asp = np.zeros(matrix.shape[1])
+    asp[types == 1] = bounds[0, types == 1]
+    asp[types == -1] = bounds[1, types == -1]
+
+    # Create dictionary with values of stepwise particular criteria performance change
+    indexes = {
+        0 : 1,
+        1 : 10,
+        2 : 5,
+        3 : 0.1
+    }
+    
+    # Perform simulation for each criterion
+    # Iterate by all criteria
+    for j in range(matrix.shape[1]):
+        change_val = indexes[j]
+        # dictionary for collecting variability in TOPSIS preferences after weights change using different distance metrics
+        dict_results_sim = {
+            'Rank' : [],
+            'Performance' : [],
+            'Alternative' : []
+            }
+        # Iterate by all Alternatives
+        for i in range(matrix.shape[0]):
+            vec = np.arange(asp[j], isp[j] + types[j] * change_val, types[j] * change_val)
+            for v in vec:
+                new_matrix = copy.deepcopy(matrix)
+                new_matrix[i, j] = v
+                pref = topsis(new_matrix, weights, types)
+                rank = rank_preferences(pref, reverse = True)
+                dict_results_sim['Rank'].append(rank[i])
+                dict_results_sim['Performance'].append(v)
+                dict_results_sim['Alternative'].append(list_alt_names[i])
+
+        df_results_sim = pd.DataFrame(dict_results_sim)
+        df_results_sim.to_csv('results/' + 'robustness_C' + str(j + 1) + '.csv')
+
+        plot_boxplot_simulation(df_results_sim, 'Alternative', 'Performance', 'Rank' , 'Alternative', 'Performance', 'TOPSIS, Criterion ' + list_crit_names[j] + ' performance change', 'robustness_' + str(j + 1))
+
+
     
 
 if __name__ == "__main__":

@@ -1072,8 +1072,8 @@ Returns
 	# provide vector with percentage values of chosen criterion weight modification
 	percentages = np.arange(0.05, 0.5, 0.1)
 	
-	# provide mcda_name, for example 'SPOTIS' to apply the SPOTIS method
-	mcda_name = 'SPOTIS'
+	#create the chosen MCDA object
+    method = TOPSIS(normalization_method=norms.minmax_normalization, distance_metric=dists.euclidean)
 	
 	# provide index of j-th chosen criterion whose weight will be modified in sensitivity analysis, for example j = 1 for criterion in the second column
 	j = 1
@@ -1082,6 +1082,7 @@ Returns
 	sensitivity_analysis = Sensitivity_analysis_weights()
 
 	# Generate DataFrame with rankings for different modification of weight of chosen criterion
-	# Provide decision matrix `matrix`, vector with criteria weights `weights`, criteria types `types`, name of chosen MCDA method `mcda_name` and index of chosen criterion whose weight will be modified
-	data_sens = sensitivity_analysis(matrix, weights, types, percentages, mcda_name, j)
+	# Provide decision matrix `matrix`, vector with criteria weights `weights`, criteria types `types`, initialized object of chosen MCDA 
+	# method `method`, index of chosen criterion whose weight will be modified and list with directions of weights value modification
+	data_sens = sensitivity_analysis(matrix, weights, types, percentages, method, j, [1])
 	
