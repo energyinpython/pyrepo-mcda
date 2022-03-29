@@ -88,5 +88,5 @@ Contents
 .. toctree::
 	
 	usage
-	example.ipynb
+	example
 	autoapi/index
