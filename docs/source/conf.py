@@ -12,12 +12,12 @@ version = '0.0.2'
 # -- General configuration
 
 extensions = [
+	'autoapi.extension',
     'sphinx.ext.duration',
     'sphinx.ext.doctest',
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
-	'autoapi.extension',
 	'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
 ]
