@@ -2,7 +2,8 @@ import numpy as np
 
 # reverse = True: descending order ( for example TOPSIS, CODAS), False: ascending order (for example VIKOR, SPOTIS)
 def rank_preferences(pref, reverse = True):
-    """Rank alternatives according to MCDA preference function values. If more than one alternative
+    """
+    Rank alternatives according to MCDA preference function values. If more than one alternative
     have the same preference function value, they will be given the same rank value (tie).
     Parameters
     ------------

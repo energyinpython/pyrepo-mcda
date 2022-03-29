@@ -856,26 +856,6 @@ vector with real values of weight modification in percentages `percentages`(prov
 ways: when you want only increase weight value: [1], when you want only decrease weight value: [-1], when you want decrease and increase weight value: 
 [-1, 1]. `dir` is set as [1] by default.
 
-Parameters
-	matrix : ndarray
-		Decision matrix with alternatives performances data. This matrix includes
-		data on m alternatives in rows considering criteria in columns
-	weights : ndarray
-		Vector with criteria weights. All weights in this vector must sum to 1.
-	types : ndarray
-		Vector with criteria types. Types can be equal to 1 for profit criteria and -1
-		for cost criteria.
-	percentages : ndarray
-		Vector with percentage values of given criteria weight modification.
-	mcda_name : str
-		Name of applied MCDA method
-	j : int
-		Index of column in decision matrix `matrix` that indicates for which criterion
-		the weight is modified. 
-		
-Returns
-	data_sens : DataFrame
-        dataframe with rankings calculated for subsequent modifications of criterion j weight
 
 .. code-block:: python
 

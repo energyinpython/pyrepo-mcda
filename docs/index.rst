@@ -1,5 +1,5 @@
 Welcome to pyrepo-mcda documentation!
-===================================
+========================================
 
 pyrepo-mcda is Python 3 library for Multi-Criteria Decision Making.
 This library includes:
@@ -88,4 +88,4 @@ Contents
 .. toctree::
 	
 	usage
-	_build/autoapi/index
+	autoapi/index
