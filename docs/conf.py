@@ -22,7 +22,7 @@ extensions = [
 ]
 extensions.append('autoapi.extension')
 autoapi_type = 'python'
-autoapi_dirs = ["../../src"]  # location to parse for API reference
+autoapi_dirs = ["../src"]  # location to parse for API reference
 html_theme = "sphinx_rtd_theme"
 
 intersphinx_mapping = {
