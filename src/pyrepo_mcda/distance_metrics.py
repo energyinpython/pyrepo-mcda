@@ -9,14 +9,14 @@ def euclidean(A, B):
     Calculate Euclidean distance between two vectors `A` and `B`.
 
     Parameters
-    ----------
+    -----------
         A : ndarray
             First vector containing values
         B : ndarray
             Second vector containing values
 
     Returns
-    -------
+    --------
         float
             distance value between two vetors
     """
@@ -29,14 +29,14 @@ def manhattan(A, B):
     Calculate Manhattan (Taxicab) distance between two vectors `A` and `B`.
 
     Parameters
-    ----------
+    -----------
         A : ndarray
             First vector containing values
         B : ndarray
             Second vector containing values
 
     Returns
-    -------
+    --------
         float
             distance value between two vetors
     """
@@ -68,14 +68,14 @@ def hausdorff(A, B):
     Calculate Hausdorff distance between two vectors `A` and `B`.
 
     Parameters
-    ----------
+    -----------
         A : ndarray
             First vector containing values
         B : ndarray
             Second vector containing values
 
     Returns
-    -------
+    --------
         float
             distance value between two vetors
     """
@@ -91,14 +91,14 @@ def correlation(A, B):
     Calculate Correlation distance between two vectors `A` and `B`.
 
     Parameters
-    ----------
+    -----------
         A : ndarray
             First vector containing values
         B : ndarray
             Second vector containing values
 
     Returns
-    -------
+    --------
         float
             distance value between two vetors
     """
@@ -116,14 +116,14 @@ def chebyshev(A, B):
     Calculate Chebyshev distance between two vectors `A` and `B`.
 
     Parameters
-    ----------
+    -----------
         A : ndarray
             First vector containing values
         B : ndarray
             Second vector containing values
 
     Returns
-    -------
+    --------
         float
             distance value between two vetors
     """
@@ -142,14 +142,14 @@ def std_euclidean(A, B):
     Calculate Standardized Euclidean distance between two vectors `A` and `B`.
 
     Parameters
-    ----------
+    -----------
         A : ndarray
             First vector containing values
         B : ndarray
             Second vector containing values
 
     Returns
-    -------
+    --------
         float
             distance value between two vetors
     """
@@ -168,14 +168,14 @@ def cosine(A, B):
     Calculate Cosine distance between two vectors `A` and `B`.
 
     Parameters
-    ----------
+    -----------
         A : ndarray
             First vector containing values
         B : ndarray
             Second vector containing values
 
     Returns
-    -------
+    --------
         float
             distance value between two vetors
     """
@@ -193,14 +193,14 @@ def csm(A, B):
     Calculate Cosine similarity measure of distance between two vectors `A` and `B`.
 
     Parameters
-    ----------
+    -----------
         A : ndarray
             First vector containing values
         B : ndarray
             Second vector containing values
 
     Returns
-    -------
+    --------
         float
             distance value between two vetors
     """
@@ -218,14 +218,14 @@ def squared_euclidean(A, B):
     Calculate Squared Euclidean distance between two vectors `A` and `B`.
 
     Parameters
-    ----------
+    -----------
         A : ndarray
             First vector containing values
         B : ndarray
             Second vector containing values
 
     Returns
-    -------
+    --------
         float
             distance value between two vetors
     """
@@ -239,14 +239,14 @@ def bray_curtis(A, B):
     Calculate Bray-Curtis distance between two vectors `A` and `B`.
 
     Parameters
-    ----------
+    -----------
         A : ndarray
             First vector containing values
         B : ndarray
             Second vector containing values
 
     Returns
-    -------
+    --------
         float
             distance value between two vetors
     """
@@ -264,14 +264,14 @@ def canberra(A, B):
     Calculate Canberra distance between two vectors `A` and `B`.
 
     Parameters
-    ----------
+    -----------
         A : ndarray
             First vector containing values
         B : ndarray
             Second vector containing values
 
     Returns
-    -------
+    --------
         float
             distance value between two vetors
     """
@@ -288,14 +288,14 @@ def lorentzian(A, B):
     Calculate Lorentzian distance between two vectors `A` and `B`.
 
     Parameters
-    ----------
+    -----------
         A : ndarray
             First vector containing values
         B : ndarray
             Second vector containing values
 
     Returns
-    -------
+    --------
         float
             distance value between two vetors
     """
@@ -309,14 +309,14 @@ def jaccard(A, B):
     Calculate Jaccard distance between two vectors `A` and `B`.
 
     Parameters
-    ----------
+    -----------
         A : ndarray
             First vector containing values
         B : ndarray
             Second vector containing values
 
     Returns
-    -------
+    --------
         float
             distance value between two vetors
     """
@@ -334,14 +334,14 @@ def dice(A, B):
     Calculate Dice distance between two vectors `A` and `B`.
 
     Parameters
-    ----------
+    -----------
         A : ndarray
             First vector containing values
         B : ndarray
             Second vector containing values
 
     Returns
-    -------
+    --------
         float
             distance value between two vetors
     """
@@ -359,14 +359,14 @@ def bhattacharyya(A, B):
     Calculate Bhattacharyya distance between two vectors `A` and `B`.
 
     Parameters
-    ----------
+    -----------
         A : ndarray
             First vector containing values
         B : ndarray
             Second vector containing values
 
     Returns
-    -------
+    --------
         float
             distance value between two vetors
     """
@@ -384,14 +384,14 @@ def hellinger(A, B):
     Calculate Hellinger distance between two vectors `A` and `B`.
 
     Parameters
-    ----------
+    -----------
         A : ndarray
             First vector containing values
         B : ndarray
             Second vector containing values
 
     Returns
-    -------
+    --------
         float
             distance value between two vetors
     """
@@ -408,14 +408,14 @@ def matusita(A, B):
     Calculate Matusita distance between two vectors `A` and `B`.
 
     Parameters
-    ----------
+    -----------
         A : ndarray
             First vector containing values
         B : ndarray
             Second vector containing values
 
     Returns
-    -------
+    --------
         float
             distance value between two vetors
     """
@@ -432,14 +432,14 @@ def squared_chord(A, B):
     Calculate Squared-Chord distance between two vectors `A` and `B`.
 
     Parameters
-    ----------
+    -----------
         A : ndarray
             First vector containing values
         B : ndarray
             Second vector containing values
 
     Returns
-    -------
+    --------
         float
             distance value between two vetors
     """
@@ -453,14 +453,14 @@ def pearson_chi_square(A, B):
     Calculate Pearson Chi Square distance between two vectors `A` and `B`.
 
     Parameters
-    ----------
+    -----------
         A : ndarray
             First vector containing values
         B : ndarray
             Second vector containing values
 
     Returns
-    -------
+    --------
         float
             distance value between two vetors
     """
@@ -476,14 +476,14 @@ def squared_chi_square(A, B):
     Calculate Squared Chi Sqaure distance between two vectors `A` and `B`.
 
     Parameters
-    ----------
+    -----------
         A : ndarray
             First vector containing values
         B : ndarray
             Second vector containing values
 
     Returns
-    -------
+    --------
         float
             distance value between two vetors
     """

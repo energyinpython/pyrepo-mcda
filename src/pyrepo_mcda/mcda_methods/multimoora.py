@@ -40,7 +40,7 @@ class MULTIMOORA_RS(MCDA_method):
     @staticmethod
     def _multimoora_rs(matrix, weights, types):
         # Normalize decision matrix using normalization method `multimoora_normalization` dedicated to the MULTIMOORA method
-        norm_matrix = multimoora_normalization(matrix, types)
+        norm_matrix = multimoora_normalization(matrix)
         # Calculate the overall performance index of alternatives as 
         # difference between sums of weighted normalized performance ratings
         # of the profit and cost criteria 
@@ -83,7 +83,7 @@ class MULTIMOORA_RP(MCDA_method):
     @staticmethod
     def _multimoora_rp(matrix, weights, types):
         # Normalize decision matrix using normalization method `multimoora_normalization` dedicated to the MULTIMOORA method
-        norm_matrix = multimoora_normalization(matrix, types)
+        norm_matrix = multimoora_normalization(matrix)
     
         RR = np.zeros(norm_matrix.shape[1])
 
@@ -129,7 +129,7 @@ class MULTIMOORA_FMF(MCDA_method):
     @staticmethod
     def _multimoora_fmf(matrix, weights, types):
         # Normalize decision matrix using normalization method `multimoora_normalization` dedicated to the MULTIMOORA method
-        norm_matrix = multimoora_normalization(matrix, types)
+        norm_matrix = multimoora_normalization(matrix)
         A = np.prod(weights[types == 1] * norm_matrix[:, types == 1], axis = 1)
         B = np.prod(weights[types == -1] * norm_matrix[:, types == -1], axis = 1)
         U = A / B

@@ -6,14 +6,14 @@ def linear_normalization(matrix, types):
     Normalize decision matrix using linear normalization method.
 
     Parameters
-    ----------
+    -----------
         matrix : ndarray
             Decision matrix with m alternatives in rows and n criteria in columns
         types : ndarray
             Criteria types. Profit criteria are represented by 1 and cost by -1.
 
     Returns
-    -------
+    --------
         ndarray
             Normalized decision matrix
     """
@@ -29,14 +29,14 @@ def minmax_normalization(matrix, types):
     Normalize decision matrix using minimum-maximum normalization method.
 
     Parameters
-    ----------
+    -----------
         matrix : ndarray
             Decision matrix with m alternatives in rows and n criteria in columns
         types : ndarray
             Criteria types. Profit criteria are represented by 1 and cost by -1.
 
     Returns
-    -------
+    --------
         ndarray
             Normalized decision matrix
     """
@@ -56,14 +56,14 @@ def max_normalization(matrix, types):
     Normalize decision matrix using maximum normalization method.
 
     Parameters
-    ----------
+    -----------
         matrix : ndarray
             Decision matrix with m alternatives in rows and n criteria in columns
         types : ndarray
             Criteria types. Profit criteria are represented by 1 and cost by -1.
 
     Returns
-    -------
+    --------
         ndarray
             Normalized decision matrix
     """
@@ -79,14 +79,14 @@ def sum_normalization(matrix, types):
     Normalize decision matrix using sum normalization method.
 
     Parameters
-    ----------
+    -----------
         matrix : ndarray
             Decision matrix with m alternatives in rows and n criteria in columns
         types : ndarray
             Criteria types. Profit criteria are represented by 1 and cost by -1.
 
     Returns
-    -------
+    --------
         ndarray
             Normalized decision matrix
     """
@@ -103,14 +103,14 @@ def vector_normalization(matrix, types):
     Normalize decision matrix using vector normalization method.
 
     Parameters
-    ----------
+    -----------
         matrix : ndarray
             Decision matrix with m alternatives in rows and n criteria in columns
         types : ndarray
             Criteria types. Profit criteria are represented by 1 and cost by -1.
 
     Returns
-    -------
+    --------
         ndarray
             Normalized decision matrix
     """
@@ -122,6 +122,14 @@ def vector_normalization(matrix, types):
 
 
 # multimoora normalization
-def multimoora_normalization(matrix, types):
+def multimoora_normalization(matrix):
+    """
+    Normalize decision matrix using vector normalization method as for profit criteria.
+
+    Parameters
+    ------------
+        matrix : ndarray
+            Decision matrix with m alternatives in rows and n criteria in columns
+    """
     x_norm = matrix / ((np.sum(matrix ** 2, axis = 0))**(0.5))
     return x_norm

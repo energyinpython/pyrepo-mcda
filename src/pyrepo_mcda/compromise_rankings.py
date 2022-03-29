@@ -11,12 +11,12 @@ def copeland(matrix):
     methods using the Copeland compromise ranking methodology
 
     Parameters
-    ----------
+    -----------
         matrix : ndarray
             two-dimensional matrix containing different rankings in columns
 
     Returns
-    -------
+    --------
         ndarray
             vector including compromise ranking
     """
@@ -34,12 +34,12 @@ def dominance_directed_graph(matrix):
     methods using Dominance Directed Graph methodology
 
     Parameters
-    ----------
+    -----------
         matrix : ndarray
             two-dimensional matrix containing different rankings in columns
 
     Returns
-    -------
+    --------
         ndarray
             vector including compromise ranking
     """
@@ -60,12 +60,12 @@ def rank_position_method(matrix):
     methods using Rank Position Method
 
     Parameters
-    ----------
+    -----------
         matrix : ndarray
             two-dimensional matrix containing different rankings in columns
 
     Returns
-    -------
+    --------
         ndarray
             vector including compromise ranking
     """
@@ -81,7 +81,7 @@ def improved_borda_rule(prefs, ranks):
     methods using Improved Borda rule methodology
 
     Parameters
-    ----------
+    -----------
         prefs : ndarray
             two-dimensional matrix containing preferences calculated by different methods in columns
 
@@ -89,7 +89,7 @@ def improved_borda_rule(prefs, ranks):
             two-dimensional matrix containing rankings determined by different methods in columns
 
     Returns
-    -------
+    --------
         ndarray
             vector including compromise ranking
     """

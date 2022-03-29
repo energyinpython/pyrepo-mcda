@@ -12,7 +12,7 @@ class SPOTIS(MCDA_method):
         """Score alternatives provided in decision matrix `matrix` using criteria `weights` and criteria `types`.
 
         Parameters
-        ----------
+        -----------
             matrix : ndarray
                 Decision matrix with m alternatives in rows and n criteria in columns.
             weights: ndarray
@@ -26,7 +26,7 @@ class SPOTIS(MCDA_method):
                 the same.
 
         Returns
-        -------
+        --------
             ndrarray
                 Vector with preference values of each alternative. The best alternative has the lowest preference value. 
         """

@@ -10,12 +10,12 @@ def equal_weighting(matrix):
     """
     Calculate criteria weights using objective Equal weighting method
     Parameters
-    ----------
+    -----------
         matrix : ndarray
             Decision matrix with performance values of m alternatives and n criteria
 
     Returns
-    -------
+    --------
         ndarray
             vector of criteria weights
     """
@@ -29,12 +29,12 @@ def entropy_weighting(matrix):
     """
     Calculate criteria weights using objective Entropy weighting method
     Parameters
-    ----------
+    -----------
         matrix : ndarray
             Decision matrix with performance values of m alternatives and n criteria
 
     Returns
-    -------
+    --------
         ndarray
             vector of criteria weights
     """
@@ -66,12 +66,12 @@ def std_weighting(matrix):
     """
     Calculate criteria weights using objective Standard deviation weighting method
     Parameters
-    ----------
+    -----------
         matrix : ndarray
             Decision matrix with performance values of m alternatives and n criteria
             
     Returns
-    -------
+    --------
         ndarray
             vector of criteria weights
     """
@@ -88,12 +88,12 @@ def critic_weighting(matrix):
     """
     Calculate criteria weights using objective CRITIC weighting method
     Parameters
-    ----------
+    -----------
         matrix : ndarray
             Decision matrix with performance values of m alternatives and n criteria
             
     Returns
-    -------
+    --------
         ndarray
             vector of criteria weights
     """

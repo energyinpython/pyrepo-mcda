@@ -5,7 +5,7 @@ def rank_preferences(pref, reverse = True):
     """Rank alternatives according to MCDA preference function values. If more than one alternative
     have the same preference function value, they will be given the same rank value (tie).
     Parameters
-    ----------
+    ------------
         pref : ndarray
             vector with MCDA preference function values for alternatives
         reverse : bool
@@ -13,7 +13,7 @@ def rank_preferences(pref, reverse = True):
             order and False for MCDA methods which rank alternatives in ascending
             order
     Returns
-    -------
+    ---------
         ndarray
             vector with alternatives ranking. Alternative with 1 value is the best.
     """

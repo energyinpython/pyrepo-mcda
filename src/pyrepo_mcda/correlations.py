@@ -6,13 +6,13 @@ def spearman(R, Q):
     """
     Calculate Spearman rank correlation coefficient between two vectors
     Parameters
-    ----------
+    -----------
         R : ndarray
             First vector containing values
         Q : ndarray
             Second vector containing values
     Returns
-    -------
+    --------
         float
             Value of correlation coefficient between two vectors
     """
@@ -28,13 +28,13 @@ def weighted_spearman(R, Q):
     """
     Calculate Weighted Spearman rank correlation coefficient between two vectors
     Parameters
-    ----------
+    -----------
         R : ndarray
             First vector containing values
         Q : ndarray
             Second vector containing values
     Returns
-    -------
+    --------
         float
             Value of correlation coefficient between two vectors
     """
@@ -50,13 +50,13 @@ def pearson_coeff(R, Q):
     """
     Calculate Pearson correlation coefficient between two vectors
     Parameters
-    ----------
+    -----------
         R : ndarray
             First vector containing values
         Q : ndarray
             Second vector containing values
     Returns
-    -------
+    --------
         float
             Value of correlation coefficient between two vectors
     """
@@ -72,14 +72,14 @@ def WS_coeff(R, Q):
     Calculate Rank smilarity coefficient between two vectors
 
     Parameters
-    ----------
+    -----------
         R : ndarray
             First vector containing values
         Q : ndarray
             Second vector containing values
 
     Returns
-    -------
+    --------
         float
             Value of similarity coefficient between two vectors
     """

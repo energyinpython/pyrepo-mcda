@@ -13,7 +13,7 @@ class EDAS(MCDA_method):
         Score alternatives provided in decision matrix `matrix` using criteria `weights` and criteria `types`.
 
         Parameters
-        ----------
+        -----------
             matrix : ndarray
                 Decision matrix with m alternatives in rows and n criteria in columns.
             weights: ndarray
@@ -22,7 +22,7 @@ class EDAS(MCDA_method):
                 Vevtor with criteria types. Profit criteria are represented by 1 and cost by -1.
 
         Returns
-        -------
+        --------
             ndrarray
                 Vector with preference values of each alternative. The best alternative has the highest preference value. 
         """
