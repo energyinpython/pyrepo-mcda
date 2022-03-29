@@ -88,4 +88,4 @@ Contents
 .. toctree::
 	
 	usage
-	autoapi/index
+	_build/autoapi/index
