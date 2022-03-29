@@ -6,10 +6,10 @@ This library includes:
 
 - MCDA methods:
 
-	- `TOPSIS`
-	- `CODAS`
-	- `MABAC`
-	- `MULTIMOORA`
+	- ``TOPSIS``
+	- ``CODAS``
+	- ``MABAC``
+	- ``MULTIMOORA``
 	- `VIKOR`
 	- `WASPAS`
 	- `EDAS`
