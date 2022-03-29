@@ -86,6 +86,6 @@ Contents
 --------
 
 .. toctree::
-
-	../../README.md
+	
 	usage
+	autoapi/index

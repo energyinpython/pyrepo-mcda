@@ -17,7 +17,12 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
+	'autoapi.extension',
+	'sphinx.ext.napoleon',
+    'sphinx.ext.viewcode',
 ]
+autoapi_dirs = ["../../src"]  # location to parse for API reference
+html_theme = "sphinx_rtd_theme"
 
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3/', None),
