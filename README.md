@@ -42,6 +42,7 @@ print(rank)
 
 `pyrepo-mcda` was created by Aleksandra Bączkiewicz. It is licensed under the terms of the MIT license.
 
+## Documentation
 
 Documentation of this library with instruction of installation and usage is 
 provided [here](https://pyrepo-mcda.readthedocs.io/en/latest/)
