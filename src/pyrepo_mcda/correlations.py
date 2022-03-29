@@ -84,7 +84,7 @@ def WS_coeff(R, Q):
             Value of similarity coefficient between two vectors
     """
     N = len(R)
-    numerator = 2**(-R.astype(np.float)) * np.abs(R - Q)
+    numerator = 2**(-np.float64(R)) * np.abs(R - Q)
     denominator = np.max((np.abs(R - 1), np.abs(R - N)), axis = 0)
     ws = 1 - np.sum(numerator / denominator)
     return ws
