@@ -87,4 +87,5 @@ Contents
 
 .. toctree::
 
-   usage
+	../../README.md
+	usage
