@@ -88,4 +88,5 @@ Contents
 .. toctree::
 	
 	usage
+	example
 	autoapi/index
