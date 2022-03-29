@@ -4,7 +4,9 @@ The Python 3 library for Multi-Criteria Decision Analysis.
 
 ## Installation
 
-```pip install pyrepo-mcda```
+```
+pip install pyrepo-mcda
+```
 
 ## Usage
 
