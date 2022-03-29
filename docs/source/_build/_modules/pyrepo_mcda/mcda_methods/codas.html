@@ -102,7 +102,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">tau</span> <span class="o">=</span> <span class="n">tau</span>
 
 
-<div class="viewcode-block" id="CODAS.__call__"><a class="viewcode-back" href="../../../autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.codas.CODAS.__call__">[docs]</a>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">matrix</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">types</span><span class="p">):</span>
+<div class="viewcode-block" id="CODAS.__call__"><a class="viewcode-back" href="../../../autoapi/pyrepo_mcda/mcda_methods/codas/index.html#pyrepo_mcda.mcda_methods.codas.CODAS.__call__">[docs]</a>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">matrix</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">types</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Score alternatives provided in decision matrix `matrix` with m alternatives and n criteria </span>
 <span class="sd">        using criteria `weights` and criteria `types`.</span>
@@ -126,11 +126,11 @@
 
 
     <span class="c1"># psi 0.01 - 0.05 recommended range of tau (threshold parameter) value</span>
-<div class="viewcode-block" id="CODAS._psi"><a class="viewcode-back" href="../../../autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.codas.CODAS._psi">[docs]</a>    <span class="k">def</span> <span class="nf">_psi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<div class="viewcode-block" id="CODAS._psi"><a class="viewcode-back" href="../../../autoapi/pyrepo_mcda/mcda_methods/codas/index.html#pyrepo_mcda.mcda_methods.codas.CODAS._psi">[docs]</a>    <span class="k">def</span> <span class="nf">_psi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tau</span> <span class="k">else</span> <span class="mi">0</span></div>
 
 
-<div class="viewcode-block" id="CODAS._codas"><a class="viewcode-back" href="../../../autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.codas.CODAS._codas">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="CODAS._codas"><a class="viewcode-back" href="../../../autoapi/pyrepo_mcda/mcda_methods/codas/index.html#pyrepo_mcda.mcda_methods.codas.CODAS._codas">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_codas</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">matrix</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">types</span><span class="p">,</span> <span class="n">normalization_method</span><span class="p">,</span> <span class="n">distance_metric</span><span class="p">):</span>
         <span class="c1"># Normalize matrix using linear normalization</span>
         <span class="n">norm_matrix</span> <span class="o">=</span> <span class="n">normalization_method</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">types</span><span class="p">)</span>

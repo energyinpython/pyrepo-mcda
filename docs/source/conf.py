@@ -12,7 +12,6 @@ version = '0.0.2'
 # -- General configuration
 
 extensions = [
-	'autoapi.extension',
     'sphinx.ext.duration',
     'sphinx.ext.doctest',
     'sphinx.ext.autodoc',
@@ -21,6 +20,8 @@ extensions = [
 	'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
 ]
+extensions.append('autoapi.extension')
+autoapi_type = 'python'
 autoapi_dirs = ["../../src"]  # location to parse for API reference
 html_theme = "sphinx_rtd_theme"
 
