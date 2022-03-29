@@ -1,0 +1,72 @@
+:py:mod:`pyrepo_mcda.compromise_rankings`
+=========================================
+
+.. py:module:: pyrepo_mcda.compromise_rankings
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pyrepo_mcda.compromise_rankings.copeland
+   pyrepo_mcda.compromise_rankings.dominance_directed_graph
+   pyrepo_mcda.compromise_rankings.rank_position_method
+   pyrepo_mcda.compromise_rankings.improved_borda_rule
+
+
+
+.. py:function:: copeland(matrix)
+
+   Calculate the compromise ranking considering several rankings obtained using different
+   methods using the Copeland compromise ranking methodology
+
+   :param matrix: two-dimensional matrix containing different rankings in columns
+   :type matrix: ndarray
+
+   :returns: vector including compromise ranking
+   :rtype: ndarray
+
+
+.. py:function:: dominance_directed_graph(matrix)
+
+   Calculate the compromise ranking considering several rankings obtained using different
+   methods using Dominance Directed Graph methodology
+
+   :param matrix: two-dimensional matrix containing different rankings in columns
+   :type matrix: ndarray
+
+   :returns: vector including compromise ranking
+   :rtype: ndarray
+
+
+.. py:function:: rank_position_method(matrix)
+
+   Calculate the compromise ranking considering several rankings obtained using different
+   methods using Rank Position Method
+
+   :param matrix: two-dimensional matrix containing different rankings in columns
+   :type matrix: ndarray
+
+   :returns: vector including compromise ranking
+   :rtype: ndarray
+
+
+.. py:function:: improved_borda_rule(prefs, ranks)
+
+   Calculate the compromise ranking considering several rankings obtained using different
+   methods using Improved Borda rule methodology
+
+   :param prefs: two-dimensional matrix containing preferences calculated by different methods in columns
+   :type prefs: ndarray
+   :param ranks: two-dimensional matrix containing rankings determined by different methods in columns
+   :type ranks: ndarray
+
+   :returns: vector including compromise ranking
+   :rtype: ndarray
+
+

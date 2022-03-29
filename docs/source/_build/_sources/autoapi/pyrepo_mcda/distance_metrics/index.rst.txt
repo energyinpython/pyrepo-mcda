@@ -1,0 +1,302 @@
+:py:mod:`pyrepo_mcda.distance_metrics`
+======================================
+
+.. py:module:: pyrepo_mcda.distance_metrics
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pyrepo_mcda.distance_metrics.euclidean
+   pyrepo_mcda.distance_metrics.manhattan
+   pyrepo_mcda.distance_metrics.hausdorff_distance
+   pyrepo_mcda.distance_metrics.hausdorff
+   pyrepo_mcda.distance_metrics.correlation
+   pyrepo_mcda.distance_metrics.chebyshev
+   pyrepo_mcda.distance_metrics.std_euclidean
+   pyrepo_mcda.distance_metrics.cosine
+   pyrepo_mcda.distance_metrics.csm
+   pyrepo_mcda.distance_metrics.squared_euclidean
+   pyrepo_mcda.distance_metrics.bray_curtis
+   pyrepo_mcda.distance_metrics.canberra
+   pyrepo_mcda.distance_metrics.lorentzian
+   pyrepo_mcda.distance_metrics.jaccard
+   pyrepo_mcda.distance_metrics.dice
+   pyrepo_mcda.distance_metrics.bhattacharyya
+   pyrepo_mcda.distance_metrics.hellinger
+   pyrepo_mcda.distance_metrics.matusita
+   pyrepo_mcda.distance_metrics.squared_chord
+   pyrepo_mcda.distance_metrics.pearson_chi_square
+   pyrepo_mcda.distance_metrics.squared_chi_square
+
+
+
+.. py:function:: euclidean(A, B)
+
+   Calculate Euclidean distance between two vectors `A` and `B`.
+
+   :param A: First vector containing values
+   :type A: ndarray
+   :param B: Second vector containing values
+   :type B: ndarray
+
+   :returns: distance value between two vetors
+   :rtype: float
+
+
+.. py:function:: manhattan(A, B)
+
+   Calculate Manhattan (Taxicab) distance between two vectors `A` and `B`.
+
+   :param A: First vector containing values
+   :type A: ndarray
+   :param B: Second vector containing values
+   :type B: ndarray
+
+   :returns: distance value between two vetors
+   :rtype: float
+
+
+.. py:function:: hausdorff_distance(A, B)
+
+
+.. py:function:: hausdorff(A, B)
+
+   Calculate Hausdorff distance between two vectors `A` and `B`.
+
+   :param A: First vector containing values
+   :type A: ndarray
+   :param B: Second vector containing values
+   :type B: ndarray
+
+   :returns: distance value between two vetors
+   :rtype: float
+
+
+.. py:function:: correlation(A, B)
+
+   Calculate Correlation distance between two vectors `A` and `B`.
+
+   :param A: First vector containing values
+   :type A: ndarray
+   :param B: Second vector containing values
+   :type B: ndarray
+
+   :returns: distance value between two vetors
+   :rtype: float
+
+
+.. py:function:: chebyshev(A, B)
+
+   Calculate Chebyshev distance between two vectors `A` and `B`.
+
+   :param A: First vector containing values
+   :type A: ndarray
+   :param B: Second vector containing values
+   :type B: ndarray
+
+   :returns: distance value between two vetors
+   :rtype: float
+
+
+.. py:function:: std_euclidean(A, B)
+
+   Calculate Standardized Euclidean distance between two vectors `A` and `B`.
+
+   :param A: First vector containing values
+   :type A: ndarray
+   :param B: Second vector containing values
+   :type B: ndarray
+
+   :returns: distance value between two vetors
+   :rtype: float
+
+
+.. py:function:: cosine(A, B)
+
+   Calculate Cosine distance between two vectors `A` and `B`.
+
+   :param A: First vector containing values
+   :type A: ndarray
+   :param B: Second vector containing values
+   :type B: ndarray
+
+   :returns: distance value between two vetors
+   :rtype: float
+
+
+.. py:function:: csm(A, B)
+
+   Calculate Cosine similarity measure of distance between two vectors `A` and `B`.
+
+   :param A: First vector containing values
+   :type A: ndarray
+   :param B: Second vector containing values
+   :type B: ndarray
+
+   :returns: distance value between two vetors
+   :rtype: float
+
+
+.. py:function:: squared_euclidean(A, B)
+
+   Calculate Squared Euclidean distance between two vectors `A` and `B`.
+
+   :param A: First vector containing values
+   :type A: ndarray
+   :param B: Second vector containing values
+   :type B: ndarray
+
+   :returns: distance value between two vetors
+   :rtype: float
+
+
+.. py:function:: bray_curtis(A, B)
+
+   Calculate Bray-Curtis distance between two vectors `A` and `B`.
+
+   :param A: First vector containing values
+   :type A: ndarray
+   :param B: Second vector containing values
+   :type B: ndarray
+
+   :returns: distance value between two vetors
+   :rtype: float
+
+
+.. py:function:: canberra(A, B)
+
+   Calculate Canberra distance between two vectors `A` and `B`.
+
+   :param A: First vector containing values
+   :type A: ndarray
+   :param B: Second vector containing values
+   :type B: ndarray
+
+   :returns: distance value between two vetors
+   :rtype: float
+
+
+.. py:function:: lorentzian(A, B)
+
+   Calculate Lorentzian distance between two vectors `A` and `B`.
+
+   :param A: First vector containing values
+   :type A: ndarray
+   :param B: Second vector containing values
+   :type B: ndarray
+
+   :returns: distance value between two vetors
+   :rtype: float
+
+
+.. py:function:: jaccard(A, B)
+
+   Calculate Jaccard distance between two vectors `A` and `B`.
+
+   :param A: First vector containing values
+   :type A: ndarray
+   :param B: Second vector containing values
+   :type B: ndarray
+
+   :returns: distance value between two vetors
+   :rtype: float
+
+
+.. py:function:: dice(A, B)
+
+   Calculate Dice distance between two vectors `A` and `B`.
+
+   :param A: First vector containing values
+   :type A: ndarray
+   :param B: Second vector containing values
+   :type B: ndarray
+
+   :returns: distance value between two vetors
+   :rtype: float
+
+
+.. py:function:: bhattacharyya(A, B)
+
+   Calculate Bhattacharyya distance between two vectors `A` and `B`.
+
+   :param A: First vector containing values
+   :type A: ndarray
+   :param B: Second vector containing values
+   :type B: ndarray
+
+   :returns: distance value between two vetors
+   :rtype: float
+
+
+.. py:function:: hellinger(A, B)
+
+   Calculate Hellinger distance between two vectors `A` and `B`.
+
+   :param A: First vector containing values
+   :type A: ndarray
+   :param B: Second vector containing values
+   :type B: ndarray
+
+   :returns: distance value between two vetors
+   :rtype: float
+
+
+.. py:function:: matusita(A, B)
+
+   Calculate Matusita distance between two vectors `A` and `B`.
+
+   :param A: First vector containing values
+   :type A: ndarray
+   :param B: Second vector containing values
+   :type B: ndarray
+
+   :returns: distance value between two vetors
+   :rtype: float
+
+
+.. py:function:: squared_chord(A, B)
+
+   Calculate Squared-Chord distance between two vectors `A` and `B`.
+
+   :param A: First vector containing values
+   :type A: ndarray
+   :param B: Second vector containing values
+   :type B: ndarray
+
+   :returns: distance value between two vetors
+   :rtype: float
+
+
+.. py:function:: pearson_chi_square(A, B)
+
+   Calculate Pearson Chi Square distance between two vectors `A` and `B`.
+
+   :param A: First vector containing values
+   :type A: ndarray
+   :param B: Second vector containing values
+   :type B: ndarray
+
+   :returns: distance value between two vetors
+   :rtype: float
+
+
+.. py:function:: squared_chi_square(A, B)
+
+   Calculate Squared Chi Sqaure distance between two vectors `A` and `B`.
+
+   :param A: First vector containing values
+   :type A: ndarray
+   :param B: Second vector containing values
+   :type B: ndarray
+
+   :returns: distance value between two vetors
+   :rtype: float
+
+

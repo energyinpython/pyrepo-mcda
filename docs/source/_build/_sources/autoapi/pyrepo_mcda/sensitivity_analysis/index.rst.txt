@@ -1,0 +1,71 @@
+:py:mod:`pyrepo_mcda.sensitivity_analysis`
+==========================================
+
+.. py:module:: pyrepo_mcda.sensitivity_analysis
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pyrepo_mcda.sensitivity_analysis.Sensitivity_analysis_weights
+
+
+
+
+.. py:class:: Sensitivity_analysis_weights
+
+   .. py:method:: __call__(self, matrix, weights, types, percentages, method, j, dir_list)
+
+      Method for sensitivity analysis. This method determines rankings of alternatives using chosen
+      MCDA method name `mcda_name` for different modifications of criterion `j` weight.
+
+      :param matrix: Decision matrix with alternatives performances data. This matrix includes
+                     data on m alternatives in rows considering criteria in columns
+      :type matrix: ndarray
+      :param weights: Vector with criteria weights. All weights in this vector must sum to 1.
+      :type weights: ndarray
+      :param types: Vector with criteria types. Types can be equal to 1 for profit criteria and -1
+                    for cost criteria.
+      :type types: ndarray
+      :param percentages: Vector with percentage values of given criteria weight modification.
+      :type percentages: ndarray
+      :param method: Initialized object of class of chosen MCDA method
+      :type method: class
+      :param j: Index of column in decision matrix `matrix` that indicates for which criterion
+                the weight is modified.
+      :type j: int
+      :param dir_list: list with directions (signs of value) of criterion weight modification. 1 denotes increasing,
+                       and -1 denotes decreasing weight value. You can provide [-1, 1] for increasing and
+                       decreasing, [-1] for only decreasing, or [1] for only increasing chosen criterion weight.
+      :type dir_list: list
+
+      :returns: **data_sens** -- dataframe with rankings calculated for subsequent modifications of criterion j weight
+      :rtype: DataFrame
+
+
+   .. py:method:: _change_weights(self, j, weights, change_val)
+
+      Method for criteria weights modification in sensitivity analysis procedure.
+
+      :param j: Index of column in decision matrix `matrix` that indicates for which criterion
+                the weight is modified.
+      :type j: int
+      :param weights: Vector of criteria weights
+      :type weights: ndarray
+      :param change_val: Percentage value of criterion weight modification
+      :type change_val: float
+
+      :returns: **weights_copy** -- Vector with criteria weights after modification their values for sensitivity analysis
+      :rtype: ndarray
+
+
+   .. py:method:: _sensitivity_analysis_weights(self, matrix, weights, types, percentages, method, list_alt_names, j, dir_list)
+      :staticmethod:
+
+
+

@@ -1,0 +1,51 @@
+:py:mod:`pyrepo_mcda.mcda_methods.spotis`
+=========================================
+
+.. py:module:: pyrepo_mcda.mcda_methods.spotis
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pyrepo_mcda.mcda_methods.spotis.SPOTIS
+
+
+
+
+.. py:class:: SPOTIS
+
+   Bases: :py:obj:`pyrepo_mcda.mcda_methods.mcda_method.MCDA_method`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:method:: __call__(self, matrix, weights, types, bounds)
+
+      Score alternatives provided in decision matrix `matrix` using criteria `weights` and criteria `types`.
+
+      :param matrix: Decision matrix with m alternatives in rows and n criteria in columns.
+      :type matrix: ndarray
+      :param weights: Vector with criteria weights. Sum of weights must be equal to 1.
+      :type weights: ndarray
+      :param types: Vector with criteria types. Profit criteria are represented by 1 and cost by -1.
+      :type types: ndarray
+      :param bounds: Bounds is ndarray with 2 rows and number of columns equal to criteria number.
+                     Bounds contain minimum values in the first row and maximum values in the second row
+                     for each criterion. Minimum and maximum values for the same criterion cannot be
+                     the same.
+      :type bounds: ndarray
+
+      :returns: Vector with preference values of each alternative. The best alternative has the lowest preference value.
+      :rtype: ndrarray
+
+
+   .. py:method:: _spotis(matrix, weights, types, bounds)
+      :staticmethod:
+
+
+

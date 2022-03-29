@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usage &mdash; pyrepo-mcda 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Reference" href="autoapi/index.html" />
+    <link rel="prev" title="Welcome to pyrepo-mcda documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> pyrepo-mcda
+          </a>
+              <div class="version">
+                0.0.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#importing-methods-from-pyrepo-mcda-package">Importing methods from pyrepo_mcda package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage-examples">Usage examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-topsis-method">The TOPSIS method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-vikor-method">The VIKOR method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-spotis-method">The SPOTIS method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-codas-method">The CODAS method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-waspas-method">The WASPAS method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-edas-method">The EDAS method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-mabac-method">The MABAC method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-multimoora-method">The MULTIMOORA method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#methods-for-determining-compromise-rankings">Methods for determining compromise rankings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#correlation-coefficents">Correlation coefficents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#methods-for-criteria-weights-determination">Methods for criteria weights determination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#distance-metrics">Distance metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#normalization-methods">Normalization methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#method-for-sensitivity-analysis-considering-criteria-weights-modification">Method for sensitivity analysis considering criteria weights modification</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pyrepo-mcda</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Usage</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/usage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h1>
+<div class="section" id="installation">
+<span id="id1"></span><h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
+<p>To use pyrepo-mcda, first install it using pip:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pyrepo</span><span class="o">-</span><span class="n">mcda</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="importing-methods-from-pyrepo-mcda-package">
+<h2>Importing methods from pyrepo_mcda package<a class="headerlink" href="#importing-methods-from-pyrepo-mcda-package" title="Permalink to this headline"></a></h2>
+<p>Import MCDA methods from module <cite>mcda_methods</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyrepo_mcda.mcda_methods</span> <span class="kn">import</span> <span class="n">CODAS</span><span class="p">,</span> <span class="n">TOPSIS</span><span class="p">,</span> <span class="n">WASPAS</span><span class="p">,</span> <span class="n">VIKOR</span><span class="p">,</span> <span class="n">SPOTIS</span><span class="p">,</span> <span class="n">EDAS</span><span class="p">,</span> <span class="n">MABAC</span><span class="p">,</span> <span class="n">MULTIMOORA</span>
+</pre></div>
+</div>
+<p>Import weighting methods from module <cite>weighting_methods</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">weighting_methods</span> <span class="k">as</span> <span class="n">mcda_weights</span>
+</pre></div>
+</div>
+<p>Import normalization methods from module <cite>normalizations</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">normalizations</span> <span class="k">as</span> <span class="n">norms</span>
+</pre></div>
+</div>
+<p>Import correlation coefficient from module <cite>correlations</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">correlations</span> <span class="k">as</span> <span class="n">corrs</span>
+</pre></div>
+</div>
+<p>Import distance metrics from module <cite>distance_metrics</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">distance_metrics</span> <span class="k">as</span> <span class="n">dists</span>
+</pre></div>
+</div>
+<p>Import compromise rankings methods from module <cite>compromise_rankings</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">compromise_rankings</span> <span class="k">as</span> <span class="n">compromises</span>
+</pre></div>
+</div>
+<p>Import Sensitivity analysis method from module <cite>sensitivity_analysis</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyrepo_mcda.sensitivity_analysis</span> <span class="kn">import</span> <span class="n">Sensitivity_analysis_weights</span>
+</pre></div>
+</div>
+<p>Import method for ranking alternatives according to prefernce values from module <cite>additions</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyrepo_mcda.additions</span> <span class="kn">import</span> <span class="n">rank_preferences</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage-examples">
+<h2>Usage examples<a class="headerlink" href="#usage-examples" title="Permalink to this headline"></a></h2>
+<div class="section" id="the-topsis-method">
+<h3>The TOPSIS method<a class="headerlink" href="#the-topsis-method" title="Permalink to this headline"></a></h3>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>matrix<span class="classifier">ndarray</span></dt><dd><p>Decision matrix with m alternatives in rows and n criteria in columns</p>
+</dd>
+<dt>weights<span class="classifier">ndarray</span></dt><dd><p>Vector with criteria weights</p>
+</dd>
+<dt>types<span class="classifier">ndarray</span></dt><dd><p>Vector with criteria types</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>ndarray</dt><dd><p>Vector with preference values of alternatives. Alternatives have to be ranked in descending order according to preference values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda.mcda_methods</span> <span class="kn">import</span> <span class="n">TOPSIS</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">normalizations</span> <span class="k">as</span> <span class="n">norms</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">distance_metrics</span> <span class="k">as</span> <span class="n">dists</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda.additions</span> <span class="kn">import</span> <span class="n">rank_preferences</span>
+
+<span class="c1"># provide decision matrix in array numpy.darray</span>
+
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mf">1.77</span><span class="p">,</span> <span class="mf">7347.16</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">,</span> <span class="mf">6919.99</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mf">1.9</span><span class="p">,</span> <span class="mi">8400</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.75</span><span class="p">,</span> <span class="mf">6808.9</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">512</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">,</span> <span class="mf">8479.99</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">,</span> <span class="mf">7499.99</span><span class="p">]])</span>
+
+<span class="c1"># provide criteria weights in array numpy.darray. All weights must sum to 1.</span>
+
+<span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.405</span><span class="p">,</span> <span class="mf">0.221</span><span class="p">,</span> <span class="mf">0.134</span><span class="p">,</span> <span class="mf">0.199</span><span class="p">,</span> <span class="mf">0.007</span><span class="p">,</span> <span class="mf">0.034</span><span class="p">])</span>
+
+<span class="c1"># provide criteria types in array numpy.darray. Profit criteria are represented by 1 and cost criteria by -1.</span>
+
+<span class="n">types</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Create the TOPSIS method object providing normalization method and distance metric.</span>
+
+<span class="n">topsis</span> <span class="o">=</span> <span class="n">TOPSIS</span><span class="p">(</span><span class="n">normalization_method</span> <span class="o">=</span> <span class="n">norms</span><span class="o">.</span><span class="n">minmax_normalization</span><span class="p">,</span> <span class="n">distance_metric</span> <span class="o">=</span> <span class="n">dists</span><span class="o">.</span><span class="n">euclidean</span><span class="p">)</span>
+
+<span class="c1"># Calculate the TOPSIS preference values of alternatives</span>
+
+<span class="n">pref</span> <span class="o">=</span> <span class="n">topsis</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">types</span><span class="p">)</span>
+
+<span class="c1"># Generate ranking of alternatives by sorting alternatives descendingly according to the TOPSIS algorithm (reverse = True means sorting in descending order) according to preference values</span>
+
+<span class="n">rank</span> <span class="o">=</span> <span class="n">rank_preferences</span><span class="p">(</span><span class="n">pref</span><span class="p">,</span> <span class="n">reverse</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Preference values: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">pref</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ranking: &#39;</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Preference values:  [0.4242 0.3217 0.4453 0.3353 0.8076 0.2971]</span>
+<span class="go">Ranking:  [3 5 2 4 1 6]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-vikor-method">
+<h3>The VIKOR method<a class="headerlink" href="#the-vikor-method" title="Permalink to this headline"></a></h3>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>matrix<span class="classifier">ndarray</span></dt><dd><p>Decision matrix with m alternatives in rows and n criteria in columns</p>
+</dd>
+<dt>weights<span class="classifier">ndarray</span></dt><dd><p>Vector with criteria weights</p>
+</dd>
+<dt>types<span class="classifier">ndarray</span></dt><dd><p>Vector with criteria types</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>ndarray</dt><dd><p>Vector with preference values of alternatives. Alternatives have to be ranked in ascending order according to preference values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda.mcda_methods</span> <span class="kn">import</span> <span class="n">VIKOR</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda.additions</span> <span class="kn">import</span> <span class="n">rank_preferences</span>
+
+<span class="c1"># provide decision matrix in array numpy.darray</span>
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+
+<span class="c1"># provide criteria weights in array numpy.darray. All weights must sum to 1.</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
+
+<span class="c1"># provide criteria types in array numpy.darray. Profit criteria are represented by 1 and cost criteria by -1.</span>
+<span class="n">types</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Create the VIKOR method object providing v parameter. The default v parameter is set to 0.5, so if you do not provide it, v will be equal to 0.5.</span>
+<span class="n">vikor</span> <span class="o">=</span> <span class="n">VIKOR</span><span class="p">(</span><span class="n">v</span> <span class="o">=</span> <span class="mf">0.625</span><span class="p">)</span>
+
+<span class="c1"># Calculate the VIKOR preference values of alternatives</span>
+<span class="n">pref</span> <span class="o">=</span> <span class="n">vikor</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">types</span><span class="p">)</span>
+
+<span class="c1"># Generate ranking of alternatives by sorting alternatives ascendingly according to the VIKOR algorithm (reverse = False means sorting in ascending order) according to preference values</span>
+<span class="n">rank</span> <span class="o">=</span> <span class="n">rank_preferences</span><span class="p">(</span><span class="n">pref</span><span class="p">,</span> <span class="n">reverse</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Preference values: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">pref</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ranking: &#39;</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Preference values:  [0.6399 1.     0.6929 0.2714 0.     0.6939]</span>
+<span class="go">Ranking:  [3 6 4 2 1 5]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-spotis-method">
+<h3>The SPOTIS method<a class="headerlink" href="#the-spotis-method" title="Permalink to this headline"></a></h3>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>matrix<span class="classifier">ndarray</span></dt><dd><p>Decision matrix with m alternatives in rows and n criteria in columns</p>
+</dd>
+<dt>weights<span class="classifier">ndarray</span></dt><dd><p>Vector with criteria weights</p>
+</dd>
+<dt>types<span class="classifier">ndarray</span></dt><dd><p>Vector with criteria types</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>ndarray</dt><dd><p>Vector with preference values of alternatives. Alternatives have to be ranked in ascending order according to preference values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda.mcda_methods</span> <span class="kn">import</span> <span class="n">SPOTIS</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda.mcda_methods</span> <span class="kn">import</span> <span class="n">SPOTIS</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda.additions</span> <span class="kn">import</span> <span class="n">rank_preferences</span>
+
+<span class="c1"># provide decision matrix in array numpy.darray</span>
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">15000</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">737</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">15290</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mi">116</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">892</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">15350</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mi">114</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">952</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">15490</span><span class="p">,</span> <span class="mf">5.3</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">1120</span><span class="p">]])</span>
+
+<span class="c1"># provide criteria weights in array numpy.darray. All weights must sum to 1.</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.2941</span><span class="p">,</span> <span class="mf">0.2353</span><span class="p">,</span> <span class="mf">0.2353</span><span class="p">,</span> <span class="mf">0.0588</span><span class="p">,</span> <span class="mf">0.1765</span><span class="p">])</span>
+
+<span class="c1"># provide criteria types in array numpy.darray. Profit criteria are represented by 1 and cost criteria by -1.</span>
+<span class="n">types</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Determine minimum bounds of performance values for each criterion in decision matrix</span>
+<span class="n">bounds_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">14000</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">650</span><span class="p">])</span>
+
+<span class="c1"># Determine maximum bounds of performance values for each criterion in decision matrix</span>
+<span class="n">bounds_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">16000</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">1300</span><span class="p">])</span>
+
+<span class="c1"># Stack minimum and maximum bounds vertically using vstack. You will get a matrix that has two rows and a number of columns equal to the number of criteria</span>
+<span class="n">bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">bounds_min</span><span class="p">,</span> <span class="n">bounds_max</span><span class="p">))</span>
+
+<span class="c1"># Create the SPOTIS method object</span>
+<span class="n">spotis</span> <span class="o">=</span> <span class="n">SPOTIS</span><span class="p">()</span>
+
+<span class="c1"># Calculate the SPOTIS preference values of alternatives</span>
+<span class="n">pref</span> <span class="o">=</span> <span class="n">spotis</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">types</span><span class="p">,</span> <span class="n">bounds</span><span class="p">)</span>
+
+<span class="c1"># Generate ranking of alternatives by sorting alternatives ascendingly according to the SPOTIS algorithm (reverse = False means sorting in ascending order) according to preference values</span>
+<span class="n">rank</span> <span class="o">=</span> <span class="n">rank_preferences</span><span class="p">(</span><span class="n">pref</span><span class="p">,</span> <span class="n">reverse</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Preference values: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">pref</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ranking: &#39;</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Preference values:  [0.478  0.5781 0.5557 0.5801]</span>
+<span class="go">Ranking:  [1 3 2 4]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-codas-method">
+<h3>The CODAS method<a class="headerlink" href="#the-codas-method" title="Permalink to this headline"></a></h3>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>matrix<span class="classifier">ndarray</span></dt><dd><p>Decision matrix with m alternatives in rows and n criteria in columns</p>
+</dd>
+<dt>weights<span class="classifier">ndarray</span></dt><dd><p>Vector with criteria weights</p>
+</dd>
+<dt>types<span class="classifier">ndarray</span></dt><dd><p>Vector with criteria types</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>ndarray</dt><dd><p>Vector with preference values of alternatives. Alternatives have to be ranked in descending order according to preference values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda.mcda_methods</span> <span class="kn">import</span> <span class="n">CODAS</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">normalizations</span> <span class="k">as</span> <span class="n">norms</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">distance_metrics</span> <span class="k">as</span> <span class="n">dists</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda.additions</span> <span class="kn">import</span> <span class="n">rank_preferences</span>
+
+<span class="c1"># provide decision matrix in array numpy.darray</span>
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">3600</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">3800</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">23</span><span class="p">,</span> <span class="mi">3100</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">3400</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">3300</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">28</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">]])</span>
+
+<span class="c1"># provide criteria weights in array numpy.darray. All weights must sum to 1.</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.2857</span><span class="p">,</span> <span class="mf">0.3036</span><span class="p">,</span> <span class="mf">0.2321</span><span class="p">,</span> <span class="mf">0.1786</span><span class="p">])</span>
+
+<span class="c1"># provide criteria types in array numpy.darray. Profit criteria are represented by 1 and cost criteria by -1.</span>
+<span class="n">types</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Create the CODAS method object providing normalization method (in CODAS it is linear_normalization by default), distance metric, and tau parameter, which is equal to 0.02 default. tau must be in the range from 0.01 to 0.05.</span>
+<span class="n">codas</span> <span class="o">=</span> <span class="n">CODAS</span><span class="p">(</span><span class="n">normalization_method</span> <span class="o">=</span> <span class="n">norms</span><span class="o">.</span><span class="n">linear_normalization</span><span class="p">,</span> <span class="n">distance_metric</span> <span class="o">=</span> <span class="n">dists</span><span class="o">.</span><span class="n">euclidean</span><span class="p">,</span> <span class="n">tau</span> <span class="o">=</span> <span class="mf">0.02</span><span class="p">)</span>
+
+<span class="c1"># Calculate the CODAS preference values of alternatives</span>
+<span class="n">pref</span> <span class="o">=</span> <span class="n">codas</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">types</span><span class="p">)</span>
+
+<span class="c1"># Generate ranking of alternatives by sorting alternatives descendingly according to the CODAS algorithm (reverse = True means sorting in descending order) according to preference values</span>
+<span class="n">rank</span> <span class="o">=</span> <span class="n">rank_preferences</span><span class="p">(</span><span class="n">pref</span><span class="p">,</span> <span class="n">reverse</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Preference values: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">pref</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ranking: &#39;</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Preference values:  [ 1.3914  0.3411 -0.217  -0.5381 -0.7292 -0.2481]</span>
+<span class="go">Ranking:  [1 2 3 5 6 4]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-waspas-method">
+<h3>The WASPAS method<a class="headerlink" href="#the-waspas-method" title="Permalink to this headline"></a></h3>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>matrix<span class="classifier">ndarray</span></dt><dd><p>Decision matrix with m alternatives in rows and n criteria in columns</p>
+</dd>
+<dt>weights<span class="classifier">ndarray</span></dt><dd><p>Vector with criteria weights</p>
+</dd>
+<dt>types<span class="classifier">ndarray</span></dt><dd><p>Vector with criteria types</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>ndarray</dt><dd><p>Vector with preference values of alternatives. Alternatives have to be ranked in descending order according to preference values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda.mcda_methods</span> <span class="kn">import</span> <span class="n">WASPAS</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">normalizations</span> <span class="k">as</span> <span class="n">norms</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda.additions</span> <span class="kn">import</span> <span class="n">rank_preferences</span>
+
+<span class="c1"># provide decision matrix in array numpy.darray</span>
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">680</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">600</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+
+<span class="c1"># provide criteria weights in array numpy.darray. All weights must sum to 1.</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.157</span><span class="p">,</span> <span class="mf">0.249</span><span class="p">,</span> <span class="mf">0.168</span><span class="p">,</span> <span class="mf">0.121</span><span class="p">,</span> <span class="mf">0.154</span><span class="p">,</span> <span class="mf">0.151</span><span class="p">])</span>
+
+<span class="c1"># provide criteria types in array numpy.darray. Profit criteria are represented by 1 and cost criteria by -1.</span>
+<span class="n">types</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Create the WASPAS method object providing normalization method (in WASAPS it is linear_normalization by default), and lambda parameter, which is equal to 0.5 default. tau must be in the range from 0 to 1.</span>
+<span class="n">waspas</span> <span class="o">=</span> <span class="n">WASPAS</span><span class="p">(</span><span class="n">normalization_method</span><span class="o">=</span><span class="n">norms</span><span class="o">.</span><span class="n">linear_normalization</span><span class="p">,</span> <span class="n">lambda_param</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Calculate the WASPAS preference values of alternatives</span>
+<span class="n">pref</span> <span class="o">=</span> <span class="n">waspas</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">types</span><span class="p">)</span>
+
+<span class="c1"># Generate ranking of alternatives by sorting alternatives descendingly according to the WASPAS algorithm (reverse = True means sorting in descending order) according to preference values</span>
+<span class="n">rank</span> <span class="o">=</span> <span class="n">rank_preferences</span><span class="p">(</span><span class="n">pref</span><span class="p">,</span> <span class="n">reverse</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Preference values: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">pref</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ranking: &#39;</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Preference values:  [0.5622 0.6575 0.6192 0.6409 0.7228]</span>
+<span class="go">Ranking:  [5 2 4 3 1]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-edas-method">
+<h3>The EDAS method<a class="headerlink" href="#the-edas-method" title="Permalink to this headline"></a></h3>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>matrix<span class="classifier">ndarray</span></dt><dd><p>Decision matrix with m alternatives in rows and n criteria in columns</p>
+</dd>
+<dt>weights<span class="classifier">ndarray</span></dt><dd><p>Vector with criteria weights</p>
+</dd>
+<dt>types<span class="classifier">ndarray</span></dt><dd><p>Vector with criteria types</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>ndarray</dt><dd><p>Vector with preference values of alternatives. Alternatives have to be ranked in descending order according to preference values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda.mcda_methods</span> <span class="kn">import</span> <span class="n">EDAS</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda.additions</span> <span class="kn">import</span> <span class="n">rank_preferences</span>
+
+<span class="c1"># provide decision matrix in array numpy.darray</span>
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mf">1.77</span><span class="p">,</span> <span class="mf">7347.16</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">,</span> <span class="mf">6919.99</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mf">1.9</span><span class="p">,</span> <span class="mi">8400</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.75</span><span class="p">,</span> <span class="mf">6808.9</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">512</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">,</span> <span class="mf">8479.99</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">,</span> <span class="mf">7499.99</span><span class="p">]])</span>
+
+<span class="c1"># provide criteria weights in array numpy.darray. All weights must sum to 1.</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.405</span><span class="p">,</span> <span class="mf">0.221</span><span class="p">,</span> <span class="mf">0.134</span><span class="p">,</span> <span class="mf">0.199</span><span class="p">,</span> <span class="mf">0.007</span><span class="p">,</span> <span class="mf">0.034</span><span class="p">])</span>
+
+<span class="c1"># provide criteria types in array numpy.darray. Profit criteria are represented by 1 and cost criteria by -1.</span>
+<span class="n">types</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Create the EDAS method object.</span>
+<span class="n">edas</span> <span class="o">=</span> <span class="n">EDAS</span><span class="p">()</span>
+
+<span class="c1"># Calculate the EDAS preference values of alternatives</span>
+<span class="n">pref</span> <span class="o">=</span> <span class="n">edas</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">types</span><span class="p">)</span>
+
+<span class="c1"># Generate ranking of alternatives by sorting alternatives descendingly according to the EDAS algorithm (reverse = True means sorting in descending order) according to preference values</span>
+<span class="n">rank</span> <span class="o">=</span> <span class="n">rank_preferences</span><span class="p">(</span><span class="n">pref</span><span class="p">,</span> <span class="n">reverse</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Preference values: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">pref</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ranking: &#39;</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Preference values:  [0.4141 0.13   0.4607 0.212  0.9443 0.043 ]</span>
+<span class="go">Ranking:  [3 5 2 4 1 6]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-mabac-method">
+<h3>The MABAC method<a class="headerlink" href="#the-mabac-method" title="Permalink to this headline"></a></h3>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>matrix<span class="classifier">ndarray</span></dt><dd><p>Decision matrix with m alternatives in rows and n criteria in columns</p>
+</dd>
+<dt>weights<span class="classifier">ndarray</span></dt><dd><p>Vector with criteria weights</p>
+</dd>
+<dt>types<span class="classifier">ndarray</span></dt><dd><p>Vector with criteria types</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>ndarray</dt><dd><p>Vector with preference values of alternatives. Alternatives have to be ranked in descending order according to preference values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda.mcda_methods</span> <span class="kn">import</span> <span class="n">MABAC</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">normalizations</span> <span class="k">as</span> <span class="n">norms</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda.additions</span> <span class="kn">import</span> <span class="n">rank_preferences</span>
+
+<span class="c1"># provide decision matrix in array numpy.darray</span>
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">2.937588</span><span class="p">,</span> <span class="mf">2.762986</span><span class="p">,</span> <span class="mf">3.233723</span><span class="p">,</span> <span class="mf">2.881315</span><span class="p">,</span> <span class="mf">3.015289</span><span class="p">,</span> <span class="mf">3.313491</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">2.978555</span><span class="p">,</span> <span class="mf">3.012820</span><span class="p">,</span> <span class="mf">2.929487</span><span class="p">,</span> <span class="mf">3.096154</span><span class="p">,</span> <span class="mf">3.012820</span><span class="p">,</span> <span class="mf">3.593939</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">3.286673</span><span class="p">,</span> <span class="mf">3.464600</span><span class="p">,</span> <span class="mf">3.746009</span><span class="p">,</span> <span class="mf">3.715632</span><span class="p">,</span> <span class="mf">3.703427</span><span class="p">,</span> <span class="mf">4.133620</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">3.322037</span><span class="p">,</span> <span class="mf">3.098638</span><span class="p">,</span> <span class="mf">3.262154</span><span class="p">,</span> <span class="mf">3.147851</span><span class="p">,</span> <span class="mf">3.206675</span><span class="p">,</span> <span class="mf">3.798684</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">3.354866</span><span class="p">,</span> <span class="mf">3.270945</span><span class="p">,</span> <span class="mf">3.221880</span><span class="p">,</span> <span class="mf">3.213207</span><span class="p">,</span> <span class="mf">3.670508</span><span class="p">,</span> <span class="mf">3.785941</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">2.796570</span><span class="p">,</span> <span class="mf">2.983000</span><span class="p">,</span> <span class="mf">2.744904</span><span class="p">,</span> <span class="mf">2.692550</span><span class="p">,</span> <span class="mf">2.787563</span><span class="p">,</span> <span class="mf">2.878851</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">2.846491</span><span class="p">,</span> <span class="mf">2.729618</span><span class="p">,</span> <span class="mf">2.789990</span><span class="p">,</span> <span class="mf">2.955624</span><span class="p">,</span> <span class="mf">3.123323</span><span class="p">,</span> <span class="mf">3.646595</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">3.253458</span><span class="p">,</span> <span class="mf">3.208902</span><span class="p">,</span> <span class="mf">3.678499</span><span class="p">,</span> <span class="mf">3.580044</span><span class="p">,</span> <span class="mf">3.505663</span><span class="p">,</span> <span class="mf">3.954262</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">2.580718</span><span class="p">,</span> <span class="mf">2.906903</span><span class="p">,</span> <span class="mf">3.176497</span><span class="p">,</span> <span class="mf">3.073653</span><span class="p">,</span> <span class="mf">3.264727</span><span class="p">,</span> <span class="mf">3.681887</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">2.789011</span><span class="p">,</span> <span class="mf">3.000000</span><span class="p">,</span> <span class="mf">3.101099</span><span class="p">,</span> <span class="mf">3.139194</span><span class="p">,</span> <span class="mf">2.985348</span><span class="p">,</span> <span class="mf">3.139194</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">3.418681</span><span class="p">,</span> <span class="mf">3.261905</span><span class="p">,</span> <span class="mf">3.187912</span><span class="p">,</span> <span class="mf">3.052381</span><span class="p">,</span> <span class="mf">3.266667</span><span class="p">,</span> <span class="mf">3.695238</span><span class="p">]])</span>
+
+<span class="c1"># provide criteria weights in array numpy.darray. All weights must sum to 1.</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.171761</span><span class="p">,</span> <span class="mf">0.105975</span><span class="p">,</span> <span class="mf">0.191793</span><span class="p">,</span> <span class="mf">0.168824</span><span class="p">,</span> <span class="mf">0.161768</span><span class="p">,</span> <span class="mf">0.199880</span><span class="p">])</span>
+
+<span class="c1"># provide criteria types in array numpy.darray. Profit criteria are represented by 1 and cost criteria by -1.</span>
+<span class="n">types</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Create the MABAC method object providing normalization method. In MABAC it is minmax_normalization by default.</span>
+<span class="n">mabac</span> <span class="o">=</span> <span class="n">MABAC</span><span class="p">(</span><span class="n">normalization_method</span><span class="o">=</span><span class="n">norms</span><span class="o">.</span><span class="n">minmax_normalization</span><span class="p">)</span>
+
+<span class="c1"># Calculate the MABAC preference values of alternatives</span>
+<span class="n">pref</span> <span class="o">=</span> <span class="n">mabac</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">types</span><span class="p">)</span>
+
+<span class="c1"># Generate ranking of alternatives by sorting alternatives descendingly according to the MABAC algorithm (reverse = True means sorting in descending order) according to preference values</span>
+<span class="n">rank</span> <span class="o">=</span> <span class="n">rank_preferences</span><span class="p">(</span><span class="n">pref</span><span class="p">,</span> <span class="n">reverse</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Preference values: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">pref</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ranking: &#39;</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Preference values:  [-0.1553 -0.0895  0.5054  0.1324  0.2469 -0.3868 -0.1794  0.3629 -0.0842</span>
+<span class="go"> -0.1675  0.1399]</span>
+<span class="go">Ranking:  [ 8  7  1  5  3 11 10  2  6  9  4]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-multimoora-method">
+<h3>The MULTIMOORA method<a class="headerlink" href="#the-multimoora-method" title="Permalink to this headline"></a></h3>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>matrix<span class="classifier">ndarray</span></dt><dd><p>Decision matrix with m alternatives in rows and n criteria in columns</p>
+</dd>
+<dt>weights<span class="classifier">ndarray</span></dt><dd><p>Vector with criteria weights</p>
+</dd>
+<dt>types<span class="classifier">ndarray</span></dt><dd><p>Vector with criteria types</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>ndarray</dt><dd><p>Vector with preference values of alternatives. Alternatives have to be ranked in descending order according to preference values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda.mcda_methods</span> <span class="kn">import</span> <span class="n">MULTIMOORA</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda.additions</span> <span class="kn">import</span> <span class="n">rank_preferences</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">compromise_rankings</span> <span class="k">as</span> <span class="n">compromises</span>
+
+<span class="c1"># provide decision matrix in array numpy.darray</span>
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+
+<span class="c1"># provide criteria weights in array numpy.darray. All weights must sum to 1.</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.215</span><span class="p">,</span> <span class="mf">0.215</span><span class="p">,</span> <span class="mf">0.159</span><span class="p">,</span> <span class="mf">0.133</span><span class="p">,</span> <span class="mf">0.102</span><span class="p">,</span> <span class="mf">0.102</span><span class="p">,</span> <span class="mf">0.073</span><span class="p">])</span>
+
+<span class="c1"># provide criteria types in array numpy.darray. Profit criteria are represented by 1 and cost criteria by -1.</span>
+<span class="n">types</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Create the MULTIMOORA method object providing compromise_rank_method. In MULTIMOORA it is dominance_directed_graph by default.</span>
+<span class="n">multimoora</span> <span class="o">=</span> <span class="n">MULTIMOORA</span><span class="p">(</span><span class="n">compromise_rank_method</span> <span class="o">=</span> <span class="n">compromises</span><span class="o">.</span><span class="n">dominance_directed_graph</span><span class="p">)</span>
+
+<span class="c1"># Calculate the MULTIMOORA ranking of alternatives</span>
+<span class="n">rank</span> <span class="o">=</span> <span class="n">multimoora</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">types</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ranking: &#39;</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Ranking:  [3 2 1]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="methods-for-determining-compromise-rankings">
+<h3>Methods for determining compromise rankings<a class="headerlink" href="#methods-for-determining-compromise-rankings" title="Permalink to this headline"></a></h3>
+<p>The Copeland Method for compromise ranking</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>matrix<span class="classifier">ndarray</span></dt><dd><p>Matrix with rankings provided by different MCDA methods in particular columns.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>ndarray</dt><dd><p>Vector with compromise ranking.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">compromise_rankings</span> <span class="k">as</span> <span class="n">compromises</span>
+
+<span class="c1"># Provide matrix with different rankings given by different MCDA methods in columns</span>
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
+
+<span class="c1"># Calculate the compromise ranking using `copeland` method</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">compromises</span><span class="o">.</span><span class="n">copeland</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Copeland compromise ranking: &#39;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Copeland compromise ranking:  [ 7  6  8  1  2  3  9  5 10  4]</span>
+</pre></div>
+</div>
+<p>The Dominance Directed Graph</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>matrix<span class="classifier">ndarray</span></dt><dd><p>Matrix with rankings provided by different MCDA methods in particular columns.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>ndarray</dt><dd><p>Vector with compromise ranking.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">compromise_rankings</span> <span class="k">as</span> <span class="n">compromises</span>
+
+<span class="c1"># Provide matrix with different rankings given by different MCDA methods in columns</span>
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+
+<span class="c1"># Calculate the compromise ranking using `dominance_directed_graph` method</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">compromises</span><span class="o">.</span><span class="n">dominance_directed_graph</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dominance directed graph compromise ranking: &#39;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Dominance directed graph compromise ranking:  [3 2 1]</span>
+</pre></div>
+</div>
+<p>The Rank Position compromise ranking method</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>matrix<span class="classifier">ndarray</span></dt><dd><p>Matrix with rankings provided by different MCDA methods in particular columns.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>ndarray</dt><dd><p>Vector with compromise ranking.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">compromise_rankings</span> <span class="k">as</span> <span class="n">compromises</span>
+
+<span class="c1"># Provide matrix with different rankings given by different MCDA methods in columns</span>
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+
+<span class="c1"># Calculate the compromise ranking using `rank_position_method` method</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">compromises</span><span class="o">.</span><span class="n">rank_position_method</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Rank position compromise ranking: &#39;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Rank position compromise ranking:  [3 2 1]</span>
+</pre></div>
+</div>
+<p>The Improved Borda Rule compromise ranking method for MULTIMOORA</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>prefs<span class="classifier">ndarray</span></dt><dd><p>Matrix with preference values provided by different approaches of MULTIMOORA in particular columns.</p>
+</dd>
+<dt>ranks<span class="classifier">ndarray</span></dt><dd><p>Matrix with rankings provided by different approaches of MULTIMOORA in particular columns.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>ndarray</dt><dd><p>Vector with compromise ranking.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">compromise_rankings</span> <span class="k">as</span> <span class="n">compromises</span>
+
+<span class="c1"># Provide matrix with different preference values given by different MCDA methods in columns</span>
+<span class="n">prefs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">4.94364901e-01</span><span class="p">,</span> <span class="mf">4.56157867e-02</span><span class="p">,</span> <span class="mf">3.85006756e-09</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">5.26950959e-01</span><span class="p">,</span> <span class="mf">6.08111832e-02</span><span class="p">,</span> <span class="mf">9.62516889e-09</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">6.77457681e-01</span><span class="p">,</span> <span class="mf">0.00000000e+00</span><span class="p">,</span> <span class="mf">4.45609671e-08</span><span class="p">]])</span>
+
+<span class="c1"># Provide matrix with different rankings given by different MCDA methods in columns</span>
+<span class="n">ranks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+
+<span class="c1"># Calculate the compromise ranking using `improved_borda_rule` method</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">compromises</span><span class="o">.</span><span class="n">improved_borda_rule</span><span class="p">(</span><span class="n">prefs</span><span class="p">,</span> <span class="n">ranks</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Improved Borda Rule compromise ranking: &#39;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Improved Borda Rule compromise ranking:  [2 3 1]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="correlation-coefficents">
+<h3>Correlation coefficents<a class="headerlink" href="#correlation-coefficents" title="Permalink to this headline"></a></h3>
+<p>Spearman correlation coefficient</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>R<span class="classifier">ndarray</span></dt><dd><p>First vector containing values</p>
+</dd>
+<dt>Q<span class="classifier">ndarray</span></dt><dd><p>Second vector containing values</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>float</dt><dd><p>Value of correlation coefficient between two vectors</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">correlations</span> <span class="k">as</span> <span class="n">corrs</span>
+
+<span class="c1"># Provide two vectors with rankings obtained with different MCDA methods</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+
+<span class="c1"># Calculate the correlation using `spearman` coefficient</span>
+<span class="n">coeff</span> <span class="o">=</span> <span class="n">corrs</span><span class="o">.</span><span class="n">spearman</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Spearman coeff: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">coeff</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Spearman coeff:  0.9</span>
+</pre></div>
+</div>
+<p>Weighted Spearman correlation coefficient</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>R<span class="classifier">ndarray</span></dt><dd><p>First vector containing values</p>
+</dd>
+<dt>Q<span class="classifier">ndarray</span></dt><dd><p>Second vector containing values</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>float</dt><dd><p>Value of correlation coefficient between two vectors</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">correlations</span> <span class="k">as</span> <span class="n">corrs</span>
+
+<span class="c1"># Provide two vectors with rankings obtained with different MCDA methods</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+
+<span class="c1"># Calculate the correlation using `weighted_spearman` coefficient</span>
+<span class="n">coeff</span> <span class="o">=</span> <span class="n">corrs</span><span class="o">.</span><span class="n">weighted_spearman</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Weighted Spearman coeff: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">coeff</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Weighted Spearman coeff:  0.8833</span>
+</pre></div>
+</div>
+<p>Similarity rank coefficient WS</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>R<span class="classifier">ndarray</span></dt><dd><p>First vector containing values</p>
+</dd>
+<dt>Q<span class="classifier">ndarray</span></dt><dd><p>Second vector containing values</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>float</dt><dd><p>Value of similarity coefficient between two vectors</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">correlations</span> <span class="k">as</span> <span class="n">corrs</span>
+
+<span class="c1"># Provide two vectors with rankings obtained with different MCDA methods</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+
+<span class="c1"># Calculate the similarity using `WS_coeff` coefficient</span>
+<span class="n">coeff</span> <span class="o">=</span> <span class="n">corrs</span><span class="o">.</span><span class="n">WS_coeff</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WS coeff: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">coeff</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">WS coeff:  0.8542</span>
+</pre></div>
+</div>
+<p>Pearson correlation coefficient</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>R<span class="classifier">ndarray</span></dt><dd><p>First vector containing values</p>
+</dd>
+<dt>Q<span class="classifier">ndarray</span></dt><dd><p>Second vector containing values</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>float</dt><dd><p>Value of correlation coefficient between two vectors</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">correlations</span> <span class="k">as</span> <span class="n">corrs</span>
+
+<span class="c1"># Provide two vectors with rankings obtained with different MCDA methods</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+
+<span class="c1"># Calculate the correlation using `pearson_coeff` coefficient</span>
+<span class="n">coeff</span> <span class="o">=</span> <span class="n">corrs</span><span class="o">.</span><span class="n">pearson_coeff</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">Q</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Pearson coeff: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">coeff</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Pearson coeff:  0.9</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="methods-for-criteria-weights-determination">
+<h3>Methods for criteria weights determination<a class="headerlink" href="#methods-for-criteria-weights-determination" title="Permalink to this headline"></a></h3>
+<p>Entropy weighting method</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>matrix<span class="classifier">ndarray</span></dt><dd><p>Decision matrix with performance values of m alternatives and n criteria</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>ndarray</dt><dd><p>vector of criteria weights</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">weighting_methods</span> <span class="k">as</span> <span class="n">mcda_weights</span>
+
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">29</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">19</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">86</span><span class="p">,</span> <span class="mi">29</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">19</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mf">28.9</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">68</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">29</span><span class="p">]])</span>
+
+<span class="n">weights</span> <span class="o">=</span> <span class="n">mcda_weights</span><span class="o">.</span><span class="n">entropy_weighting</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Entropy weights: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Entropy weights:  [0.463  0.3992 0.1378 0.    ]</span>
+</pre></div>
+</div>
+<p>CRITIC weighting method</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>matrix<span class="classifier">ndarray</span></dt><dd><p>Decision matrix with performance values of m alternatives and n criteria</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>ndarray</dt><dd><p>Vector of criteria weights</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">weighting_methods</span> <span class="k">as</span> <span class="n">mcda_weights</span>
+
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">680</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">600</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+
+<span class="n">weights</span> <span class="o">=</span> <span class="n">mcda_weights</span><span class="o">.</span><span class="n">critic_weighting</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;CRITIC weights: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">CRITIC weights:  [0.157  0.2495 0.1677 0.1211 0.1541 0.1506]</span>
+</pre></div>
+</div>
+<p>Standard deviation weighting method</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>matrix<span class="classifier">ndarray</span></dt><dd><p>Decision matrix with performance values of m alternatives and n criteria</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>ndarray</dt><dd><p>Vector of criteria weights</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">weighting_methods</span> <span class="k">as</span> <span class="n">mcda_weights</span>
+
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.619</span><span class="p">,</span> <span class="mf">0.449</span><span class="p">,</span> <span class="mf">0.447</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">0.862</span><span class="p">,</span> <span class="mf">0.466</span><span class="p">,</span> <span class="mf">0.006</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">0.458</span><span class="p">,</span> <span class="mf">0.698</span><span class="p">,</span> <span class="mf">0.771</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">0.777</span><span class="p">,</span> <span class="mf">0.631</span><span class="p">,</span> <span class="mf">0.491</span><span class="p">],</span>
+<span class="p">[</span><span class="mf">0.567</span><span class="p">,</span> <span class="mf">0.992</span><span class="p">,</span> <span class="mf">0.968</span><span class="p">]])</span>
+
+<span class="n">weights</span> <span class="o">=</span> <span class="n">mcda_weights</span><span class="o">.</span><span class="n">std_weighting</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Standard deviation weights: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Standard deviation weights:  [0.2173 0.2945 0.4882]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="distance-metrics">
+<h3>Distance metrics<a class="headerlink" href="#distance-metrics" title="Permalink to this headline"></a></h3>
+<p>Here are two examples of using distance metrics for Euclidean distance <cite>euclidean</cite> and Manhattan distance <cite>manhattan</cite>. Usage of other distance metrics
+provided in module <cite>distance metrics</cite> is analogous.</p>
+<p>Euclidean distance</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>A<span class="classifier">ndarray</span></dt><dd><p>First vector containing values</p>
+</dd>
+<dt>B<span class="classifier">ndarray</span></dt><dd><p>Second vector containing values</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>float</dt><dd><p>distance value between two vectors</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">distance_metrics</span> <span class="k">as</span> <span class="n">dists</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.165</span><span class="p">,</span> <span class="mf">0.113</span><span class="p">,</span> <span class="mf">0.015</span><span class="p">,</span> <span class="mf">0.019</span><span class="p">])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.227</span><span class="p">,</span> <span class="mf">0.161</span><span class="p">,</span> <span class="mf">0.053</span><span class="p">,</span> <span class="mf">0.130</span><span class="p">])</span>
+
+<span class="n">dist</span> <span class="o">=</span> <span class="n">dists</span><span class="o">.</span><span class="n">euclidean</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Distance: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Distance:  0.1411</span>
+</pre></div>
+</div>
+<p>Manhattan distance</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>A<span class="classifier">ndarray</span></dt><dd><p>First vector containing values</p>
+</dd>
+<dt>B<span class="classifier">ndarray</span></dt><dd><p>Second vector containing values</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>float</dt><dd><p>distance value between two vectors</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">distance_metrics</span> <span class="k">as</span> <span class="n">dists</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.165</span><span class="p">,</span> <span class="mf">0.113</span><span class="p">,</span> <span class="mf">0.015</span><span class="p">,</span> <span class="mf">0.019</span><span class="p">])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.227</span><span class="p">,</span> <span class="mf">0.161</span><span class="p">,</span> <span class="mf">0.053</span><span class="p">,</span> <span class="mf">0.130</span><span class="p">])</span>
+
+<span class="n">dist</span> <span class="o">=</span> <span class="n">dists</span><span class="o">.</span><span class="n">manhattan</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Distance: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Distance:  0.259</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="normalization-methods">
+<h3>Normalization methods<a class="headerlink" href="#normalization-methods" title="Permalink to this headline"></a></h3>
+<p>Here is an example of vector normalization usage. Other normalizations provided in module <cite>normalizations</cite>, namely <cite>minmax_normalization</cite>, <cite>max_normalization</cite>,
+<cite>sum_normalization</cite>, <cite>linear_normalization</cite>, <cite>multimoora_normalization</cite> are used in analogous way.</p>
+<p>Vector normalization</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>matrix<span class="classifier">ndarray</span></dt><dd><p>Decision matrix with m alternatives in rows and n criteria in columns</p>
+</dd>
+<dt>types<span class="classifier">ndarray</span></dt><dd><p>Criteria types. Profit criteria are represented by 1 and cost by -1.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>ndarray</dt><dd><p>Normalized decision matrix</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda</span> <span class="kn">import</span> <span class="n">normalizations</span> <span class="k">as</span> <span class="n">norms</span>
+
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+
+<span class="n">types</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="n">norm_matrix</span> <span class="o">=</span> <span class="n">norms</span><span class="o">.</span><span class="n">vector_normalization</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">types</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Normalized matrix: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">norm_matrix</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Normalized matrix:  [[0.4126 0.3769 0.1525 0.0928]</span>
+<span class="go">[0.2579 0.1615 0.5337 0.4642]</span>
+<span class="go">[0.361  0.2692 0.4575 0.3714]</span>
+<span class="go">[0.4641 0.4845 0.5337 0.2785]</span>
+<span class="go">[0.5673 0.5384 0.2287 0.6499]</span>
+<span class="go">[0.3094 0.4845 0.3812 0.3714]]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="method-for-sensitivity-analysis-considering-criteria-weights-modification">
+<h3>Method for sensitivity analysis considering criteria weights modification<a class="headerlink" href="#method-for-sensitivity-analysis-considering-criteria-weights-modification" title="Permalink to this headline"></a></h3>
+<p>sensitivity_analysis</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>matrix<span class="classifier">ndarray</span></dt><dd><p>Decision matrix with alternatives performances data. This matrix includes
+data on m alternatives in rows considering criteria in columns</p>
+</dd>
+<dt>weights<span class="classifier">ndarray</span></dt><dd><p>Vector with criteria weights. All weights in this vector must sum to 1.</p>
+</dd>
+<dt>types<span class="classifier">ndarray</span></dt><dd><p>Vector with criteria types. Types can be equal to 1 for profit criteria and -1
+for cost criteria.</p>
+</dd>
+<dt>percentages<span class="classifier">ndarray</span></dt><dd><p>Vector with percentage values of given criteria weight modification.</p>
+</dd>
+<dt>mcda_name<span class="classifier">str</span></dt><dd><p>Name of applied MCDA method</p>
+</dd>
+<dt>j<span class="classifier">int</span></dt><dd><p>Index of column in decision matrix <cite>matrix</cite> that indicates for which criterion
+the weight is modified.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><p>data_sens : DataFrame
+dataframe with rankings calculated for subsequent modifications of criterion j weight</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda.sensitivity_analysis</span> <span class="kn">import</span> <span class="n">Sensitivity_analysis_weights</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pyrepo_mcda.mcda_methods</span> <span class="kn">import</span> <span class="n">CODAS</span>
+
+<span class="c1"># provide decision matrix in array numpy.darray</span>
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">3600</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">3800</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">23</span><span class="p">,</span> <span class="mi">3100</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">3400</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">3300</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">],</span>
+<span class="p">[</span><span class="mi">28</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">]])</span>
+
+<span class="c1"># provide criteria weights in array numpy.darray. All weights must sum to 1.</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.2857</span><span class="p">,</span> <span class="mf">0.3036</span><span class="p">,</span> <span class="mf">0.2321</span><span class="p">,</span> <span class="mf">0.1786</span><span class="p">])</span>
+
+<span class="c1"># provide criteria types in array numpy.darray. Profit criteria are represented by 1 and cost criteria by -1.</span>
+<span class="n">types</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># provide vector with percentage values of chosen criterion weight modification</span>
+<span class="n">percentages</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+
+<span class="c1">#create the chosen MCDA object</span>
+<span class="n">method</span> <span class="o">=</span> <span class="n">TOPSIS</span><span class="p">(</span><span class="n">normalization_method</span><span class="o">=</span><span class="n">norms</span><span class="o">.</span><span class="n">minmax_normalization</span><span class="p">,</span> <span class="n">distance_metric</span><span class="o">=</span><span class="n">dists</span><span class="o">.</span><span class="n">euclidean</span><span class="p">)</span>
+
+<span class="c1"># provide index of j-th chosen criterion whose weight will be modified in sensitivity analysis, for example j = 1 for criterion in the second column</span>
+<span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Create the Sensitivity_analysis_weights object</span>
+<span class="n">sensitivity_analysis</span> <span class="o">=</span> <span class="n">Sensitivity_analysis_weights</span><span class="p">()</span>
+
+<span class="c1"># Generate DataFrame with rankings for different modification of weight of chosen criterion</span>
+<span class="c1"># Provide decision matrix `matrix`, vector with criteria weights `weights`, criteria types `types`, initialized object of chosen MCDA</span>
+<span class="c1"># method `method`, index of chosen criterion whose weight will be modified and list with directions of weights value modification</span>
+<span class="n">data_sens</span> <span class="o">=</span> <span class="n">sensitivity_analysis</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">types</span><span class="p">,</span> <span class="n">percentages</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to pyrepo-mcda documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="autoapi/index.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, energyinpython.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

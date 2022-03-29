@@ -1,0 +1,62 @@
+:py:mod:`pyrepo_mcda.weighting_methods`
+=======================================
+
+.. py:module:: pyrepo_mcda.weighting_methods
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pyrepo_mcda.weighting_methods.equal_weighting
+   pyrepo_mcda.weighting_methods.entropy_weighting
+   pyrepo_mcda.weighting_methods.std_weighting
+   pyrepo_mcda.weighting_methods.critic_weighting
+
+
+
+.. py:function:: equal_weighting(matrix)
+
+   Calculate criteria weights using objective Equal weighting method
+   :param matrix: Decision matrix with performance values of m alternatives and n criteria
+   :type matrix: ndarray
+
+   :returns: vector of criteria weights
+   :rtype: ndarray
+
+
+.. py:function:: entropy_weighting(matrix)
+
+   Calculate criteria weights using objective Entropy weighting method
+   :param matrix: Decision matrix with performance values of m alternatives and n criteria
+   :type matrix: ndarray
+
+   :returns: vector of criteria weights
+   :rtype: ndarray
+
+
+.. py:function:: std_weighting(matrix)
+
+   Calculate criteria weights using objective Standard deviation weighting method
+   :param matrix: Decision matrix with performance values of m alternatives and n criteria
+   :type matrix: ndarray
+
+   :returns: vector of criteria weights
+   :rtype: ndarray
+
+
+.. py:function:: critic_weighting(matrix)
+
+   Calculate criteria weights using objective CRITIC weighting method
+   :param matrix: Decision matrix with performance values of m alternatives and n criteria
+   :type matrix: ndarray
+
+   :returns: vector of criteria weights
+   :rtype: ndarray
+
+

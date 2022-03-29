@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to pyrepo-mcda documentation! &mdash; pyrepo-mcda 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Usage" href="usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> pyrepo-mcda
+          </a>
+              <div class="version">
+                0.0.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">pyrepo-mcda</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>Welcome to pyrepo-mcda documentation!</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="welcome-to-pyrepo-mcda-documentation">
+<h1>Welcome to pyrepo-mcda documentation!<a class="headerlink" href="#welcome-to-pyrepo-mcda-documentation" title="Permalink to this headline"></a></h1>
+<p>pyrepo-mcda is Python 3 library for Multi-Criteria Decision Making.
+This library includes:</p>
+<ul>
+<li><p>MCDA methods:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>TOPSIS</cite></p></li>
+<li><p><cite>CODAS</cite></p></li>
+<li><p><cite>MABAC</cite></p></li>
+<li><p><cite>MULTIMOORA</cite></p></li>
+<li><p><cite>VIKOR</cite></p></li>
+<li><p><cite>WASPAS</cite></p></li>
+<li><p><cite>EDAS</cite></p></li>
+<li><p><cite>SPOTIS</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Distance metrics:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>euclidean</cite> (Euclidean distance)</p></li>
+<li><p><cite>manhattan</cite> (Manhattan distance)</p></li>
+<li><p><cite>hausdorff</cite> (Hausdorff distance)</p></li>
+<li><p><cite>correlation</cite> (Correlation distance)</p></li>
+<li><p><cite>chebyshev</cite> (Chebyshev distance)</p></li>
+<li><p><cite>std_euclidean</cite> (Standardized Euclidean distance)</p></li>
+<li><p><cite>cosine</cite> (Cosine distance)</p></li>
+<li><p><cite>csm</cite> (Cosine similarity measure)</p></li>
+<li><p><cite>squared_euclidean</cite> (Squared Euclidean distance)</p></li>
+<li><p><cite>bray_curtis</cite> (Sorensen or Bray-Curtis distance)</p></li>
+<li><p><cite>canberra</cite> (Canberra distance)</p></li>
+<li><p><cite>lorentzian</cite> (Lorentzian distance)</p></li>
+<li><p><cite>jaccard</cite> (Jaccard distance)</p></li>
+<li><p><cite>dice</cite> (Dice distance)</p></li>
+<li><p><cite>bhattacharyya</cite> (Bhattacharyya distance)</p></li>
+<li><p><cite>hellinger</cite> (Hellinger distance)</p></li>
+<li><p><cite>matusita</cite> (Matusita distance)</p></li>
+<li><p><cite>squared_chord</cite> (Squared-chord distance)</p></li>
+<li><p><cite>pearson_chi_square</cite> (Pearson chi square distance)</p></li>
+<li><p><cite>squared_chi_square</cite> (Sqaured chi square distance)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Correlation coefficients:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>spearman</cite> (Spearman rank correlation coefficient)</p></li>
+<li><p><cite>weighted_spearman</cite> (Weighted Spearman rank correlation coefficient)</p></li>
+<li><p><cite>pearson_coeff</cite> (Pearson correlation coefficient)</p></li>
+<li><p><cite>WS_coeff</cite> (Similarity rank coefficent - WS coefficient)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Methods for normalization of decision matrix:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>linear_normalization</cite> (Linear normalization)</p></li>
+<li><p><cite>minmax_normalization</cite> (Minimum-Maximum normalization)</p></li>
+<li><p><cite>max_normalization</cite> (Maximum normalization)</p></li>
+<li><p><cite>sum_normalization</cite> (Sum normalization)</p></li>
+<li><p><cite>vector_normalization</cite> (Vector normalization)</p></li>
+<li><p><cite>multimoora_normalization</cite> (Normalization method dedicated for the MULTIMOORA method)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Methods for determination of criteria weights (weighting methods):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>entropy_weighting</cite> (Entropy weighting method)</p></li>
+<li><p><cite>std_weighting</cite> (Standard Deviation weighting method)</p></li>
+<li><p><cite>critic_weighting</cite> (CRITIC weighting method)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Methods for determination of compromise rankings based on several rankings obtained with different MCDA methods:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>copeland</cite> (the Copeland method for compromise ranking)</p></li>
+<li><p><cite>dominance_directed_graph</cite> (Dominance Directed Graph for compromise ranking)</p></li>
+<li><p><cite>rank_position_method</cite> (Rank Position Method for compromise ranking)</p></li>
+<li><p><cite>improved_borda_rule</cite> (Improved Borda Rule method for compromise for MULTIMOORA method)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Sensitivity analysis methods:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>Sensitivity_analysis_weights</cite> (Methods for sensitivity analysis considering criteria weights modification)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>additions:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>rank_preferences</cite> (Method for ordering alternatives according to their preference values obtained with MCDA methods)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Check out the <a class="reference internal" href="usage.html"><span class="doc">Usage</span></a> section for further information, including
+how to <a class="reference internal" href="usage.html#installation"><span class="std std-ref">Installation</span></a> the project.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This project is under active development.</p>
+</div>
+<div class="section" id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#importing-methods-from-pyrepo-mcda-package">Importing methods from pyrepo_mcda package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#usage-examples">Usage examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#the-topsis-method">The TOPSIS method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#the-vikor-method">The VIKOR method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#the-spotis-method">The SPOTIS method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#the-codas-method">The CODAS method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#the-waspas-method">The WASPAS method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#the-edas-method">The EDAS method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#the-mabac-method">The MABAC method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#the-multimoora-method">The MULTIMOORA method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#methods-for-determining-compromise-rankings">Methods for determining compromise rankings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#correlation-coefficents">Correlation coefficents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#methods-for-criteria-weights-determination">Methods for criteria weights determination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#distance-metrics">Distance metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#normalization-methods">Normalization methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="usage.html#method-for-sensitivity-analysis-considering-criteria-weights-modification">Method for sensitivity analysis considering criteria weights modification</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/pyrepo_mcda/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/pyrepo_mcda/index.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.mcda_methods</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#submodules">Submodules</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/codas/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.mcda_methods.codas</span></code></a><ul>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/codas/index.html#module-contents">Module Contents</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/codas/index.html#classes">Classes</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/codas/index.html#pyrepo_mcda.mcda_methods.codas.CODAS">CODAS</a><ul>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/codas/index.html#pyrepo_mcda.mcda_methods.codas.CODAS.__call__">__call__</a></li>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/codas/index.html#pyrepo_mcda.mcda_methods.codas.CODAS._psi">_psi</a></li>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/codas/index.html#pyrepo_mcda.mcda_methods.codas.CODAS._codas">_codas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/edas/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.mcda_methods.edas</span></code></a><ul>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/edas/index.html#module-contents">Module Contents</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/edas/index.html#classes">Classes</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/edas/index.html#pyrepo_mcda.mcda_methods.edas.EDAS">EDAS</a><ul>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/edas/index.html#pyrepo_mcda.mcda_methods.edas.EDAS.__call__">__call__</a></li>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/edas/index.html#pyrepo_mcda.mcda_methods.edas.EDAS._edas">_edas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/mabac/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.mcda_methods.mabac</span></code></a><ul>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/mabac/index.html#module-contents">Module Contents</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/mabac/index.html#classes">Classes</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/mabac/index.html#pyrepo_mcda.mcda_methods.mabac.MABAC">MABAC</a><ul>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/mabac/index.html#pyrepo_mcda.mcda_methods.mabac.MABAC.__call__">__call__</a></li>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/mabac/index.html#pyrepo_mcda.mcda_methods.mabac.MABAC._mabac">_mabac</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/mcda_method/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.mcda_methods.mcda_method</span></code></a><ul>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/mcda_method/index.html#module-contents">Module Contents</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/mcda_method/index.html#classes">Classes</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/mcda_method/index.html#pyrepo_mcda.mcda_methods.mcda_method.MCDA_method">MCDA_method</a><ul>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/mcda_method/index.html#pyrepo_mcda.mcda_methods.mcda_method.MCDA_method.__call__">__call__</a></li>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/mcda_method/index.html#pyrepo_mcda.mcda_methods.mcda_method.MCDA_method._verify_input_data">_verify_input_data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/multimoora/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.mcda_methods.multimoora</span></code></a><ul>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/multimoora/index.html#module-contents">Module Contents</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/multimoora/index.html#classes">Classes</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/multimoora/index.html#pyrepo_mcda.mcda_methods.multimoora.MULTIMOORA_RS">MULTIMOORA_RS</a><ul>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/multimoora/index.html#pyrepo_mcda.mcda_methods.multimoora.MULTIMOORA_RS.__call__">__call__</a></li>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/multimoora/index.html#pyrepo_mcda.mcda_methods.multimoora.MULTIMOORA_RS._multimoora_rs">_multimoora_rs</a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/multimoora/index.html#pyrepo_mcda.mcda_methods.multimoora.MULTIMOORA_RP">MULTIMOORA_RP</a><ul>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/multimoora/index.html#pyrepo_mcda.mcda_methods.multimoora.MULTIMOORA_RP.__call__">__call__</a></li>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/multimoora/index.html#pyrepo_mcda.mcda_methods.multimoora.MULTIMOORA_RP._multimoora_rp">_multimoora_rp</a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/multimoora/index.html#pyrepo_mcda.mcda_methods.multimoora.MULTIMOORA_FMF">MULTIMOORA_FMF</a><ul>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/multimoora/index.html#pyrepo_mcda.mcda_methods.multimoora.MULTIMOORA_FMF.__call__">__call__</a></li>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/multimoora/index.html#pyrepo_mcda.mcda_methods.multimoora.MULTIMOORA_FMF._multimoora_fmf">_multimoora_fmf</a></li>
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/multimoora/index.html#pyrepo_mcda.mcda_methods.multimoora.MULTIMOORA">MULTIMOORA</a><ul>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/multimoora/index.html#pyrepo_mcda.mcda_methods.multimoora.MULTIMOORA.__call__">__call__</a></li>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/multimoora/index.html#pyrepo_mcda.mcda_methods.multimoora.MULTIMOORA._multimoora">_multimoora</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/spotis/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.mcda_methods.spotis</span></code></a><ul>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/spotis/index.html#module-contents">Module Contents</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/spotis/index.html#classes">Classes</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/spotis/index.html#pyrepo_mcda.mcda_methods.spotis.SPOTIS">SPOTIS</a><ul>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/spotis/index.html#pyrepo_mcda.mcda_methods.spotis.SPOTIS.__call__">__call__</a></li>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/spotis/index.html#pyrepo_mcda.mcda_methods.spotis.SPOTIS._spotis">_spotis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/topsis/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.mcda_methods.topsis</span></code></a><ul>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/topsis/index.html#module-contents">Module Contents</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/topsis/index.html#classes">Classes</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/topsis/index.html#pyrepo_mcda.mcda_methods.topsis.TOPSIS">TOPSIS</a><ul>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/topsis/index.html#pyrepo_mcda.mcda_methods.topsis.TOPSIS.__call__">__call__</a></li>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/topsis/index.html#pyrepo_mcda.mcda_methods.topsis.TOPSIS._topsis">_topsis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/vikor/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.mcda_methods.vikor</span></code></a><ul>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/vikor/index.html#module-contents">Module Contents</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/vikor/index.html#classes">Classes</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/vikor/index.html#pyrepo_mcda.mcda_methods.vikor.VIKOR">VIKOR</a><ul>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/vikor/index.html#pyrepo_mcda.mcda_methods.vikor.VIKOR.__call__">__call__</a></li>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/vikor/index.html#pyrepo_mcda.mcda_methods.vikor.VIKOR._vikor">_vikor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/waspas/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.mcda_methods.waspas</span></code></a><ul>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/waspas/index.html#module-contents">Module Contents</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/waspas/index.html#classes">Classes</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/waspas/index.html#pyrepo_mcda.mcda_methods.waspas.WASPAS">WASPAS</a><ul>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/waspas/index.html#pyrepo_mcda.mcda_methods.waspas.WASPAS.__call__">__call__</a></li>
+<li class="toctree-l10"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/waspas/index.html#pyrepo_mcda.mcda_methods.waspas.WASPAS._waspas">_waspas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#classes">Classes</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.CODAS">CODAS</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.CODAS.__call__">__call__</a></li>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.CODAS._psi">_psi</a></li>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.CODAS._codas">_codas</a></li>
+</ul>
+</li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.EDAS">EDAS</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.EDAS.__call__">__call__</a></li>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.EDAS._edas">_edas</a></li>
+</ul>
+</li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.MABAC">MABAC</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.MABAC.__call__">__call__</a></li>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.MABAC._mabac">_mabac</a></li>
+</ul>
+</li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.MULTIMOORA">MULTIMOORA</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.MULTIMOORA.__call__">__call__</a></li>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.MULTIMOORA._multimoora">_multimoora</a></li>
+</ul>
+</li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.SPOTIS">SPOTIS</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.SPOTIS.__call__">__call__</a></li>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.SPOTIS._spotis">_spotis</a></li>
+</ul>
+</li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.TOPSIS">TOPSIS</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.TOPSIS.__call__">__call__</a></li>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.TOPSIS._topsis">_topsis</a></li>
+</ul>
+</li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.VIKOR">VIKOR</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.VIKOR.__call__">__call__</a></li>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.VIKOR._vikor">_vikor</a></li>
+</ul>
+</li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.WASPAS">WASPAS</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.WASPAS.__call__">__call__</a></li>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/mcda_methods/index.html#pyrepo_mcda.mcda_methods.WASPAS._waspas">_waspas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/pyrepo_mcda/index.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pyrepo_mcda/additions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.additions</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="autoapi/pyrepo_mcda/additions/index.html#module-contents">Module Contents</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="autoapi/pyrepo_mcda/additions/index.html#functions">Functions</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/additions/index.html#pyrepo_mcda.additions.rank_preferences">rank_preferences</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pyrepo_mcda/compromise_rankings/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.compromise_rankings</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="autoapi/pyrepo_mcda/compromise_rankings/index.html#module-contents">Module Contents</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="autoapi/pyrepo_mcda/compromise_rankings/index.html#functions">Functions</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/compromise_rankings/index.html#pyrepo_mcda.compromise_rankings.copeland">copeland</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/compromise_rankings/index.html#pyrepo_mcda.compromise_rankings.dominance_directed_graph">dominance_directed_graph</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/compromise_rankings/index.html#pyrepo_mcda.compromise_rankings.rank_position_method">rank_position_method</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/compromise_rankings/index.html#pyrepo_mcda.compromise_rankings.improved_borda_rule">improved_borda_rule</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pyrepo_mcda/correlations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.correlations</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="autoapi/pyrepo_mcda/correlations/index.html#module-contents">Module Contents</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="autoapi/pyrepo_mcda/correlations/index.html#functions">Functions</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/correlations/index.html#pyrepo_mcda.correlations.spearman">spearman</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/correlations/index.html#pyrepo_mcda.correlations.weighted_spearman">weighted_spearman</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/correlations/index.html#pyrepo_mcda.correlations.pearson_coeff">pearson_coeff</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/correlations/index.html#pyrepo_mcda.correlations.WS_coeff">WS_coeff</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.distance_metrics</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html#module-contents">Module Contents</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html#functions">Functions</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html#pyrepo_mcda.distance_metrics.euclidean">euclidean</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html#pyrepo_mcda.distance_metrics.manhattan">manhattan</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html#pyrepo_mcda.distance_metrics.hausdorff_distance">hausdorff_distance</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html#pyrepo_mcda.distance_metrics.hausdorff">hausdorff</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html#pyrepo_mcda.distance_metrics.correlation">correlation</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html#pyrepo_mcda.distance_metrics.chebyshev">chebyshev</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html#pyrepo_mcda.distance_metrics.std_euclidean">std_euclidean</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html#pyrepo_mcda.distance_metrics.cosine">cosine</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html#pyrepo_mcda.distance_metrics.csm">csm</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html#pyrepo_mcda.distance_metrics.squared_euclidean">squared_euclidean</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html#pyrepo_mcda.distance_metrics.bray_curtis">bray_curtis</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html#pyrepo_mcda.distance_metrics.canberra">canberra</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html#pyrepo_mcda.distance_metrics.lorentzian">lorentzian</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html#pyrepo_mcda.distance_metrics.jaccard">jaccard</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html#pyrepo_mcda.distance_metrics.dice">dice</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html#pyrepo_mcda.distance_metrics.bhattacharyya">bhattacharyya</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html#pyrepo_mcda.distance_metrics.hellinger">hellinger</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html#pyrepo_mcda.distance_metrics.matusita">matusita</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html#pyrepo_mcda.distance_metrics.squared_chord">squared_chord</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html#pyrepo_mcda.distance_metrics.pearson_chi_square">pearson_chi_square</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/distance_metrics/index.html#pyrepo_mcda.distance_metrics.squared_chi_square">squared_chi_square</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pyrepo_mcda/normalizations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.normalizations</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="autoapi/pyrepo_mcda/normalizations/index.html#module-contents">Module Contents</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="autoapi/pyrepo_mcda/normalizations/index.html#functions">Functions</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/normalizations/index.html#pyrepo_mcda.normalizations.linear_normalization">linear_normalization</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/normalizations/index.html#pyrepo_mcda.normalizations.minmax_normalization">minmax_normalization</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/normalizations/index.html#pyrepo_mcda.normalizations.max_normalization">max_normalization</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/normalizations/index.html#pyrepo_mcda.normalizations.sum_normalization">sum_normalization</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/normalizations/index.html#pyrepo_mcda.normalizations.vector_normalization">vector_normalization</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/normalizations/index.html#pyrepo_mcda.normalizations.multimoora_normalization">multimoora_normalization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pyrepo_mcda/sensitivity_analysis/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.sensitivity_analysis</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="autoapi/pyrepo_mcda/sensitivity_analysis/index.html#module-contents">Module Contents</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="autoapi/pyrepo_mcda/sensitivity_analysis/index.html#classes">Classes</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/sensitivity_analysis/index.html#pyrepo_mcda.sensitivity_analysis.Sensitivity_analysis_weights">Sensitivity_analysis_weights</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/sensitivity_analysis/index.html#pyrepo_mcda.sensitivity_analysis.Sensitivity_analysis_weights.__call__">__call__</a></li>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/sensitivity_analysis/index.html#pyrepo_mcda.sensitivity_analysis.Sensitivity_analysis_weights._change_weights">_change_weights</a></li>
+<li class="toctree-l8"><a class="reference internal" href="autoapi/pyrepo_mcda/sensitivity_analysis/index.html#pyrepo_mcda.sensitivity_analysis.Sensitivity_analysis_weights._sensitivity_analysis_weights">_sensitivity_analysis_weights</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pyrepo_mcda/weighting_methods/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.weighting_methods</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="autoapi/pyrepo_mcda/weighting_methods/index.html#module-contents">Module Contents</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="autoapi/pyrepo_mcda/weighting_methods/index.html#functions">Functions</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/weighting_methods/index.html#pyrepo_mcda.weighting_methods.equal_weighting">equal_weighting</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/weighting_methods/index.html#pyrepo_mcda.weighting_methods.entropy_weighting">entropy_weighting</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/weighting_methods/index.html#pyrepo_mcda.weighting_methods.std_weighting">std_weighting</a></li>
+<li class="toctree-l7"><a class="reference internal" href="autoapi/pyrepo_mcda/weighting_methods/index.html#pyrepo_mcda.weighting_methods.critic_weighting">critic_weighting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="usage.html" class="btn btn-neutral float-right" title="Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, energyinpython.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

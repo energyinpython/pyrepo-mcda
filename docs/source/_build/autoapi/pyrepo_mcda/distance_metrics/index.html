@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyrepo_mcda.distance_metrics &mdash; pyrepo-mcda 0.1 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="pyrepo_mcda.normalizations" href="../normalizations/index.html" />
+    <link rel="prev" title="pyrepo_mcda.correlations" href="../correlations/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> pyrepo-mcda
+          </a>
+              <div class="version">
+                0.0.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../additions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.additions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../compromise_rankings/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.compromise_rankings</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../correlations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.correlations</span></code></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.distance_metrics</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../normalizations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.normalizations</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../sensitivity_analysis/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.sensitivity_analysis</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../weighting_methods/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.weighting_methods</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">pyrepo-mcda</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.distance_metrics</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/autoapi/pyrepo_mcda/distance_metrics/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="module-pyrepo_mcda.distance_metrics">
+<span id="pyrepo-mcda-distance-metrics"></span><h1><a class="reference internal" href="#module-pyrepo_mcda.distance_metrics" title="pyrepo_mcda.distance_metrics"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.distance_metrics</span></code></a><a class="headerlink" href="#module-pyrepo_mcda.distance_metrics" title="Permalink to this headline"></a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrepo_mcda.distance_metrics.euclidean" title="pyrepo_mcda.distance_metrics.euclidean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">euclidean</span></code></a>(A, B)</p></td>
+<td><p>Calculate Euclidean distance between two vectors <cite>A</cite> and <cite>B</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrepo_mcda.distance_metrics.manhattan" title="pyrepo_mcda.distance_metrics.manhattan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">manhattan</span></code></a>(A, B)</p></td>
+<td><p>Calculate Manhattan (Taxicab) distance between two vectors <cite>A</cite> and <cite>B</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrepo_mcda.distance_metrics.hausdorff_distance" title="pyrepo_mcda.distance_metrics.hausdorff_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hausdorff_distance</span></code></a>(A, B)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrepo_mcda.distance_metrics.hausdorff" title="pyrepo_mcda.distance_metrics.hausdorff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hausdorff</span></code></a>(A, B)</p></td>
+<td><p>Calculate Hausdorff distance between two vectors <cite>A</cite> and <cite>B</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrepo_mcda.distance_metrics.correlation" title="pyrepo_mcda.distance_metrics.correlation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">correlation</span></code></a>(A, B)</p></td>
+<td><p>Calculate Correlation distance between two vectors <cite>A</cite> and <cite>B</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrepo_mcda.distance_metrics.chebyshev" title="pyrepo_mcda.distance_metrics.chebyshev"><code class="xref py py-obj docutils literal notranslate"><span class="pre">chebyshev</span></code></a>(A, B)</p></td>
+<td><p>Calculate Chebyshev distance between two vectors <cite>A</cite> and <cite>B</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrepo_mcda.distance_metrics.std_euclidean" title="pyrepo_mcda.distance_metrics.std_euclidean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">std_euclidean</span></code></a>(A, B)</p></td>
+<td><p>Calculate Standardized Euclidean distance between two vectors <cite>A</cite> and <cite>B</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrepo_mcda.distance_metrics.cosine" title="pyrepo_mcda.distance_metrics.cosine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cosine</span></code></a>(A, B)</p></td>
+<td><p>Calculate Cosine distance between two vectors <cite>A</cite> and <cite>B</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrepo_mcda.distance_metrics.csm" title="pyrepo_mcda.distance_metrics.csm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">csm</span></code></a>(A, B)</p></td>
+<td><p>Calculate Cosine similarity measure of distance between two vectors <cite>A</cite> and <cite>B</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrepo_mcda.distance_metrics.squared_euclidean" title="pyrepo_mcda.distance_metrics.squared_euclidean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">squared_euclidean</span></code></a>(A, B)</p></td>
+<td><p>Calculate Squared Euclidean distance between two vectors <cite>A</cite> and <cite>B</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrepo_mcda.distance_metrics.bray_curtis" title="pyrepo_mcda.distance_metrics.bray_curtis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bray_curtis</span></code></a>(A, B)</p></td>
+<td><p>Calculate Bray-Curtis distance between two vectors <cite>A</cite> and <cite>B</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrepo_mcda.distance_metrics.canberra" title="pyrepo_mcda.distance_metrics.canberra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">canberra</span></code></a>(A, B)</p></td>
+<td><p>Calculate Canberra distance between two vectors <cite>A</cite> and <cite>B</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrepo_mcda.distance_metrics.lorentzian" title="pyrepo_mcda.distance_metrics.lorentzian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lorentzian</span></code></a>(A, B)</p></td>
+<td><p>Calculate Lorentzian distance between two vectors <cite>A</cite> and <cite>B</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrepo_mcda.distance_metrics.jaccard" title="pyrepo_mcda.distance_metrics.jaccard"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jaccard</span></code></a>(A, B)</p></td>
+<td><p>Calculate Jaccard distance between two vectors <cite>A</cite> and <cite>B</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrepo_mcda.distance_metrics.dice" title="pyrepo_mcda.distance_metrics.dice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dice</span></code></a>(A, B)</p></td>
+<td><p>Calculate Dice distance between two vectors <cite>A</cite> and <cite>B</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrepo_mcda.distance_metrics.bhattacharyya" title="pyrepo_mcda.distance_metrics.bhattacharyya"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bhattacharyya</span></code></a>(A, B)</p></td>
+<td><p>Calculate Bhattacharyya distance between two vectors <cite>A</cite> and <cite>B</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrepo_mcda.distance_metrics.hellinger" title="pyrepo_mcda.distance_metrics.hellinger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hellinger</span></code></a>(A, B)</p></td>
+<td><p>Calculate Hellinger distance between two vectors <cite>A</cite> and <cite>B</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrepo_mcda.distance_metrics.matusita" title="pyrepo_mcda.distance_metrics.matusita"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matusita</span></code></a>(A, B)</p></td>
+<td><p>Calculate Matusita distance between two vectors <cite>A</cite> and <cite>B</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrepo_mcda.distance_metrics.squared_chord" title="pyrepo_mcda.distance_metrics.squared_chord"><code class="xref py py-obj docutils literal notranslate"><span class="pre">squared_chord</span></code></a>(A, B)</p></td>
+<td><p>Calculate Squared-Chord distance between two vectors <cite>A</cite> and <cite>B</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrepo_mcda.distance_metrics.pearson_chi_square" title="pyrepo_mcda.distance_metrics.pearson_chi_square"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pearson_chi_square</span></code></a>(A, B)</p></td>
+<td><p>Calculate Pearson Chi Square distance between two vectors <cite>A</cite> and <cite>B</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrepo_mcda.distance_metrics.squared_chi_square" title="pyrepo_mcda.distance_metrics.squared_chi_square"><code class="xref py py-obj docutils literal notranslate"><span class="pre">squared_chi_square</span></code></a>(A, B)</p></td>
+<td><p>Calculate Squared Chi Sqaure distance between two vectors <cite>A</cite> and <cite>B</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.distance_metrics.euclidean">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.distance_metrics.</span></span><span class="sig-name descname"><span class="pre">euclidean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/distance_metrics.html#euclidean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.distance_metrics.euclidean" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate Euclidean distance between two vectors <cite>A</cite> and <cite>B</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>ndarray</em>) – First vector containing values</p></li>
+<li><p><strong>B</strong> (<em>ndarray</em>) – Second vector containing values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>distance value between two vetors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.distance_metrics.manhattan">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.distance_metrics.</span></span><span class="sig-name descname"><span class="pre">manhattan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/distance_metrics.html#manhattan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.distance_metrics.manhattan" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate Manhattan (Taxicab) distance between two vectors <cite>A</cite> and <cite>B</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>ndarray</em>) – First vector containing values</p></li>
+<li><p><strong>B</strong> (<em>ndarray</em>) – Second vector containing values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>distance value between two vetors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.distance_metrics.hausdorff_distance">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.distance_metrics.</span></span><span class="sig-name descname"><span class="pre">hausdorff_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/distance_metrics.html#hausdorff_distance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.distance_metrics.hausdorff_distance" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.distance_metrics.hausdorff">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.distance_metrics.</span></span><span class="sig-name descname"><span class="pre">hausdorff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/distance_metrics.html#hausdorff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.distance_metrics.hausdorff" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate Hausdorff distance between two vectors <cite>A</cite> and <cite>B</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>ndarray</em>) – First vector containing values</p></li>
+<li><p><strong>B</strong> (<em>ndarray</em>) – Second vector containing values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>distance value between two vetors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.distance_metrics.correlation">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.distance_metrics.</span></span><span class="sig-name descname"><span class="pre">correlation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/distance_metrics.html#correlation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.distance_metrics.correlation" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate Correlation distance between two vectors <cite>A</cite> and <cite>B</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>ndarray</em>) – First vector containing values</p></li>
+<li><p><strong>B</strong> (<em>ndarray</em>) – Second vector containing values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>distance value between two vetors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.distance_metrics.chebyshev">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.distance_metrics.</span></span><span class="sig-name descname"><span class="pre">chebyshev</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/distance_metrics.html#chebyshev"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.distance_metrics.chebyshev" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate Chebyshev distance between two vectors <cite>A</cite> and <cite>B</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>ndarray</em>) – First vector containing values</p></li>
+<li><p><strong>B</strong> (<em>ndarray</em>) – Second vector containing values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>distance value between two vetors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.distance_metrics.std_euclidean">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.distance_metrics.</span></span><span class="sig-name descname"><span class="pre">std_euclidean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/distance_metrics.html#std_euclidean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.distance_metrics.std_euclidean" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate Standardized Euclidean distance between two vectors <cite>A</cite> and <cite>B</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>ndarray</em>) – First vector containing values</p></li>
+<li><p><strong>B</strong> (<em>ndarray</em>) – Second vector containing values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>distance value between two vetors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.distance_metrics.cosine">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.distance_metrics.</span></span><span class="sig-name descname"><span class="pre">cosine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/distance_metrics.html#cosine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.distance_metrics.cosine" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate Cosine distance between two vectors <cite>A</cite> and <cite>B</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>ndarray</em>) – First vector containing values</p></li>
+<li><p><strong>B</strong> (<em>ndarray</em>) – Second vector containing values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>distance value between two vetors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.distance_metrics.csm">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.distance_metrics.</span></span><span class="sig-name descname"><span class="pre">csm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/distance_metrics.html#csm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.distance_metrics.csm" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate Cosine similarity measure of distance between two vectors <cite>A</cite> and <cite>B</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>ndarray</em>) – First vector containing values</p></li>
+<li><p><strong>B</strong> (<em>ndarray</em>) – Second vector containing values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>distance value between two vetors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.distance_metrics.squared_euclidean">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.distance_metrics.</span></span><span class="sig-name descname"><span class="pre">squared_euclidean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/distance_metrics.html#squared_euclidean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.distance_metrics.squared_euclidean" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate Squared Euclidean distance between two vectors <cite>A</cite> and <cite>B</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>ndarray</em>) – First vector containing values</p></li>
+<li><p><strong>B</strong> (<em>ndarray</em>) – Second vector containing values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>distance value between two vetors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.distance_metrics.bray_curtis">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.distance_metrics.</span></span><span class="sig-name descname"><span class="pre">bray_curtis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/distance_metrics.html#bray_curtis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.distance_metrics.bray_curtis" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate Bray-Curtis distance between two vectors <cite>A</cite> and <cite>B</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>ndarray</em>) – First vector containing values</p></li>
+<li><p><strong>B</strong> (<em>ndarray</em>) – Second vector containing values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>distance value between two vetors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.distance_metrics.canberra">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.distance_metrics.</span></span><span class="sig-name descname"><span class="pre">canberra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/distance_metrics.html#canberra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.distance_metrics.canberra" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate Canberra distance between two vectors <cite>A</cite> and <cite>B</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>ndarray</em>) – First vector containing values</p></li>
+<li><p><strong>B</strong> (<em>ndarray</em>) – Second vector containing values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>distance value between two vetors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.distance_metrics.lorentzian">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.distance_metrics.</span></span><span class="sig-name descname"><span class="pre">lorentzian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/distance_metrics.html#lorentzian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.distance_metrics.lorentzian" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate Lorentzian distance between two vectors <cite>A</cite> and <cite>B</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>ndarray</em>) – First vector containing values</p></li>
+<li><p><strong>B</strong> (<em>ndarray</em>) – Second vector containing values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>distance value between two vetors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.distance_metrics.jaccard">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.distance_metrics.</span></span><span class="sig-name descname"><span class="pre">jaccard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/distance_metrics.html#jaccard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.distance_metrics.jaccard" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate Jaccard distance between two vectors <cite>A</cite> and <cite>B</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>ndarray</em>) – First vector containing values</p></li>
+<li><p><strong>B</strong> (<em>ndarray</em>) – Second vector containing values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>distance value between two vetors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.distance_metrics.dice">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.distance_metrics.</span></span><span class="sig-name descname"><span class="pre">dice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/distance_metrics.html#dice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.distance_metrics.dice" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate Dice distance between two vectors <cite>A</cite> and <cite>B</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>ndarray</em>) – First vector containing values</p></li>
+<li><p><strong>B</strong> (<em>ndarray</em>) – Second vector containing values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>distance value between two vetors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.distance_metrics.bhattacharyya">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.distance_metrics.</span></span><span class="sig-name descname"><span class="pre">bhattacharyya</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/distance_metrics.html#bhattacharyya"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.distance_metrics.bhattacharyya" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate Bhattacharyya distance between two vectors <cite>A</cite> and <cite>B</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>ndarray</em>) – First vector containing values</p></li>
+<li><p><strong>B</strong> (<em>ndarray</em>) – Second vector containing values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>distance value between two vetors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.distance_metrics.hellinger">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.distance_metrics.</span></span><span class="sig-name descname"><span class="pre">hellinger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/distance_metrics.html#hellinger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.distance_metrics.hellinger" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate Hellinger distance between two vectors <cite>A</cite> and <cite>B</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>ndarray</em>) – First vector containing values</p></li>
+<li><p><strong>B</strong> (<em>ndarray</em>) – Second vector containing values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>distance value between two vetors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.distance_metrics.matusita">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.distance_metrics.</span></span><span class="sig-name descname"><span class="pre">matusita</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/distance_metrics.html#matusita"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.distance_metrics.matusita" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate Matusita distance between two vectors <cite>A</cite> and <cite>B</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>ndarray</em>) – First vector containing values</p></li>
+<li><p><strong>B</strong> (<em>ndarray</em>) – Second vector containing values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>distance value between two vetors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.distance_metrics.squared_chord">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.distance_metrics.</span></span><span class="sig-name descname"><span class="pre">squared_chord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/distance_metrics.html#squared_chord"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.distance_metrics.squared_chord" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate Squared-Chord distance between two vectors <cite>A</cite> and <cite>B</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>ndarray</em>) – First vector containing values</p></li>
+<li><p><strong>B</strong> (<em>ndarray</em>) – Second vector containing values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>distance value between two vetors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.distance_metrics.pearson_chi_square">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.distance_metrics.</span></span><span class="sig-name descname"><span class="pre">pearson_chi_square</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/distance_metrics.html#pearson_chi_square"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.distance_metrics.pearson_chi_square" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate Pearson Chi Square distance between two vectors <cite>A</cite> and <cite>B</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>ndarray</em>) – First vector containing values</p></li>
+<li><p><strong>B</strong> (<em>ndarray</em>) – Second vector containing values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>distance value between two vetors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.distance_metrics.squared_chi_square">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.distance_metrics.</span></span><span class="sig-name descname"><span class="pre">squared_chi_square</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/distance_metrics.html#squared_chi_square"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.distance_metrics.squared_chi_square" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate Squared Chi Sqaure distance between two vectors <cite>A</cite> and <cite>B</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>ndarray</em>) – First vector containing values</p></li>
+<li><p><strong>B</strong> (<em>ndarray</em>) – Second vector containing values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>distance value between two vetors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../correlations/index.html" class="btn btn-neutral float-left" title="pyrepo_mcda.correlations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../normalizations/index.html" class="btn btn-neutral float-right" title="pyrepo_mcda.normalizations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, energyinpython.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

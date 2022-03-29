@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyrepo_mcda.compromise_rankings &mdash; pyrepo-mcda 0.1 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="pyrepo_mcda.correlations" href="../correlations/index.html" />
+    <link rel="prev" title="pyrepo_mcda.additions" href="../additions/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> pyrepo-mcda
+          </a>
+              <div class="version">
+                0.0.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../additions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.additions</span></code></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.compromise_rankings</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../correlations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.correlations</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../distance_metrics/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.distance_metrics</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../normalizations/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.normalizations</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../sensitivity_analysis/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.sensitivity_analysis</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../weighting_methods/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.weighting_methods</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">pyrepo-mcda</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">API Reference</a> &raquo;</li>
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda</span></code></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.compromise_rankings</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/autoapi/pyrepo_mcda/compromise_rankings/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="module-pyrepo_mcda.compromise_rankings">
+<span id="pyrepo-mcda-compromise-rankings"></span><h1><a class="reference internal" href="#module-pyrepo_mcda.compromise_rankings" title="pyrepo_mcda.compromise_rankings"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyrepo_mcda.compromise_rankings</span></code></a><a class="headerlink" href="#module-pyrepo_mcda.compromise_rankings" title="Permalink to this headline"></a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrepo_mcda.compromise_rankings.copeland" title="pyrepo_mcda.compromise_rankings.copeland"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copeland</span></code></a>(matrix)</p></td>
+<td><p>Calculate the compromise ranking considering several rankings obtained using different</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrepo_mcda.compromise_rankings.dominance_directed_graph" title="pyrepo_mcda.compromise_rankings.dominance_directed_graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dominance_directed_graph</span></code></a>(matrix)</p></td>
+<td><p>Calculate the compromise ranking considering several rankings obtained using different</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyrepo_mcda.compromise_rankings.rank_position_method" title="pyrepo_mcda.compromise_rankings.rank_position_method"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rank_position_method</span></code></a>(matrix)</p></td>
+<td><p>Calculate the compromise ranking considering several rankings obtained using different</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyrepo_mcda.compromise_rankings.improved_borda_rule" title="pyrepo_mcda.compromise_rankings.improved_borda_rule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">improved_borda_rule</span></code></a>(prefs, ranks)</p></td>
+<td><p>Calculate the compromise ranking considering several rankings obtained using different</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.compromise_rankings.copeland">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.compromise_rankings.</span></span><span class="sig-name descname"><span class="pre">copeland</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/compromise_rankings.html#copeland"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.compromise_rankings.copeland" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate the compromise ranking considering several rankings obtained using different
+methods using the Copeland compromise ranking methodology</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<em>ndarray</em>) – two-dimensional matrix containing different rankings in columns</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>vector including compromise ranking</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.compromise_rankings.dominance_directed_graph">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.compromise_rankings.</span></span><span class="sig-name descname"><span class="pre">dominance_directed_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/compromise_rankings.html#dominance_directed_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.compromise_rankings.dominance_directed_graph" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate the compromise ranking considering several rankings obtained using different
+methods using Dominance Directed Graph methodology</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<em>ndarray</em>) – two-dimensional matrix containing different rankings in columns</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>vector including compromise ranking</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.compromise_rankings.rank_position_method">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.compromise_rankings.</span></span><span class="sig-name descname"><span class="pre">rank_position_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/compromise_rankings.html#rank_position_method"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.compromise_rankings.rank_position_method" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate the compromise ranking considering several rankings obtained using different
+methods using Rank Position Method</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<em>ndarray</em>) – two-dimensional matrix containing different rankings in columns</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>vector including compromise ranking</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyrepo_mcda.compromise_rankings.improved_borda_rule">
+<span class="sig-prename descclassname"><span class="pre">pyrepo_mcda.compromise_rankings.</span></span><span class="sig-name descname"><span class="pre">improved_borda_rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prefs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ranks</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyrepo_mcda/compromise_rankings.html#improved_borda_rule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyrepo_mcda.compromise_rankings.improved_borda_rule" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate the compromise ranking considering several rankings obtained using different
+methods using Improved Borda rule methodology</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prefs</strong> (<em>ndarray</em>) – two-dimensional matrix containing preferences calculated by different methods in columns</p></li>
+<li><p><strong>ranks</strong> (<em>ndarray</em>) – two-dimensional matrix containing rankings determined by different methods in columns</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>vector including compromise ranking</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../additions/index.html" class="btn btn-neutral float-left" title="pyrepo_mcda.additions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../correlations/index.html" class="btn btn-neutral float-right" title="pyrepo_mcda.correlations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, energyinpython.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

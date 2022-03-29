@@ -1,0 +1,133 @@
+:py:mod:`pyrepo_mcda.mcda_methods.multimoora`
+=============================================
+
+.. py:module:: pyrepo_mcda.mcda_methods.multimoora
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pyrepo_mcda.mcda_methods.multimoora.MULTIMOORA_RS
+   pyrepo_mcda.mcda_methods.multimoora.MULTIMOORA_RP
+   pyrepo_mcda.mcda_methods.multimoora.MULTIMOORA_FMF
+   pyrepo_mcda.mcda_methods.multimoora.MULTIMOORA
+
+
+
+
+.. py:class:: MULTIMOORA_RS
+
+   Bases: :py:obj:`pyrepo_mcda.mcda_methods.mcda_method.MCDA_method`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:method:: __call__(self, matrix, weights, types)
+
+      Score alternatives provided in decision matrix `matrix` using vector with criteria weights
+      `weights` and vector with criteria types `types`.
+
+      :param matrix: Decision matrix with m alternatives in rows and n criteria in columns.
+      :type matrix: ndarray
+      :param weights: Criteria weights. Sum of weights must be equal to 1.
+      :type weights: ndarray
+      :param types: Criteria types. Profit criteria are represented by 1 and cost by -1.
+      :type types: ndarray
+
+      :returns: Preference values of each alternative. The best alternative has the highest preference value.
+      :rtype: ndrarray
+
+
+   .. py:method:: _multimoora_rs(matrix, weights, types)
+      :staticmethod:
+
+
+
+.. py:class:: MULTIMOORA_RP
+
+   Bases: :py:obj:`pyrepo_mcda.mcda_methods.mcda_method.MCDA_method`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:method:: __call__(self, matrix, weights, types)
+
+      Score alternatives provided in decision matrix `matrix` using vector with criteria weights
+      `weights` and vector with criteria types `types`.
+
+      :param matrix: Decision matrix with m alternatives in rows and n criteria in columns.
+      :type matrix: ndarray
+      :param weights: Criteria weights. Sum of weights must be equal to 1.
+      :type weights: ndarray
+      :param types: Criteria types. Profit criteria are represented by 1 and cost by -1.
+      :type types: ndarray
+
+      :returns: Preference values of each alternative. The best alternative has the lowest preference value.
+      :rtype: ndrarray
+
+
+   .. py:method:: _multimoora_rp(matrix, weights, types)
+      :staticmethod:
+
+
+
+.. py:class:: MULTIMOORA_FMF
+
+   Bases: :py:obj:`pyrepo_mcda.mcda_methods.mcda_method.MCDA_method`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:method:: __call__(self, matrix, weights, types)
+
+      Score alternatives provided in decision matrix `matrix` using vector with criteria weights
+      `weights` and vector with criteria types `types`.
+
+      :param matrix: Decision matrix with m alternatives in rows and n criteria in columns.
+      :type matrix: ndarray
+      :param weights: Criteria weights. Sum of weights must be equal to 1.
+      :type weights: ndarray
+      :param types: Criteria types. Profit criteria are represented by 1 and cost by -1.
+      :type types: ndarray
+
+      :returns: Preference values of each alternative. The best alternative has the highest preference value.
+      :rtype: ndrarray
+
+
+   .. py:method:: _multimoora_fmf(matrix, weights, types)
+      :staticmethod:
+
+
+
+.. py:class:: MULTIMOORA(compromise_rank_method=dominance_directed_graph)
+
+   Bases: :py:obj:`pyrepo_mcda.mcda_methods.mcda_method.MCDA_method`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:method:: __call__(self, matrix, weights, types)
+
+      Score alternatives provided in decision matrix `matrix` using vector with criteria weights
+      `weights` and vector with criteria types `types`.
+
+      :param matrix: Decision matrix with m alternatives in rows and n criteria in columns.
+      :type matrix: ndarray
+      :param weights: Criteria weights. Sum of weights must be equal to 1.
+      :type weights: ndarray
+      :param types: Criteria types. Profit criteria are represented by 1 and cost by -1.
+      :type types: ndarray
+
+      :returns: Preference values of each alternative. The best alternative has the highest preference value.
+      :rtype: ndrarray
+
+
+   .. py:method:: _multimoora(matrix, weights, types, compromise_rank_method)
+
+
+
