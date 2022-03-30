@@ -6,7 +6,8 @@ import pandas as pd
 
 # bar chart
 def plot_barplot(df_plot, legend_title):
-    """Visualization method to display column chart of alternatives rankings obtained with 
+    """
+    Visualization method to display column chart of alternatives rankings obtained with 
     different methods.
 
     Parameters
@@ -42,7 +43,8 @@ def plot_barplot(df_plot, legend_title):
 
 # bar chart for sensitivity analysis
 def plot_barplot_sensitivity(df_plot, method_name, criterion_name):
-    """Visualization method to display column chart of alternatives rankings obtained with 
+    """
+    Visualization method to display column chart of alternatives rankings obtained with 
     modification of weight of given criterion.
 
     Parameters
@@ -82,7 +84,8 @@ def plot_barplot_sensitivity(df_plot, method_name, criterion_name):
 
 # plot line chart for sensitivity analysis in basic version
 def plot_lineplot_sensitivity(data_sens, method_name, criterion_name):
-    """Visualization method to display line chart of alternatives rankings obtained with 
+    """
+    Visualization method to display line chart of alternatives rankings obtained with 
     modification of weight of given criterion.
 
     Parameters
@@ -112,7 +115,7 @@ def plot_lineplot_sensitivity(data_sens, method_name, criterion_name):
     plt.ylabel("Rank", fontsize = 12)
     plt.yticks(fontsize = 12)
     plt.xticks(fontsize = 12)
-    plt.title(method_name + ', modification of ' + criterion_name + ' weights')
+    plt.title(method_name + ', modification of ' + criterion_name + ' weight')
     plt.grid(True, linestyle = ':')
     plt.tight_layout()
     plt.savefig('./results/' + 'sensitivity_' + 'lineplot_' + method_name + '_' + criterion_name + '.pdf')

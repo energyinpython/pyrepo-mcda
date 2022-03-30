@@ -1,7 +1,7 @@
 Welcome to pyrepo-mcda documentation!
 ========================================
 
-pyrepo-mcda is Python 3 library for Multi-Criteria Decision Making.
+pyrepo-mcda is Python 3 library for Multi-Criteria Decision Analysis.
 This library includes:
 
 - MCDA methods:
@@ -67,23 +67,24 @@ This library includes:
 	- ``rank_position_method`` (Rank Position Method for compromise ranking)
 	- ``improved_borda_rule`` (Improved Borda Rule method for compromise for MULTIMOORA method)
 	
-- Sensitivity analysis methods:
+- Methods for sensitivity analysis:
 
-	- ``Sensitivity_analysis_weights`` (Methods for sensitivity analysis considering criteria weights modification)
+	- ``Sensitivity_analysis_weights_percentages`` (Method for sensitivity analysis considering percentage modification of criteria weights)
+	- ``Sensitivity_analysis_weights_values`` (Method for sensitivity analysis considering setting different values as chosen criterion weight)
 	
 - additions:
 
 	- ``rank_preferences`` (Method for ordering alternatives according to their preference values obtained with MCDA methods)
 	
-Check out the :doc:``usage`` section for further information, including
-how to :ref:``installation`` the project.
+Check out the :doc:`usage` section for further information, including
+how to :ref:`installation` the project.
 
 .. note::
 
    This project is under active development.
 
 Contents
---------
+---------
 
 .. toctree::
 	

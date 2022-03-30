@@ -2,24 +2,13 @@ import numpy as np
 import pandas as pd
 import copy
 
-from .mcda_methods.codas import CODAS
-from .mcda_methods.edas import EDAS
-from .mcda_methods.mabac import MABAC
-from .mcda_methods.multimoora import MULTIMOORA
-from .mcda_methods.spotis import SPOTIS
-from .mcda_methods.topsis import TOPSIS
-from .mcda_methods.vikor import VIKOR
-from .mcda_methods.waspas import WASPAS
-
 from .additions import rank_preferences
-from .normalizations import *
-from .distance_metrics import *
 
 
-class Sensitivity_analysis_weights():
+class Sensitivity_analysis_weights_percentages():
     def __init__(self):
         """
-        Create object of `Sensitivity_analysis_weights` method.
+        Create object of `Sensitivity_analysis_weights_percentages` method.
         """
         pass
 
@@ -33,7 +22,7 @@ class Sensitivity_analysis_weights():
         -----------
             matrix : ndarray
                 Decision matrix with alternatives performances data. This matrix includes
-                data on m alternatives in rows considering criteria in columns
+                values of alternatives performances in rows considering criteria in columns
 
             weights : ndarray
                 Vector with criteria weights. All weights in this vector must sum to 1.
@@ -43,7 +32,7 @@ class Sensitivity_analysis_weights():
                 for cost criteria.
 
             percentages : ndarray
-                Vector with percentage values of given criteria weight modification.
+                Vector with percentage values of given criteria weight modification in range from 0 to 1.
 
             method : class
                 Initialized object of class of chosen MCDA method
@@ -63,7 +52,7 @@ class Sensitivity_analysis_weights():
                 dataframe with rankings calculated for subsequent modifications of criterion j weight
         """
         list_alt_names = [r'$A_{' + str(i) + '}$' for i in range(1, matrix.shape[0] + 1)]
-        return Sensitivity_analysis_weights._sensitivity_analysis_weights(self, matrix, weights, types, percentages, method, list_alt_names, j, dir_list)
+        return Sensitivity_analysis_weights_percentages._sensitivity_analysis_weights_percentages(self, matrix, weights, types, percentages, method, list_alt_names, j, dir_list)
 
 
     def _change_weights(self, j, weights, change_val):
@@ -80,7 +69,7 @@ class Sensitivity_analysis_weights():
                 Vector of criteria weights
 
             change_val : float
-                Percentage value of criterion weight modification
+                Percentage value of criterion weight modification in range from 0 to 1
 
         Returns
         --------
@@ -101,10 +90,10 @@ class Sensitivity_analysis_weights():
 
 
     @staticmethod
-    def _sensitivity_analysis_weights(self, matrix, weights, types, percentages, method, list_alt_names, j, dir_list):
+    def _sensitivity_analysis_weights_percentages(self, matrix, weights, types, percentages, method, list_alt_names, j, dir_list):
         # Create a dataframe for sensitivity analysis results (rankings)
         data_sens = pd.DataFrame()
-        # Assisgn indexes (alternatives symbols) to dataframe `datasens`
+        # Assisgn indexes (alternatives symbols) to dataframe `data_sens`
         data_sens['Ai'] = list_alt_names
         # Iterate by two directions of weight modification: -1 for weight decreasing
         # and 1 for weight increasing
@@ -114,12 +103,12 @@ class Sensitivity_analysis_weights():
                 direct_percentages = copy.deepcopy(percentages[::-1])
             else:
                 direct_percentages = copy.deepcopy(percentages)
-            # Iterate by values of weight change in vector `direct_percentages``
+            # Iterate by values of weight change in vector `direct_percentages`
             for change_val in direct_percentages:
-                # Change weights using method named `_change_weights` from class `Sensitivity_analysis_weights`
+                # Change weights using method named `_change_weights` from class `Sensitivity_analysis_weights_percentages`
                 weights_copy = self._change_weights(j, weights, dir * change_val)
 
-                # Calculate alternatives ranking using selected MCDA method, `matrix``, vector of new weights
+                # Calculate alternatives ranking using selected MCDA method, `matrix`, vector of new weights
                 # `weights_copy` and criteria types `types`
                 if method.__class__.__name__ == 'TOPSIS':
                     pref = method(matrix, weights_copy, types)

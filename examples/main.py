@@ -14,7 +14,9 @@ from pyrepo_mcda import weighting_methods as mcda_weights
 from pyrepo_mcda import compromise_rankings as compromises
 from pyrepo_mcda.additions import rank_preferences
 
-from pyrepo_mcda.sensitivity_analysis import Sensitivity_analysis_weights
+from pyrepo_mcda.sensitivity_analysis_weights_percentages import Sensitivity_analysis_weights_percentages
+
+from pyrepo_mcda.sensitivity_analysis_weights_values import Sensitivity_analysis_weights_values
 
 
 # Create dictionary class
@@ -176,6 +178,7 @@ def main():
     df_plot = copy.deepcopy(rank_results)
     plot_barplot(df_plot, legend_title='MCDA methods')
     
+    '''
     # correlations heatmaps
     data = copy.deepcopy(rank_results_final)
     method_types = list(data.columns)
@@ -224,20 +227,22 @@ def main():
     matplotlib.rc_file_defaults()
     print('Sensitivity analysis')
     # Sensitivity analysis
-
+    '''
+    
     # load input vector with percentage values of chosen criterion weights modification for sensitivity analysis
     # percentages = np.arange(0.25, 0.55, 0.1)
     percentages = np.arange(0.05, 0.55, 0.1)
+    
 
     # Create the object of chosen MCDA method
     method = TOPSIS(normalization_method=norms.minmax_normalization, distance_metric=dists.euclidean)
     
     # Create the sensitivity analysis method object
-    sensitivity_analysis = Sensitivity_analysis_weights()
+    sensitivity_analysis = Sensitivity_analysis_weights_percentages()
     
-    # Perform sensitivity analysis with weights modification for chosen criteria
+    # Perform sensitivity analysis with weights percentage modification for chosen criteria
     for j in [0, 1, 2, 3]:
-        data_sens = sensitivity_analysis(matrix, weights, types, percentages, method, j, [1])
+        data_sens = sensitivity_analysis(matrix, weights, types, percentages, method, j, [-1, 1])
 
         header = [data_sens.index.name]
         header = header + list(data_sens.columns)
@@ -245,9 +250,35 @@ def main():
         print(tabulate(data_sens, headers = header, tablefmt='github'))
         #plot_barplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j])
 
-        #plot_lineplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j])
-        plot_radar(data_sens, method.__class__.__name__ + ', Criterion ' + list_crit_names[j] + ' weight change', j)
+        plot_lineplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j])
+        #plot_radar(data_sens, method.__class__.__name__ + ', Criterion ' + list_crit_names[j] + ' weight change', j)
+    
+    # Perform sensitivity analysis with setting chosen weight value to selected criterion
+    # other criteria have equal weight values and all criteria weights sum to 1
+    sensitivity_analysis_weights_values = Sensitivity_analysis_weights_values()
+    weight_values = np.arange(0.05, 0.95, 0.1)
+    for j in [0, 1, 2, 3]:
+        data_sens = sensitivity_analysis_weights_values(matrix, weight_values, types, method, j)
+        header = [data_sens.index.name]
+        header = header + list(data_sens.columns)
+        print('New Sensitivity analysis for C' + str(j + 1))
+        print(tabulate(data_sens, headers = header, tablefmt='github'))
+        plot_lineplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j])
 
+        # Sensitivity analysis showing intervals of criteria weights for particular positions of alternatives in ranking
+        # new_data_sens = pd.melt(data_sens)
+        # num_tiles = len(new_data_sens) / len(list_alt_names)
+        # new_data_sens['Alternative'] = np.tile(np.array(list_alt_names), int(num_tiles))
+        # new_data_sens = new_data_sens.rename(columns = {"variable" : 'Weight', 'value' : 'Rank'})
+        # w = [float(new_data_sens.iloc[i, 0]) for i in range(new_data_sens.shape[0])]
+        # new_data_sens['Weight'] = w
+
+        # print(new_data_sens)
+        # plot_boxplot_simulation(new_data_sens, 'Alternative', 'Weight', 'Rank' , 'Alternative', 'Weight', 'Criterion ' + list_crit_names[j] + ' weight change', 'robustness_weights_' + str(j + 1))
+
+
+
+    '''
     # Robustness analysis
     # Create object of chosen MCDA method
     topsis = TOPSIS(normalization_method=norms.minmax_normalization, distance_metric=dists.euclidean)
@@ -302,7 +333,7 @@ def main():
         df_results_sim.to_csv('results/' + 'robustness_C' + str(j + 1) + '.csv')
 
         plot_boxplot_simulation(df_results_sim, 'Alternative', 'Performance', 'Rank' , 'Alternative', 'Performance', 'TOPSIS, Criterion ' + list_crit_names[j] + ' performance change', 'robustness_' + str(j + 1))
-
+    '''
 
 if __name__ == "__main__":
     main()

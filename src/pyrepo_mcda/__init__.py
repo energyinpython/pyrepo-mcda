@@ -4,5 +4,6 @@ from . import compromise_rankings
 from . import correlations
 from . import distance_metrics
 from . import normalizations
-from . import sensitivity_analysis
+from . import sensitivity_analysis_weights_percentages
+from . import sensitivity_analysis_weights_values
 from . import weighting_methods
