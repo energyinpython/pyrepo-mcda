@@ -6,6 +6,7 @@ from pyrepo_mcda.mcda_methods import SPOTIS
 from pyrepo_mcda.mcda_methods import EDAS
 from pyrepo_mcda.mcda_methods import MABAC
 from pyrepo_mcda.mcda_methods import MULTIMOORA
+from pyrepo_mcda.mcda_methods import MULTIMOORA_RS as MOORA
 
 from pyrepo_mcda.mcda_methods.multimoora import MULTIMOORA_RS, MULTIMOORA_RP, MULTIMOORA_FMF
 
@@ -261,6 +262,28 @@ class Test_MULTIMOORA(unittest.TestCase):
         self.assertEqual(list(test_result), list(real_result))
 
 
+# Test for the MOORA method
+class Test_MOORA(unittest.TestCase):
+
+    def test_moora(self):
+        """Karabasevic, D., Stanujkic, D., Urosevic, S., & Maksimovic, M. (2015). Selection of 
+        candidates in the mining industry based on the application of the SWARA and the MULTIMOORA 
+        methods. Acta Montanistica Slovaca, 20(2)."""
+
+        matrix = np.array([[4, 3, 3, 4, 3, 2, 4],
+        [3, 3, 4, 3, 5, 4, 4],
+        [5, 4, 4, 5, 5, 5, 4]])
+
+        weights = np.array([0.215, 0.215, 0.159, 0.133, 0.102, 0.102, 0.073])
+        types = np.array([1, 1, 1, 1, 1, 1, 1])
+
+        method = MOORA()
+        test_result = method(matrix, weights, types)
+        real_result = np.array([0.494, 0.527, 0.677])
+
+        self.assertEqual(list(np.round(test_result, 3)), list(np.round(real_result, 3)))
+
+
 # Test for rank preferences
 class Test_Rank_preferences(unittest.TestCase):
 
@@ -302,6 +325,9 @@ def main():
 
     test_multimoora = Test_MULTIMOORA()
     test_multimoora.test_multimoora()
+
+    test_moora = Test_MOORA()
+    test_moora.test_moora()
 
 
 if __name__ == '__main__':

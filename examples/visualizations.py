@@ -42,7 +42,7 @@ def plot_barplot(df_plot, legend_title):
 
 
 # bar chart for sensitivity analysis
-def plot_barplot_sensitivity(df_plot, method_name, criterion_name):
+def plot_barplot_sensitivity(df_plot, method_name, criterion_name, filename = ""):
     """
     Visualization method to display column chart of alternatives rankings obtained with 
     modification of weight of given criterion.
@@ -58,6 +58,9 @@ def plot_barplot_sensitivity(df_plot, method_name, criterion_name):
         
         criterion_name : str
             Name of chosen criterion whose weight is modified
+
+        filename : str
+            Name of file to save this chart
     """
     step = 1
     list_rank = np.arange(1, len(df_plot) + 1, step)
@@ -78,12 +81,12 @@ def plot_barplot_sensitivity(df_plot, method_name, criterion_name):
     ax.grid(True, linestyle = ':')
     ax.set_axisbelow(True)
     plt.tight_layout()
-    plt.savefig('./results/' + 'sensitivity_' + 'hist_' + method_name + '_' + criterion_name + '.pdf')
+    plt.savefig('./results/' + 'sensitivity_' + 'hist_' + method_name + '_' + criterion_name + '_' + filename + '.pdf')
     plt.show()
 
 
 # plot line chart for sensitivity analysis in basic version
-def plot_lineplot_sensitivity(data_sens, method_name, criterion_name):
+def plot_lineplot_sensitivity(data_sens, method_name, criterion_name, x_title, filename = ""):
     """
     Visualization method to display line chart of alternatives rankings obtained with 
     modification of weight of given criterion.
@@ -94,11 +97,18 @@ def plot_lineplot_sensitivity(data_sens, method_name, criterion_name):
             DataFrame containing rankings of alternatives obtained with different weight of
             selected criterion. The particular rankings are contained in subsequent columns of 
             DataFrame.
+
         method_name : str
             Name of chosen MCDA method, i.e. `TOPSIS`, `VIKOR`, `CODAS`, `WASPAS`, 'MULTIMOORA`, `MABAC`, `EDAS`, `SPOTIS`
         
         criterion_name : str
             Name of chosen criterion whose weight is modified
+        
+        x_title : str
+            Title of x axis
+
+        filename : str
+            Name of file to save this chart
     """
     plt.figure(figsize = (6, 3))
     for j in range(data_sens.shape[0]):
@@ -111,14 +121,14 @@ def plot_lineplot_sensitivity(data_sens, method_name, criterion_name):
                         fontsize = 12, style='italic',
                         horizontalalignment='left')
 
-    plt.xlabel("Weight modification", fontsize = 12)
+    plt.xlabel(x_title, fontsize = 12)
     plt.ylabel("Rank", fontsize = 12)
     plt.yticks(fontsize = 12)
     plt.xticks(fontsize = 12)
     plt.title(method_name + ', modification of ' + criterion_name + ' weight')
     plt.grid(True, linestyle = ':')
     plt.tight_layout()
-    plt.savefig('./results/' + 'sensitivity_' + 'lineplot_' + method_name + '_' + criterion_name + '.pdf')
+    plt.savefig('./results/' + 'sensitivity_' + 'lineplot_' + method_name + '_' + criterion_name + '_' + filename + '.pdf')
     plt.show()
 
 

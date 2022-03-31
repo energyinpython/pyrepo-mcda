@@ -3,6 +3,7 @@ from .codas import CODAS
 from .edas import EDAS
 from .mabac import MABAC
 from .multimoora import MULTIMOORA
+from .multimoora import MULTIMOORA_RS
 from .spotis import SPOTIS
 from .topsis import TOPSIS
 from .vikor import VIKOR

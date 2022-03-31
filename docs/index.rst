@@ -10,6 +10,7 @@ This library includes:
 	- ``CODAS``
 	- ``MABAC``
 	- ``MULTIMOORA``
+	- ``MOORA``
 	- ``VIKOR``
 	- ``WASPAS``
 	- ``EDAS``

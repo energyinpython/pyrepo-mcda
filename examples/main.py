@@ -6,6 +6,7 @@ from tabulate import tabulate
 from visualizations import *
 
 from pyrepo_mcda.mcda_methods import CODAS, TOPSIS, WASPAS, VIKOR, SPOTIS, EDAS, MABAC, MULTIMOORA
+from pyrepo_mcda.mcda_methods import MULTIMOORA_RS as MOORA
 
 from pyrepo_mcda import distance_metrics as dists
 from pyrepo_mcda import correlations as corrs
@@ -250,7 +251,7 @@ def main():
         print(tabulate(data_sens, headers = header, tablefmt='github'))
         #plot_barplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j])
 
-        plot_lineplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j])
+        #plot_lineplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j], "Weight modification in %", "percentage")
         #plot_radar(data_sens, method.__class__.__name__ + ', Criterion ' + list_crit_names[j] + ' weight change', j)
     
     # Perform sensitivity analysis with setting chosen weight value to selected criterion
@@ -263,7 +264,7 @@ def main():
         header = header + list(data_sens.columns)
         print('New Sensitivity analysis for C' + str(j + 1))
         print(tabulate(data_sens, headers = header, tablefmt='github'))
-        plot_lineplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j])
+        plot_lineplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j], "Weight value", "value")
 
         # Sensitivity analysis showing intervals of criteria weights for particular positions of alternatives in ranking
         # new_data_sens = pd.melt(data_sens)
@@ -272,9 +273,10 @@ def main():
         # new_data_sens = new_data_sens.rename(columns = {"variable" : 'Weight', 'value' : 'Rank'})
         # w = [float(new_data_sens.iloc[i, 0]) for i in range(new_data_sens.shape[0])]
         # new_data_sens['Weight'] = w
+        # new_data_sens.to_csv('results/' + 'sensitivity_weights_values_C' + str(j + 1) + '.csv')
 
         # print(new_data_sens)
-        # plot_boxplot_simulation(new_data_sens, 'Alternative', 'Weight', 'Rank' , 'Alternative', 'Weight', 'Criterion ' + list_crit_names[j] + ' weight change', 'robustness_weights_' + str(j + 1))
+        # plot_boxplot_simulation(new_data_sens, 'Alternative', 'Weight', 'Rank' , 'Alternative', 'Weight', 'Criterion ' + list_crit_names[j] + ' weight change', 'robustness_weights_values_' + str(j + 1))
 
 
 
@@ -332,7 +334,7 @@ def main():
         df_results_sim = pd.DataFrame(dict_results_sim)
         df_results_sim.to_csv('results/' + 'robustness_C' + str(j + 1) + '.csv')
 
-        plot_boxplot_simulation(df_results_sim, 'Alternative', 'Performance', 'Rank' , 'Alternative', 'Performance', 'TOPSIS, Criterion ' + list_crit_names[j] + ' performance change', 'robustness_' + str(j + 1))
+        plot_boxplot_simulation(df_results_sim, 'Alternative', 'Performance', 'Rank' , 'Alternative', 'Performance', 'TOPSIS, Criterion ' + list_crit_names[j] + ' performance change', 'robustness_C' + str(j + 1))
     '''
 
 if __name__ == "__main__":

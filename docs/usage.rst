@@ -424,9 +424,41 @@ Output
 .. code-block:: console
 
 	Ranking:  [3 2 1]
+
+The MOORA method
+___________________________________________
+
+The MOORA method is used to obtain preference values of alternatives. Then alternatives have to be
+sorted according to preference values in descending order. The MOORA method can be applied using
+``MULTIMOORA_RS`` from ``multimoora``
+
+.. code-block:: python
+
+	import numpy as np
+	from pyrepo_mcda.mcda_methods import MULTIMOORA_RS as MOORA
+
+	matrix = np.array([[4, 3, 3, 4, 3, 2, 4],
+	[3, 3, 4, 3, 5, 4, 4],
+	[5, 4, 4, 5, 5, 5, 4]])
+
+	weights = np.array([0.215, 0.215, 0.159, 0.133, 0.102, 0.102, 0.073])
+	types = np.array([1, 1, 1, 1, 1, 1, 1])
+
+	moora = MOORA()
+    pref = moora(matrix, weights, types)
+    rank = rank_preferences(pref, reverse = True)
+
+	print('Preference values: ', np.round(pref, 4))
+	print('Ranking: ', rank)
+
+Output
+
+.. code-block:: console
+
+	Preference values:  [0.241  0.1702 0.1431 0.1068 0.1027 0.13  ]
+	Ranking:  [1 2 3 5 6 4]
 	
 
-	
 Methods for determining compromise rankings
 _____________________________________________
 	
