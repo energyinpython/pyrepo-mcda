@@ -179,7 +179,7 @@ def main():
     df_plot = copy.deepcopy(rank_results)
     plot_barplot(df_plot, legend_title='MCDA methods')
     
-    '''
+    
     # correlations heatmaps
     data = copy.deepcopy(rank_results_final)
     method_types = list(data.columns)
@@ -228,7 +228,7 @@ def main():
     matplotlib.rc_file_defaults()
     print('Sensitivity analysis')
     # Sensitivity analysis
-    '''
+    
     
     # load input vector with percentage values of chosen criterion weights modification for sensitivity analysis
     # percentages = np.arange(0.25, 0.55, 0.1)
@@ -249,10 +249,8 @@ def main():
         header = header + list(data_sens.columns)
         print('Sensitivity analysis for C' + str(j + 1))
         print(tabulate(data_sens, headers = header, tablefmt='github'))
-        #plot_barplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j])
 
-        #plot_lineplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j], "Weight modification in %", "percentage")
-        #plot_radar(data_sens, method.__class__.__name__ + ', Criterion ' + list_crit_names[j] + ' weight change', j)
+        plot_lineplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j], "Weight modification in %", "percentage")
     
     # Perform sensitivity analysis with setting chosen weight value to selected criterion
     # other criteria have equal weight values and all criteria weights sum to 1
@@ -280,7 +278,7 @@ def main():
 
 
 
-    '''
+    
     # Robustness analysis
     # Create object of chosen MCDA method
     topsis = TOPSIS(normalization_method=norms.minmax_normalization, distance_metric=dists.euclidean)
@@ -335,7 +333,7 @@ def main():
         df_results_sim.to_csv('results/' + 'robustness_C' + str(j + 1) + '.csv')
 
         plot_boxplot_simulation(df_results_sim, 'Alternative', 'Performance', 'Rank' , 'Alternative', 'Performance', 'TOPSIS, Criterion ' + list_crit_names[j] + ' performance change', 'robustness_C' + str(j + 1))
-    '''
+    
 
 if __name__ == "__main__":
     main()

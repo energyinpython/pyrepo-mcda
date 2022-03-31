@@ -204,10 +204,14 @@ def plot_radar(data, title, j):
 def plot_boxplot(data, title):
     """
     Display boxplot showing distribution of preference values determined with different methods.
+
     Parameters
     ----------
     data : dataframe
         dataframe with correlation values between compared rankings
+
+    title : str
+        Title of chart.
     """
     
     df_melted = pd.melt(data)
@@ -223,11 +227,11 @@ def plot_boxplot(data, title):
     plt.show()
 
 
-# plot box chart of results obtained in robustness analysis
+# plot box chart of results obtained in robustness analysis showing intervals of alternatives performance values for particular ranks
 def plot_boxplot_simulation(data, x, y, hue, xtitle, ytitle, title, filename):
     """
-    Visualization method to display box chart of results obtained in simulations performed for
-    different methods.
+    Visualization method to display box chart of results obtained in robustness analysis. It shows
+    intervals of alternatives performance values for particular positions in ranking.
 
     Parameters
     ----------
