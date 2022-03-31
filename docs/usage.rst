@@ -430,7 +430,9 @@ ___________________________________________
 
 The MOORA method is used to obtain preference values of alternatives. Then alternatives have to be
 sorted according to preference values in descending order. The MOORA method can be applied using
-``MULTIMOORA_RS`` from ``multimoora``
+``MULTIMOORA_RS`` from ``multimoora``. This method requires providing decision matrix ``matrix``,
+vector with criteria weights ``weights`` (all weights must sum to 1) and vector with criteria 
+types ``types`` which are equal to 1 for profit criteria and -1 for cost criteria.
 
 .. code-block:: python
 
@@ -445,8 +447,8 @@ sorted according to preference values in descending order. The MOORA method can 
 	types = np.array([1, 1, 1, 1, 1, 1, 1])
 
 	moora = MOORA()
-    pref = moora(matrix, weights, types)
-    rank = rank_preferences(pref, reverse = True)
+	pref = moora(matrix, weights, types)
+	rank = rank_preferences(pref, reverse = True)
 
 	print('Preference values: ', np.round(pref, 4))
 	print('Ranking: ', rank)
