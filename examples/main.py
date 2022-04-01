@@ -87,7 +87,7 @@ def main():
     # plot box chart of alternatives preference values
     plot_boxplot(df_preferences.T, 'TOPSIS, preference values distribution')
 
-    # MCDA methods
+    # Exploration of different MCDA methods
     rank_results = pd.DataFrame()
     rank_results['Ai'] = list(list_alt_names)
 
@@ -174,7 +174,7 @@ def main():
     rank_results_final.to_csv('./results/' + 'results.csv')
 
     
-    # visualization
+    # visualization of rankings provided by different MCDA methods
     # barplot
     df_plot = copy.deepcopy(rank_results)
     plot_barplot(df_plot, legend_title='MCDA methods')
@@ -227,7 +227,7 @@ def main():
     
     matplotlib.rc_file_defaults()
     print('Sensitivity analysis')
-    # Sensitivity analysis
+    # Sensitivity analysis - percentage modification of chosen criterion weight
     
     
     # load input vector with percentage values of chosen criterion weights modification for sensitivity analysis
@@ -251,6 +251,7 @@ def main():
         print(tabulate(data_sens, headers = header, tablefmt='github'))
 
         plot_lineplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j], "Weight modification in %", "percentage")
+        # plot_barplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j], "weight_percentage_bar")
     
     # Perform sensitivity analysis with setting chosen weight value to selected criterion
     # other criteria have equal weight values and all criteria weights sum to 1
@@ -260,26 +261,17 @@ def main():
         data_sens = sensitivity_analysis_weights_values(matrix, weight_values, types, method, j)
         header = [data_sens.index.name]
         header = header + list(data_sens.columns)
-        print('New Sensitivity analysis for C' + str(j + 1))
+        print('Sensitivity analysis for C' + str(j + 1))
         print(tabulate(data_sens, headers = header, tablefmt='github'))
         plot_lineplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j], "Weight value", "value")
-
-        # Sensitivity analysis showing intervals of criteria weights for particular positions of alternatives in ranking
-        # new_data_sens = pd.melt(data_sens)
-        # num_tiles = len(new_data_sens) / len(list_alt_names)
-        # new_data_sens['Alternative'] = np.tile(np.array(list_alt_names), int(num_tiles))
-        # new_data_sens = new_data_sens.rename(columns = {"variable" : 'Weight', 'value' : 'Rank'})
-        # w = [float(new_data_sens.iloc[i, 0]) for i in range(new_data_sens.shape[0])]
-        # new_data_sens['Weight'] = w
-        # new_data_sens.to_csv('results/' + 'sensitivity_weights_values_C' + str(j + 1) + '.csv')
-
-        # print(new_data_sens)
-        # plot_boxplot_simulation(new_data_sens, 'Alternative', 'Weight', 'Rank' , 'Alternative', 'Weight', 'Criterion ' + list_crit_names[j] + ' weight change', 'robustness_weights_values_' + str(j + 1))
+    # example of bar chart usage for sensitivity analysis
+    plot_barplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j], "weight_values_bar")
+    # example of radar chart usage for sensitivity analysis
+    plot_radar(data_sens, list_crit_names[j] + ' weight modification', j)
 
 
-
-    
     # Robustness analysis
+    # Determining intervals of alternatives performance values for particular positions in rankings
     # Create object of chosen MCDA method
     topsis = TOPSIS(normalization_method=norms.minmax_normalization, distance_metric=dists.euclidean)
 

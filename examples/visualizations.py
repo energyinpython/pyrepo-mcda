@@ -14,9 +14,10 @@ def plot_barplot(df_plot, legend_title):
     ----------
         df_plot : DataFrame
             DataFrame containing rankings of alternatives obtained with different methods.
-            The particular rankings are contained in subsequent columns of DataFrame.
+            The particular rankings are included in subsequent columns of DataFrame.
+
         title : str
-            Title of chart
+            Title of the legend (Name of group of explored methods, for example MCDA methods or Distance metrics).
     """
     step = 1
     list_rank = np.arange(1, len(df_plot) + 1, step)
@@ -50,11 +51,12 @@ def plot_barplot_sensitivity(df_plot, method_name, criterion_name, filename = ""
     Parameters
     ----------
         df_plot : DataFrame
-            DataFrame containing rankings of alternatives obtained with different weight of
+            DataFrame containing rankings of alternatives obtained with different weights of
             selected criterion. The particular rankings are contained in subsequent columns of 
             DataFrame.
+
         method_name : str
-            Name of chosen MCDA method, i.e. `TOPSIS`, `VIKOR`, `CODAS`, `WASPAS`, 'MULTIMOORA`, `MABAC`, `EDAS`, `SPOTIS`
+            Name of chosen MCDA method, i.e. `TOPSIS`, `VIKOR`, `CODAS`, `WASPAS`, `MULTIMOORA`, `MABAC`, `EDAS`, `SPOTIS`
         
         criterion_name : str
             Name of chosen criterion whose weight is modified
@@ -99,7 +101,7 @@ def plot_lineplot_sensitivity(data_sens, method_name, criterion_name, x_title, f
             DataFrame.
 
         method_name : str
-            Name of chosen MCDA method, i.e. `TOPSIS`, `VIKOR`, `CODAS`, `WASPAS`, 'MULTIMOORA`, `MABAC`, `EDAS`, `SPOTIS`
+            Name of chosen MCDA method, i.e. `TOPSIS`, `VIKOR`, `CODAS`, `WASPAS`, `MULTIMOORA`, `MABAC`, `EDAS`, `SPOTIS`
         
         criterion_name : str
             Name of chosen criterion whose weight is modified
@@ -141,11 +143,12 @@ def draw_heatmap(df_new_heatmap, title):
     ----------
         data : DataFrame
             DataFrame with correlation values between compared rankings
+
         title : str
             title of chart containing name of used correlation coefficient
     """
-    plt.figure(figsize = (8,5))
-    sns.set(font_scale=1.2)
+    plt.figure(figsize = (8, 5))
+    sns.set(font_scale = 1.2)
     heatmap = sns.heatmap(df_new_heatmap, annot=True, fmt=".2f", cmap="PuBu",
                           linewidth=0.5, linecolor='w')
     plt.yticks(va="center")
@@ -167,8 +170,10 @@ def plot_radar(data, title, j):
         data : DataFrame
             DataFrame containing containing rankings of alternatives obtained with different 
             methods. The particular rankings are contained in subsequent columns of DataFrame.
+
         title : str
             Chart title
+
         j : int
             Index of criterion chosen for weight modification in sensitivity analysis
     """
@@ -189,7 +194,6 @@ def plot_radar(data, title, j):
         labels=np.array(lista)
 
         ax.plot(angles, stats, '-o', linewidth=2)
-        #ax.fill_between(angles, stats, alpha=0.05)
     
     ax.set_thetagrids(angles * 180/np.pi, labels)
     ax.grid(True)
@@ -197,7 +201,7 @@ def plot_radar(data, title, j):
     plt.legend(data.columns, bbox_to_anchor=(1.0, 0.95, 0.4, 0.2), loc='upper left')
     plt.title(title)
     plt.tight_layout()
-    plt.savefig('./results/' + 'radar_chart_' + str(j + 1) + '.pdf')
+    plt.savefig('./results/' + 'radar_chart_C' + str(j + 1) + '.pdf')
     plt.show()
 
 # Examplary visualization method
