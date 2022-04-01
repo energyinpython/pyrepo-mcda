@@ -20,11 +20,10 @@ extensions = [
 	'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
 	'nbsphinx',
+	'autoapi.extension',
 ]
-extensions.append('autoapi.extension')
 autoapi_type = 'python'
 autoapi_dirs = ["../src"]  # location to parse for API reference
-html_theme = "sphinx_rtd_theme"
 
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3/', None),
