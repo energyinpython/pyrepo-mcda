@@ -15,12 +15,11 @@ with alternatives in rows and criteria in columns, and criteria weights and type
 method:
 
 ```python
+import numpy as np
 from pyrepo_mcda.mcda_methods import TOPSIS
 from pyrepo_mcda import distance_metrics as dists
 from pyrepo_mcda import normalizations as norms
 from pyrepo_mcda.additions import rank_preferences
-
-import numpy as np
 
 matrix = np.array([[256, 8, 41, 1.6, 1.77, 7347.16],
 [256, 8, 32, 1.0, 1.8, 6919.99],
