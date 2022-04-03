@@ -18,6 +18,10 @@ def plot_barplot(df_plot, legend_title):
 
         title : str
             Title of the legend (Name of group of explored methods, for example MCDA methods or Distance metrics).
+
+    Examples
+    ----------
+    >>> plot_barplot(df_plot, legend_title='MCDA methods')
     """
     step = 1
     list_rank = np.arange(1, len(df_plot) + 1, step)
@@ -63,6 +67,10 @@ def plot_barplot_sensitivity(df_plot, method_name, criterion_name, filename = ""
 
         filename : str
             Name of file to save this chart
+
+    Examples
+    -----------
+    >>> plot_barplot_sensitivity(df_plot, method_name, criterion_name, filename)
     """
     step = 1
     list_rank = np.arange(1, len(df_plot) + 1, step)
@@ -111,6 +119,10 @@ def plot_lineplot_sensitivity(data_sens, method_name, criterion_name, x_title, f
 
         filename : str
             Name of file to save this chart
+
+    Examples
+    ----------
+    >>> plot_lineplot_sensitivity(df_plot, method_name, criterion_name, x_title, filename)
     """
     plt.figure(figsize = (6, 3))
     for j in range(data_sens.shape[0]):
@@ -146,6 +158,10 @@ def draw_heatmap(df_new_heatmap, title):
 
         title : str
             title of chart containing name of used correlation coefficient
+
+    Examples
+    ---------
+    >>> draw_heatmap(df_new_heatmap, title)
     """
     plt.figure(figsize = (8, 5))
     sns.set(font_scale = 1.2)
@@ -176,6 +192,10 @@ def plot_radar(data, title, j):
 
         j : int
             Index of criterion chosen for weight modification in sensitivity analysis
+
+    Examples
+    ----------
+    >>> plot_radar(data, title, j)
     """
     fig=plt.figure()
     ax = fig.add_subplot(111, polar = True)
@@ -211,11 +231,15 @@ def plot_boxplot(data, title):
 
     Parameters
     ----------
-    data : dataframe
-        dataframe with correlation values between compared rankings
+        data : dataframe
+            dataframe with correlation values between compared rankings
 
-    title : str
-        Title of chart.
+        title : str
+            Title of chart.
+
+    Examples
+    ----------
+    >>> plot_boxplot(data, title)
     """
     
     df_melted = pd.melt(data)
@@ -248,7 +272,7 @@ def plot_boxplot_simulation(data, x, y, hue, xtitle, ytitle, title, filename):
         y : str
             Name of column in DataFrame with variable values in axis y on chart
         hue : str
-            Name of hue
+            Name of hue, that determines how the data are plotted
 
         xtitle : str
             Name of axis x title
@@ -261,6 +285,10 @@ def plot_boxplot_simulation(data, x, y, hue, xtitle, ytitle, title, filename):
 
         filename : str
             Name of file in which chart will be saved
+
+    Examples
+    ----------
+    >>> plot_boxplot_simulation(data, x, y, hue , xtitle, ytitle, title, filename)
 
     """
     plt.figure(figsize = (9,5))

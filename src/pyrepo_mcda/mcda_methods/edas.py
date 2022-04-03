@@ -25,6 +25,12 @@ class EDAS(MCDA_method):
         --------
             ndrarray
                 Vector with preference values of each alternative. The best alternative has the highest preference value. 
+
+        Examples
+        ---------
+        >>> edas = EDAS()
+        >>> pref = edas(matrix, weights, types)
+        >>> rank = rank_preferences(pref, reverse = True)
         """
         EDAS._verify_input_data(matrix, weights, types)
         return EDAS._edas(matrix, weights, types)

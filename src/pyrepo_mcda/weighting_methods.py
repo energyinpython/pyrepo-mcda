@@ -1,5 +1,5 @@
-import numpy as np
 import itertools
+import numpy as np
 
 from .correlations import pearson_coeff
 from .normalizations import sum_normalization, minmax_normalization
@@ -18,6 +18,10 @@ def equal_weighting(matrix):
     --------
         ndarray
             vector of criteria weights
+
+    Examples
+    ----------
+    >>> weights = equal_weighting(matrix)
     """
     N = np.shape(matrix)[1]
     w = np.ones(N) / N
@@ -37,6 +41,10 @@ def entropy_weighting(matrix):
     --------
         ndarray
             vector of criteria weights
+
+    Examples
+    ----------
+    >>> weights = entropy_weighting(matrix)
     """
     # normalize the decision matrix with sum_normalization method from normalizations as for profit criteria
     types = np.ones(np.shape(matrix)[1])
@@ -74,6 +82,10 @@ def std_weighting(matrix):
     --------
         ndarray
             vector of criteria weights
+
+    Examples
+    ----------
+    >>> weights = std_weighting(matrix)
     """
 
     # Calculate the standard deviation of each criterion in decision matrix
@@ -96,6 +108,10 @@ def critic_weighting(matrix):
     --------
         ndarray
             vector of criteria weights
+
+    Examples
+    ----------
+    >>> weights = critic_weighting(matrix)
     """
     # Normalize the decision matrix using Minimum-Maximum normalization minmax_normalization from normalizations as for profit criteria
     types = np.ones(np.shape(matrix)[1])

@@ -1,6 +1,6 @@
 import numpy as np
 
-# reverse = True: descending order ( for example TOPSIS, CODAS), False: ascending order (for example VIKOR, SPOTIS)
+
 def rank_preferences(pref, reverse = True):
     """
     Rank alternatives according to MCDA preference function values. If more than one alternative
@@ -9,16 +9,20 @@ def rank_preferences(pref, reverse = True):
     Parameters
     ------------
         pref : ndarray
-            vector with MCDA preference function values for alternatives
+            Vector with MCDA preference function values for alternatives
         reverse : bool
-            Boolean variable which is True for MCDA methods which rank alternatives in descending
-            order and False for MCDA methods which rank alternatives in ascending
-            order
+            The boolean variable is True for MCDA methods that rank alternatives in descending
+            order (for example, TOPSIS, CODAS) and False for MCDA methods that rank alternatives in ascending
+            order (for example, VIKOR, SPOTIS)
     
     Returns
     ---------
         ndarray
-            vector with alternatives ranking. Alternative with 1 value is the best.
+            Vector with alternatives ranking. Alternative with 1 value is the best and has the first position in the ranking.
+
+    Examples
+    ----------
+    >>> rank = rank_preferences(pref, reverse = True)
     """
 
     # Create an array ndarray for the ranking values of alternatives

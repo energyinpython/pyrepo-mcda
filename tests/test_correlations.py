@@ -1,7 +1,7 @@
-from pyrepo_mcda import correlations as corrs
-from scipy.stats import pearsonr
 import unittest
 import numpy as np
+from scipy.stats import pearsonr
+from pyrepo_mcda import correlations as corrs
 
 
 # Test for Spearman rank correlation coefficient

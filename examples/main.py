@@ -1,22 +1,20 @@
+import copy
+
 import numpy as np
 import pandas as pd
-import copy
 import matplotlib
 from tabulate import tabulate
-from visualizations import *
 
+from visualizations import plot_barplot, draw_heatmap, plot_boxplot, plot_lineplot_sensitivity, plot_barplot_sensitivity, plot_radar, plot_boxplot_simulation
 from pyrepo_mcda.mcda_methods import CODAS, TOPSIS, WASPAS, VIKOR, SPOTIS, EDAS, MABAC, MULTIMOORA
 from pyrepo_mcda.mcda_methods import MULTIMOORA_RS as MOORA
-
 from pyrepo_mcda import distance_metrics as dists
 from pyrepo_mcda import correlations as corrs
 from pyrepo_mcda import normalizations as norms
 from pyrepo_mcda import weighting_methods as mcda_weights
 from pyrepo_mcda import compromise_rankings as compromises
 from pyrepo_mcda.additions import rank_preferences
-
 from pyrepo_mcda.sensitivity_analysis_weights_percentages import Sensitivity_analysis_weights_percentages
-
 from pyrepo_mcda.sensitivity_analysis_weights_values import Sensitivity_analysis_weights_values
 
 
@@ -243,31 +241,31 @@ def main():
     
     # Perform sensitivity analysis with weights percentage modification for chosen criteria
     for j in [0, 1, 2, 3]:
-        data_sens = sensitivity_analysis(matrix, weights, types, percentages, method, j, [-1, 1])
+        df_sens = sensitivity_analysis(matrix, weights, types, percentages, method, j, [-1, 1])
 
-        header = [data_sens.index.name]
-        header = header + list(data_sens.columns)
+        header = [df_sens.index.name]
+        header = header + list(df_sens.columns)
         print('Sensitivity analysis for C' + str(j + 1))
-        print(tabulate(data_sens, headers = header, tablefmt='github'))
+        print(tabulate(df_sens, headers = header, tablefmt='github'))
 
-        plot_lineplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j], "Weight modification in %", "percentage")
-        # plot_barplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j], "weight_percentage_bar")
+        plot_lineplot_sensitivity(df_sens, method.__class__.__name__, list_crit_names[j], "Weight modification in %", "percentage")
+        # plot_barplot_sensitivity(df_sens, method.__class__.__name__, list_crit_names[j], "weight_percentage_bar")
     
     # Perform sensitivity analysis with setting chosen weight value to selected criterion
     # other criteria have equal weight values and all criteria weights sum to 1
     sensitivity_analysis_weights_values = Sensitivity_analysis_weights_values()
     weight_values = np.arange(0.05, 0.95, 0.1)
     for j in [0, 1, 2, 3]:
-        data_sens = sensitivity_analysis_weights_values(matrix, weight_values, types, method, j)
-        header = [data_sens.index.name]
-        header = header + list(data_sens.columns)
+        df_sens = sensitivity_analysis_weights_values(matrix, weight_values, types, method, j)
+        header = [df_sens.index.name]
+        header = header + list(df_sens.columns)
         print('Sensitivity analysis for C' + str(j + 1))
-        print(tabulate(data_sens, headers = header, tablefmt='github'))
-        plot_lineplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j], "Weight value", "value")
+        print(tabulate(df_sens, headers = header, tablefmt='github'))
+        plot_lineplot_sensitivity(df_sens, method.__class__.__name__, list_crit_names[j], "Weight value", "value")
     # example of bar chart usage for sensitivity analysis
-    plot_barplot_sensitivity(data_sens, method.__class__.__name__, list_crit_names[j], "weight_values_bar")
+    plot_barplot_sensitivity(df_sens, method.__class__.__name__, list_crit_names[j], "weight_values_bar")
     # example of radar chart usage for sensitivity analysis
-    plot_radar(data_sens, list_crit_names[j] + ' weight modification', j)
+    plot_radar(df_sens, list_crit_names[j] + ' weight modification', j)
 
 
     # Robustness analysis

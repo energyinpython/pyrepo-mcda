@@ -1,8 +1,9 @@
+import unittest
+import numpy as np
+
 from pyrepo_mcda import compromise_rankings as compromises
 from pyrepo_mcda.additions import rank_preferences
 
-import unittest
-import numpy as np
 
 # Test for Borda Copeland compromise ranking
 class Test_Copeland(unittest.TestCase):

@@ -1,6 +1,6 @@
+import copy
 import numpy as np
 import pandas as pd
-import copy
 
 from .additions import rank_preferences
 
@@ -50,6 +50,11 @@ class Sensitivity_analysis_weights_percentages():
         --------
             data_sens : DataFrame
                 dataframe with rankings calculated for subsequent modifications of criterion j weight
+
+        Examples
+        ----------
+        >>> sensitivity_analysis = Sensitivity_analysis_weights_percentages()
+        >>> df_sens = sensitivity_analysis(matrix, weights, types, percentages, method, j, [-1, 1])
         """
         list_alt_names = [r'$A_{' + str(i) + '}$' for i in range(1, matrix.shape[0] + 1)]
         return Sensitivity_analysis_weights_percentages._sensitivity_analysis_weights_percentages(self, matrix, weights, types, percentages, method, list_alt_names, j, dir_list)
@@ -75,6 +80,7 @@ class Sensitivity_analysis_weights_percentages():
         --------
             weights_copy : ndarray
                 Vector with criteria weights after modification their values for sensitivity analysis
+
         """
         
         weights_copy = copy.deepcopy(weights)

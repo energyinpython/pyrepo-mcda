@@ -43,6 +43,11 @@ class Sensitivity_analysis_weights_values():
                 dataframe with rankings calculated for subsequent changes of criterion `j` weight.
                 Particular rankings for different weight values of criterion `j` are included in
                 subsequent columns of the dataframe.
+
+        Examples
+        ----------
+        >>> sensitivity_analysis = Sensitivity_analysis_weights_values()
+        >>> df_sens = sensitivity_analysis(matrix, weight_values, types, method, j)
         """
         list_alt_names = [r'$A_{' + str(i) + '}$' for i in range(1, matrix.shape[0] + 1)]
         return Sensitivity_analysis_weights_values._sensitivity_analysis_weights_values(self, matrix, weight_values, types, method, list_alt_names, j)

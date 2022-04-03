@@ -15,6 +15,10 @@ def spearman(R, Q):
     --------
         float
             Value of correlation coefficient between two vectors
+
+    Examples
+    ----------
+    >>> rS = spearman(R, Q)
     """
     N = len(R)
     denominator = N*(N**2-1)
@@ -37,6 +41,10 @@ def weighted_spearman(R, Q):
     --------
         float
             Value of correlation coefficient between two vectors
+
+    Examples
+    ---------
+    >>> rW = weighted_spearman(R, Q)
     """
     N = len(R)
     denominator = N**4 + N**3 - N**2 - N
@@ -59,6 +67,10 @@ def pearson_coeff(R, Q):
     --------
         float
             Value of correlation coefficient between two vectors
+
+    Examples
+    ----------
+    >>> corr = pearson_coeff(R, Q)
     """
     numerator = np.sum((R - np.mean(R)) * (Q - np.mean(Q)))
     denominator = np.sqrt(np.sum((R - np.mean(R))**2) * np.sum((Q - np.mean(Q))**2))
@@ -82,6 +94,10 @@ def WS_coeff(R, Q):
     --------
         float
             Value of similarity coefficient between two vectors
+
+    Examples
+    ----------
+    >>> ws = WS_coeff(R, Q)
     """
     N = len(R)
     numerator = 2**(-np.float64(R)) * np.abs(R - Q)

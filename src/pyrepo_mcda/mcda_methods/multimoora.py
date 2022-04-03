@@ -2,7 +2,7 @@ import numpy as np
 
 from ..normalizations import multimoora_normalization
 from ..additions import rank_preferences
-from ..compromise_rankings import *
+from ..compromise_rankings import dominance_directed_graph
 from .mcda_method import MCDA_method
 
 
@@ -32,6 +32,12 @@ class MULTIMOORA_RS(MCDA_method):
         -------
             ndrarray
                 Preference values of each alternative. The best alternative has the highest preference value. 
+
+        Examples
+        ---------
+        >>> multimoora_rs = MULTIMOORA_RS()
+        >>> pref = multimoora_rs(matrix, weights, types)
+        >>> rank = rank_preferences(pref, reverse = True)
         """
         MULTIMOORA_RS._verify_input_data(matrix, weights, types)
         return MULTIMOORA_RS._multimoora_rs(matrix, weights, types)
@@ -75,6 +81,12 @@ class MULTIMOORA_RP(MCDA_method):
         -------
             ndrarray
                 Preference values of each alternative. The best alternative has the lowest preference value. 
+
+        Examples
+        ---------
+        >>> multimoora_rp = MULTIMOORA_RP()
+        >>> pref = multimoora_rp(matrix, weights, types)
+        >>> rank = rank_preferences(pref, reverse = False)
         """
         MULTIMOORA_RP._verify_input_data(matrix, weights, types)
         return MULTIMOORA_RP._multimoora_rp(matrix, weights, types)
@@ -121,6 +133,12 @@ class MULTIMOORA_FMF(MCDA_method):
         -------
             ndrarray
                 Preference values of each alternative. The best alternative has the highest preference value. 
+
+        Examples
+        ---------
+        >>> multimoora_fmf = MULTIMOORA_FMF()
+        >>> pref = multimoora_fmf(matrix, weights, types)
+        >>> rank = rank_preferences(pref, reverse = True)
         """
         MULTIMOORA_FMF._verify_input_data(matrix, weights, types)
         return MULTIMOORA_FMF._multimoora_fmf(matrix, weights, types)
@@ -170,6 +188,11 @@ class MULTIMOORA(MCDA_method):
         -------
             ndrarray
                 Preference values of each alternative. The best alternative has the highest preference value. 
+
+        Examples
+        ----------
+        >>> multimoora = MULTIMOORA()
+        >>> rank = multimoora(matrix, weights, types)
         """
         MULTIMOORA._verify_input_data(matrix, weights, types)
         return MULTIMOORA._multimoora(matrix, weights, types, self.compromise_rank_method)

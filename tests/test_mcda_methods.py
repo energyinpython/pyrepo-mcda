@@ -1,3 +1,6 @@
+import unittest
+import numpy as np
+
 from pyrepo_mcda.mcda_methods import CODAS
 from pyrepo_mcda.mcda_methods import TOPSIS
 from pyrepo_mcda.mcda_methods import WASPAS
@@ -17,8 +20,6 @@ from pyrepo_mcda import weighting_methods as mcda_weights
 from pyrepo_mcda import compromise_rankings as compromises
 from pyrepo_mcda.additions import rank_preferences
 
-import unittest
-import numpy as np
 
 
 # Test for the VIKOR method

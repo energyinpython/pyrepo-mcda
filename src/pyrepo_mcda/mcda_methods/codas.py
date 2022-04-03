@@ -1,8 +1,8 @@
-import numpy as np
 import itertools
+import numpy as np
 
-from ..normalizations import *
-from ..distance_metrics import *
+from ..normalizations import linear_normalization
+from ..distance_metrics import euclidean
 from .mcda_method import MCDA_method
 
 
@@ -50,6 +50,12 @@ class CODAS(MCDA_method):
         --------
             ndrarray
                 Vector with preference values of each alternative. The best alternative has the highest preference value. 
+
+        Examples
+        ----------
+        >>> codas = CODAS(normalization_method = linear_normalization, distance_metric = euclidean, tau = 0.02)
+        >>> pref = codas(matrix, weights, types)
+        >>> rank = rank_preferences(pref, reverse = True)
         """
         CODAS._verify_input_data(matrix, weights, types)
         return CODAS._codas(self, matrix, weights, types, self.normalization_method, self.distance_metric)

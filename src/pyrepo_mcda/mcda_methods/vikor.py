@@ -1,6 +1,5 @@
 import numpy as np
 
-from ..normalizations import *
 from .mcda_method import MCDA_method
 
 
@@ -39,7 +38,13 @@ class VIKOR(MCDA_method):
         Returns
         --------
             ndrarray
-                Vector with preference values of each alternative. The best alternative has the lowest preference value. 
+                Vector with preference values of each alternative. The best alternative has the lowest preference value.
+
+        Examples
+        ---------
+        >>> vikor = VIKOR(normalization_method = minmax_normalization)
+        >>> pref = vikor(matrix, weights, types)
+        >>> rank = rank_preferences(pref, reverse = False) 
         """
         VIKOR._verify_input_data(matrix, weights, types)
         return VIKOR._vikor(matrix, weights, types, self.normalization_method, self.v)

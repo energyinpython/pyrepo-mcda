@@ -1,5 +1,5 @@
 import numpy as np
-from ..normalizations import *
+from ..normalizations import linear_normalization
 from .mcda_method import MCDA_method
 
 
@@ -41,6 +41,12 @@ class WASPAS(MCDA_method):
         --------
             ndrarray
                 Vector with preference values of each alternative. The best alternative has the highest preference value. 
+
+        Examples
+        ----------
+        >>> waspas = WASPAS(normalization_method = linear_normalization, lambda_param = 0.5)
+        >>> pref = waspas(matrix, weights, types)
+        >>> rank = rank_preferences(pref, reverse = True)
         """
         WASPAS._verify_input_data(matrix, weights, types)
         return WASPAS._waspas(matrix, weights, types, self.normalization_method, self.lambda_param)

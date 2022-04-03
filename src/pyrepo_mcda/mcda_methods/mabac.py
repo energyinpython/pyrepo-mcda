@@ -1,5 +1,5 @@
 import numpy as np
-from ..normalizations import *
+from ..normalizations import minmax_normalization
 from .mcda_method import MCDA_method
 
 
@@ -34,6 +34,12 @@ class MABAC(MCDA_method):
         --------
             ndrarray
                 Vector with preference values of each alternative. The best alternative has the highest preference value. 
+
+        Examples
+        ---------
+        >>> mabac = MABAC(normalization_method = minmax_normalization)
+        >>> pref = mabac(matrix, weights, types)
+        >>> rank = rank_preferences(pref, reverse = True)
         """
         MABAC._verify_input_data(matrix, weights, types)
         return MABAC._mabac(matrix, weights, types, self.normalization_method)

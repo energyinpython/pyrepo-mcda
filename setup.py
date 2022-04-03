@@ -5,10 +5,10 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="pyrepo-mcda",
-    version="0.0.10",
+    version="0.0.12",
     author="Aleksandra Bączkiewicz",
     author_email="aleksandra.baczkiewicz@phd.usz.edu.pl",
-    description="Package with Methods for Multi-Criteria Decision Analysis",
+    description="Python library for Multi-Criteria Decision Analysis.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/energyinpython/pyrepo-mcda",

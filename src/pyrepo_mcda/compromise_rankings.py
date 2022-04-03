@@ -1,24 +1,28 @@
-import numpy as np
 import itertools
+import numpy as np
 
 from .additions import rank_preferences
-from .normalizations import *
+from .normalizations import multimoora_normalization
 
 
 # Copeland Method for compromise ranking
 def copeland(matrix):
     """Calculate the compromise ranking considering several rankings obtained using different
-    methods using the Copeland compromise ranking methodology
+    methods using the Copeland compromise ranking methodology.
 
     Parameters
     -----------
         matrix : ndarray
-            two-dimensional matrix containing different rankings in columns
+            Two-dimensional matrix containing different rankings in columns.
 
     Returns
     --------
         ndarray
-            vector including compromise ranking
+            Vector including compromise ranking.
+
+    Examples
+    ----------
+    >>> rank = copeland(matrix)
     """
 
     grade_matrix = matrix.shape[0] - matrix
@@ -36,12 +40,16 @@ def dominance_directed_graph(matrix):
     Parameters
     -----------
         matrix : ndarray
-            two-dimensional matrix containing different rankings in columns
+            Two-dimensional matrix containing different rankings in columns.
 
     Returns
     --------
         ndarray
-            vector including compromise ranking
+            Vector including compromise ranking.
+
+    Examples
+    ----------
+    >>> rank = dominance_directed_graph(matrix)
     """
 
     m, n = matrix.shape
@@ -62,12 +70,16 @@ def rank_position_method(matrix):
     Parameters
     -----------
         matrix : ndarray
-            two-dimensional matrix containing different rankings in columns
+            Two-dimensional matrix containing different rankings in columns.
 
     Returns
     --------
         ndarray
-            vector including compromise ranking
+            Vector including compromise ranking.
+
+    Examples
+    ---------
+    >>> rank = rank_position_method(matrix)
     """
 
     A = 1 / (np.sum((1 / matrix), axis = 1))
@@ -83,15 +95,19 @@ def improved_borda_rule(prefs, ranks):
     Parameters
     -----------
         prefs : ndarray
-            two-dimensional matrix containing preferences calculated by different methods in columns
+            Two-dimensional matrix containing preferences calculated by different methods in columns.
 
         ranks : ndarray
-            two-dimensional matrix containing rankings determined by different methods in columns
+            Two-dimensional matrix containing rankings determined by different methods in columns.
 
     Returns
     --------
         ndarray
-            vector including compromise ranking
+            Vector including compromise ranking.
+
+    Examples
+    ----------
+    >>> rank = improved_borda_rule(prefs, ranks)
     """
 
     m, n = ranks.shape
