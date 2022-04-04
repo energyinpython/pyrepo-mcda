@@ -44,7 +44,7 @@ This library includes:
 	- ``spearman`` (Spearman rank correlation coefficient)
 	- ``weighted_spearman`` (Weighted Spearman rank correlation coefficient)
 	- ``pearson_coeff`` (Pearson correlation coefficient)
-	- ``WS_coeff`` (Similarity rank coefficent - WS coefficient)
+	- ``WS_coeff`` (Similarity rank coefficient - WS coefficient)
 	
 - Methods for normalization of decision matrix:
 
