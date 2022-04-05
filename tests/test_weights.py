@@ -3,7 +3,7 @@ import numpy as np
 from pyrepo_mcda import weighting_methods as mcda_weights
 
 
-# Test for CRITIC weighting
+# Test for CRITIC weighting method
 class Test_CRITIC(unittest.TestCase):
 
     def test_critic(self):
@@ -23,7 +23,7 @@ class Test_CRITIC(unittest.TestCase):
         self.assertEqual(list(np.round(test_result, 3)), list(real_result))
 
 
-# Test for Entropy weighting
+# Test for Entropy weighting method
 class Test_Entropy(unittest.TestCase):
 
     def test_Entropy(self):
@@ -60,7 +60,7 @@ class Test_Entropy(unittest.TestCase):
 
 
     def test_Entropy3(self):
-        """Ersoy, Y. (2021). Equipment selection for an e-commerce company using entropy-based 
+        """Test based on paper Ersoy, Y. (2021). Equipment selection for an e-commerce company using entropy-based 
         topsis, edas and codas methods during the COVID-19. LogForum, 17(3)."""
 
         matrix = np.array([[256, 8, 41, 1.6, 1.77, 7347.16],
@@ -77,6 +77,9 @@ class Test_Entropy(unittest.TestCase):
         self.assertEqual(list(np.round(test_result, 3)), list(real_result))
 
     def test_Entropy4(self):
+        """Test based on paper Lee, H. C., & Chang, C. T. (2018). Comparative analysis of MCDM 
+        methods for ranking renewable energy sources in Taiwan. Renewable and Sustainable Energy 
+        Reviews, 92, 883-896."""
 
         matrix = np.array([[4550, 30, 6.74, 20, 15, 5, 85, 150, 0.87, 4.76],
         [3005, 60.86, 2.4, 35, 27, 4, 26, 200, 0.17, 4.51],
@@ -84,12 +87,14 @@ class Test_Entropy(unittest.TestCase):
         [3370, 99.4, 3.25, 25.3, 54, 3, 45, 222, 0.21, 3.78],
         [3920, 112.6, 4.93, 11.4, 71.7, 2, 50, 100, 0.25, 4.11]])
 
+        types = np.array([-1, -1, -1, 1, 1, 1, -1, -1, 1, 1])
+
         test_result = mcda_weights.entropy_weighting(matrix)
         real_result = np.array([0.026, 0.154, 0.089, 0.199, 0.115, 0.04, 0.08, 0.123, 0.172, 0.002])
         self.assertEqual(list(np.round(test_result, 3)), list(real_result))
 
 
-# Test for Standard Deviation weighting
+# Test for Standard Deviation weighting method
 class Test_STD(unittest.TestCase):
 
     def test_std(self):
