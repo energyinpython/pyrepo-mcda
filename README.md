@@ -10,9 +10,11 @@ pip install pyrepo-mcda
 
 ## Usage
 
-`pyrepo-mcda` can be used to rank alternatives after providing their performance values in two-dimensional decision matrix
-with alternatives in rows and criteria in columns, and criteria weights and types in vectors. Here is example of using the TOPSIS
-method:
+`pyrepo-mcda` can be used to rank alternatives after providing their performance values in the two-dimensional decision matrix `matrix`
+with alternatives in rows and criteria in columns, and criteria weights `weights` and types `types` in vectors. 
+All criteria weights must sum to 1. Criteria types are equal to 1 for profit criteria and -1 for cost criteria. The TOPSIS method returns a
+vector with preference values `pref` assigned to alternatives. To rank alternatives according to TOPSIS preference values, we have to sort them
+in descending order because, in the TOPSIS method, the best alternative has the highest preference value. Here is an example of using the TOPSIS method:
 
 ```python
 import numpy as np
