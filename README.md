@@ -47,5 +47,5 @@ print(rank)
 
 ## Documentation
 
-Documentation of this library with instruction of installation and usage is 
+Documentation of this library with instruction for installation and usage is 
 provided [here](https://pyrepo-mcda.readthedocs.io/en/latest/)
