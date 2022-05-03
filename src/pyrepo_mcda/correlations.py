@@ -5,12 +5,14 @@ import numpy as np
 def spearman(R, Q):
     """
     Calculate Spearman rank correlation coefficient between two vectors
+
     Parameters
     -----------
         R : ndarray
             First vector containing values
         Q : ndarray
             Second vector containing values
+
     Returns
     --------
         float
@@ -20,6 +22,7 @@ def spearman(R, Q):
     ----------
     >>> rS = spearman(R, Q)
     """
+
     N = len(R)
     denominator = N*(N**2-1)
     numerator = 6*sum((R-Q)**2)
@@ -31,12 +34,14 @@ def spearman(R, Q):
 def weighted_spearman(R, Q):
     """
     Calculate Weighted Spearman rank correlation coefficient between two vectors
+
     Parameters
     -----------
         R : ndarray
             First vector containing values
         Q : ndarray
             Second vector containing values
+
     Returns
     --------
         float
@@ -46,6 +51,7 @@ def weighted_spearman(R, Q):
     ---------
     >>> rW = weighted_spearman(R, Q)
     """
+
     N = len(R)
     denominator = N**4 + N**3 - N**2 - N
     numerator = 6 * sum((R - Q)**2 * ((N - R + 1) + (N - Q + 1)))
@@ -57,12 +63,14 @@ def weighted_spearman(R, Q):
 def pearson_coeff(R, Q):
     """
     Calculate Pearson correlation coefficient between two vectors
+
     Parameters
     -----------
         R : ndarray
             First vector containing values
         Q : ndarray
             Second vector containing values
+
     Returns
     --------
         float
@@ -72,6 +80,7 @@ def pearson_coeff(R, Q):
     ----------
     >>> corr = pearson_coeff(R, Q)
     """
+
     numerator = np.sum((R - np.mean(R)) * (Q - np.mean(Q)))
     denominator = np.sqrt(np.sum((R - np.mean(R))**2) * np.sum((Q - np.mean(Q))**2))
     corr = numerator / denominator
@@ -99,6 +108,7 @@ def WS_coeff(R, Q):
     ----------
     >>> ws = WS_coeff(R, Q)
     """
+    
     N = len(R)
     numerator = 2**(-np.float64(R)) * np.abs(R - Q)
     denominator = np.max((np.abs(R - 1), np.abs(R - N)), axis = 0)

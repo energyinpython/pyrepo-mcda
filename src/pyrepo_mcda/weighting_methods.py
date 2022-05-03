@@ -9,6 +9,7 @@ from .normalizations import sum_normalization, minmax_normalization
 def equal_weighting(matrix):
     """
     Calculate criteria weights using objective Equal weighting method
+
     Parameters
     -----------
         matrix : ndarray
@@ -23,6 +24,7 @@ def equal_weighting(matrix):
     ----------
     >>> weights = equal_weighting(matrix)
     """
+
     N = np.shape(matrix)[1]
     w = np.ones(N) / N
     return w
@@ -32,6 +34,7 @@ def equal_weighting(matrix):
 def entropy_weighting(matrix):
     """
     Calculate criteria weights using objective Entropy weighting method
+
     Parameters
     -----------
         matrix : ndarray
@@ -46,6 +49,7 @@ def entropy_weighting(matrix):
     ----------
     >>> weights = entropy_weighting(matrix)
     """
+
     # normalize the decision matrix with sum_normalization method from normalizations as for profit criteria
     types = np.ones(np.shape(matrix)[1])
     pij = sum_normalization(matrix, types)
@@ -73,6 +77,7 @@ def entropy_weighting(matrix):
 def std_weighting(matrix):
     """
     Calculate criteria weights using objective Standard deviation weighting method
+
     Parameters
     -----------
         matrix : ndarray
@@ -99,6 +104,7 @@ def std_weighting(matrix):
 def critic_weighting(matrix):
     """
     Calculate criteria weights using objective CRITIC weighting method
+
     Parameters
     -----------
         matrix : ndarray
@@ -113,6 +119,7 @@ def critic_weighting(matrix):
     ----------
     >>> weights = critic_weighting(matrix)
     """
+    
     # Normalize the decision matrix using Minimum-Maximum normalization minmax_normalization from normalizations as for profit criteria
     types = np.ones(np.shape(matrix)[1])
     x_norm = minmax_normalization(matrix, types)

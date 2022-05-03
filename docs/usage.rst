@@ -6,7 +6,7 @@ Usage
 Installation
 --------------
 
-To use pyrepo-mcda, first install it using pip:
+To use ``pyrepo-mcda``, first install it using pip:
 
 .. code-block:: python
 
