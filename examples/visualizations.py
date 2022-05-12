@@ -42,7 +42,7 @@ def plot_barplot(df_plot, legend_title):
     ax.grid(True, linestyle = ':')
     ax.set_axisbelow(True)
     plt.tight_layout()
-    plt.savefig('./results/' + 'bar_chart_' + legend_title + '.pdf')
+    plt.savefig('./results/' + 'bar_chart_' + legend_title + '.eps')
     plt.show()
 
 
@@ -91,7 +91,7 @@ def plot_barplot_sensitivity(df_plot, method_name, criterion_name, filename = ""
     ax.grid(True, linestyle = ':')
     ax.set_axisbelow(True)
     plt.tight_layout()
-    plt.savefig('./results/' + 'sensitivity_' + 'hist_' + method_name + '_' + criterion_name + '_' + filename + '.pdf')
+    plt.savefig('./results/' + 'sensitivity_' + 'hist_' + method_name + '_' + criterion_name + '_' + filename + '.eps')
     plt.show()
 
 
@@ -142,7 +142,7 @@ def plot_lineplot_sensitivity(data_sens, method_name, criterion_name, x_title, f
     plt.title(method_name + ', modification of ' + criterion_name + ' weight')
     plt.grid(True, linestyle = ':')
     plt.tight_layout()
-    plt.savefig('./results/' + 'sensitivity_' + 'lineplot_' + method_name + '_' + criterion_name + '_' + filename + '.pdf')
+    plt.savefig('./results/' + 'sensitivity_' + 'lineplot_' + method_name + '_' + criterion_name + '_' + filename + '.eps')
     plt.show()
 
 
@@ -171,7 +171,7 @@ def draw_heatmap(df_new_heatmap, title):
     plt.xlabel('Methods')
     plt.title('Correlation: ' + title)
     plt.tight_layout()
-    plt.savefig('./results/' + 'correlations_' + title + '.pdf')
+    plt.savefig('./results/' + 'correlations_' + title + '.eps')
     plt.show()
 
 
@@ -221,7 +221,7 @@ def plot_radar(data, title, j):
     plt.legend(data.columns, bbox_to_anchor=(1.0, 0.95, 0.4, 0.2), loc='upper left')
     plt.title(title)
     plt.tight_layout()
-    plt.savefig('./results/' + 'radar_chart_C' + str(j + 1) + '.pdf')
+    plt.savefig('./results/' + 'radar_chart_C' + str(j + 1) + '.eps')
     plt.show()
 
 # Examplary visualization method
@@ -251,7 +251,7 @@ def plot_boxplot(data, title):
     ax.set_ylabel('Preference distribution', fontsize = 12)
     plt.title(title)
     plt.tight_layout()
-    plt.savefig('./results/' + 'TOPSIS_boxplot' + '.pdf')
+    plt.savefig('./results/' + 'TOPSIS_boxplot' + '.eps')
     plt.show()
 
 
@@ -300,5 +300,5 @@ def plot_boxplot_simulation(data, x, y, hue, xtitle, ytitle, title, filename):
     plt.legend(bbox_to_anchor=(1.0, 0.82, 0.3, 0.2), loc='upper left', title = 'Rank', edgecolor = 'black', fontsize = 12)
     plt.title(title)
     plt.tight_layout()
-    plt.savefig('./results/' + filename + '.pdf')
+    plt.savefig('./results/' + filename + '.eps')
     plt.show()

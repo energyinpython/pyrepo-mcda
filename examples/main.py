@@ -82,7 +82,7 @@ def main():
     plot_barplot(df_rankings, legend_title = 'Distance metrics')
 
     # plot box chart of alternatives preference values
-    plot_boxplot(df_preferences.T, 'TOPSIS, preference values distribution')
+    # plot_boxplot(df_preferences.T, 'TOPSIS, preference values distribution')
 
     # Exploration of different MCDA methods
     rank_results = pd.DataFrame()
@@ -176,7 +176,7 @@ def main():
     df_plot = copy.deepcopy(rank_results)
     plot_barplot(df_plot, legend_title='MCDA methods')
     
-    
+    #
     # correlations heatmaps
     data = copy.deepcopy(rank_results_final)
     method_types = list(data.columns)

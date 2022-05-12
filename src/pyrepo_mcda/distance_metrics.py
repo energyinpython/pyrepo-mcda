@@ -24,6 +24,7 @@ def euclidean(A, B):
     ----------
     >>> distance = euclidean(A, B)
     """
+
     tmp = np.sqrt(np.sum(np.square(A - B)))
     return tmp
 
@@ -48,11 +49,12 @@ def manhattan(A, B):
     ----------
     >>> distance = manhattan(A, B)
     """
+
     tmp = np.sum(np.abs(A - B))
     return tmp
 
 
-# function for calculationg Hausdorff distance using `hausdorff` function
+# function for calculation Hausdorff distance using `hausdorff` function
 def hausdorff_distance(A, B):
     min_h = np.inf
     for i, j in itertools.product(range(len(A)), range(len(B))):
@@ -91,6 +93,7 @@ def hausdorff(A, B):
     ----------
     >>> distance = hausdorff(A, B)
     """
+
     ah = hausdorff_distance(A, B)
     bh = hausdorff_distance(B, A)
     tmp = max(ah, bh)
@@ -118,6 +121,7 @@ def correlation(A, B):
     ----------
     >>> distance = correlation(A, B)
     """
+
     numerator = np.sum((A - np.mean(A)) * (B - np.mean(B)))
     denominator = np.sqrt(np.sum((A - np.mean(A)) ** 2)) * np.sqrt(np.sum((B - np.mean(B)) ** 2))
     if denominator == 0:
@@ -147,6 +151,7 @@ def chebyshev(A, B):
     ----------
     >>> distance = chebyshev(A, B)
     """
+
     max_h = -np.inf
     for i, j in itertools.product(range(len(A)), range(len(B))):
         d = np.abs(A[i] - B[j])
@@ -177,6 +182,7 @@ def std_euclidean(A, B):
     ----------
     >>> distance = std_euclidean(A, B)
     """
+
     tab_std = np.vstack((A, B))
     stdv = np.sum(np.square(tab_std - np.mean(tab_std, axis = 0)), axis = 0)
     stdv = np.sqrt(stdv / tab_std.shape[0])
@@ -207,6 +213,7 @@ def cosine(A, B):
     ----------
     >>> distance = cosine(A, B)
     """
+
     numerator = np.sum(A * B)
     denominator = (np.sqrt(np.sum(np.square(A)))) * (np.sqrt(np.sum(np.square(B))))
     if denominator == 0:
@@ -236,6 +243,7 @@ def csm(A, B):
     ---------
     >>> distance = csm(A, B)
     """
+
     numerator = np.sum(A * B)
     denominator = (np.sqrt(np.sum(A))) * (np.sqrt(np.sum(B)))
     if denominator == 0:
@@ -265,6 +273,7 @@ def squared_euclidean(A, B):
     ----------
     >>> distance = squared_euclidean(A, B)
     """
+
     tmp = np.sum(np.square(A - B))
     return tmp
 
@@ -290,6 +299,7 @@ def bray_curtis(A, B):
     ----------
     >>> distance = bray_curtis(A, B)
     """
+
     numerator = np.sum(np.abs(A - B))
     denominator = np.sum(A + B)
     if denominator == 0:
@@ -319,6 +329,7 @@ def canberra(A, B):
     ----------
     >>> distance = canberra(A, B)
     """
+
     numerator = np.abs(A - B)
     denominator = A + B
     denominator[denominator == 0] = 1
@@ -347,6 +358,7 @@ def lorentzian(A, B):
     ----------
     >>> distance = lorentzian(A, B)
     """
+
     tmp = np.sum(np.log(1 + np.abs(A - B)))
     return tmp
 
@@ -372,6 +384,7 @@ def jaccard(A, B):
     -----------
     >>> distance = jaccard(A, B)
     """
+
     numerator = np.sum(np.square(A - B))
     denominator = np.sum(A ** 2) + np.sum(B ** 2) - np.sum(A * B)
     if denominator == 0:
@@ -401,6 +414,7 @@ def dice(A, B):
     ----------
     >>> distance = dice(A, B)
     """
+
     numerator = np.sum(np.square(A - B))
     denominator = np.sum(A ** 2) + np.sum(B ** 2)
     if denominator == 0:
@@ -430,6 +444,7 @@ def bhattacharyya(A, B):
     ---------
     >>> distance = bhattacharyya(A, B)
     """
+
     value = (np.sum(np.sqrt(A * B)))**2
     if value == 0:
         tmp = 0
@@ -459,6 +474,7 @@ def hellinger(A, B):
     -----------
     >>> distance = hellinger(A, B)
     """
+
     value = 1 - np.sum(np.sqrt(A * B))
     if value < 0:
         value = 0
@@ -487,6 +503,7 @@ def matusita(A, B):
     ----------
     >>> distance = matusita(A, B)
     """
+
     value = 2 - 2 * (np.sum(np.sqrt(A * B)))
     if value < 0:
         value = 0
@@ -515,6 +532,7 @@ def squared_chord(A, B):
     ---------
     >>> distance = squared_chord(A, B)
     """
+
     tmp = np.sum(np.square(np.sqrt(A) - np.sqrt(B)))
     return tmp
 
@@ -540,6 +558,7 @@ def pearson_chi_square(A, B):
     ---------
     >>> distance = pearson_chi_square(A, B)
     """
+
     numerator = np.square(A - B)
     denominator = copy.deepcopy(B)
     denominator[denominator == 0] = 1
@@ -567,6 +586,7 @@ def squared_chi_square(A, B):
     ----------
     >>> distance = squared_chi_square(A, B)
     """
+    
     numerator = np.square(A - B)
     denominator = A + B
     denominator[denominator == 0] = 1
