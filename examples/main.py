@@ -29,6 +29,7 @@ class Create_dictionary(dict):
         self[key] = value
 
 
+
 def main():
     # load name of file with input data
     data = pd.read_csv('data' + '.csv', index_col = 'Ai')
@@ -176,6 +177,7 @@ def main():
     df_plot = copy.deepcopy(rank_results)
     plot_barplot(df_plot, legend_title='MCDA methods')
     
+    '''
     #
     # correlations heatmaps
     data = copy.deepcopy(rank_results_final)
@@ -322,7 +324,7 @@ def main():
         df_results_sim.to_csv('results/' + 'robustness_C' + str(j + 1) + '.csv')
 
         plot_boxplot_simulation(df_results_sim, 'Alternative', 'Performance', 'Rank' , 'Alternative', 'Performance', 'TOPSIS, Criterion ' + list_crit_names[j] + ' performance change', 'robustness_C' + str(j + 1))
-    
+    '''
 
 if __name__ == "__main__":
     main()

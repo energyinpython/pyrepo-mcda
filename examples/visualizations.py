@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 
-# bar chart
+# bar (column) chart
 def plot_barplot(df_plot, legend_title):
     """
     Visualization method to display column chart of alternatives rankings obtained with 
@@ -46,7 +46,7 @@ def plot_barplot(df_plot, legend_title):
     plt.show()
 
 
-# bar chart for sensitivity analysis
+# bar (column) chart for sensitivity analysis
 def plot_barplot_sensitivity(df_plot, method_name, criterion_name, filename = ""):
     """
     Visualization method to display column chart of alternatives rankings obtained with 
@@ -95,7 +95,7 @@ def plot_barplot_sensitivity(df_plot, method_name, criterion_name, filename = ""
     plt.show()
 
 
-# plot line chart for sensitivity analysis in basic version
+# plot line chart for sensitivity analysis
 def plot_lineplot_sensitivity(data_sens, method_name, criterion_name, x_title, filename = ""):
     """
     Visualization method to display line chart of alternatives rankings obtained with 
@@ -146,7 +146,7 @@ def plot_lineplot_sensitivity(data_sens, method_name, criterion_name, x_title, f
     plt.show()
 
 
-# heat maps with correlations for basic version
+# heat maps with correlations
 def draw_heatmap(df_new_heatmap, title):
     """
     Visualization method to display heatmap with correlations of compared rankings generated using different methods
@@ -175,7 +175,7 @@ def draw_heatmap(df_new_heatmap, title):
     plt.show()
 
 
-# radar plot for basic version
+# radar chart
 def plot_radar(data, title, j):
     """
     Visualization method to display rankings of alternatives obtained with different methods
