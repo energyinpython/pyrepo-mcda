@@ -1,0 +1,13 @@
+Cj,Criterion Name,Unit of Measurement,Preference Direction,Weight of Criterion,Preference function for PROMETHEE II and PROSA-C,Preference Threshold (p) for PROMETHEE II and PROSA-C
+C1,Investment cost,mln PLN,Min,20,V-shape,7280
+C2,Payback period,years,Min,5,V-shape,4
+C3,Distance from power stations,km,Min,5,V-shape,13.4
+C4,Mean sea water depth,m,Min,1.67,V-shape,7.4
+C5,Undersea geological condition,points,Min,1.67,V-shape,3
+C6,Employment,number,Max,11.67,V-shape,1662
+C7,Conflict with fisheries,points,Min,11.67,V-shape,3
+C8,Density of shipping traffic,points,Min,5,V-shape,3
+C9,Distance from shore,km,Max,5,V-shape,13.8
+C10,Influence on protected areas,points,Min,16.67,V-shape,3
+C11,CO2 reduction,tonnes,Max,8.33,V-shape,766240
+C12,SO2 reduction,tonnes,Max,8.33,V-shape,17820

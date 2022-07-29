@@ -1,0 +1,11 @@
+Cj,Criterion Name,Unit of Measurement,Preference Direction
+C1,yearly amount of energy generated,(MWh),Max
+C2,average wind speed at the height of 100 m,(m/s),Max
+C3,distance from power grid connection,(km),Min
+C4,power grid voltage on the site of connection and its vicinity,(kV),Max
+C5,distance from the road network,(km),Min
+C6,location in Natura 2000 protected area,[0;1],Min
+C7,social acceptance,(%),Max
+C8,investment cost,(PLN),Min
+C9,operational costs per year,(PLN),Min
+C10,profits from generated energy per year,(PLN),Max

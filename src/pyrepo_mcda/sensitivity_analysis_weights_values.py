@@ -128,6 +128,42 @@ class Sensitivity_analysis_weights_values():
             elif method.__class__.__name__ == 'WASPAS':
                 pref = method(matrix, new_weights, types)
                 rank = rank_preferences(pref, reverse = True)
+
+            elif method.__class__.__name__ == 'ARAS':
+                pref = method(matrix, new_weights, types)
+                rank = rank_preferences(pref, reverse = True)
+
+            elif method.__class__.__name__ == 'COPRAS':
+                pref = method(matrix, new_weights, types)
+                rank = rank_preferences(pref, reverse = True)
+
+            elif method.__class__.__name__ == 'CRADIS':
+                pref = method(matrix, new_weights, types)
+                rank = rank_preferences(pref, reverse = True)
+
+            elif method.__class__.__name__ == 'MARCOS':
+                pref = method(matrix, new_weights, types)
+                rank = rank_preferences(pref, reverse = True)
+
+            elif method.__class__.__name__ == 'CRADIS':
+                pref = method(matrix, new_weights, types)
+                rank = rank_preferences(pref, reverse = True)
+
+            elif method.__class__.__name__ == 'SAW':
+                pref = method(matrix, new_weights, types)
+                rank = rank_preferences(pref, reverse = True)
+
+            elif method.__class__.__name__ == 'PROMETHEE_II':
+                pref = method(matrix, new_weights, types)
+                rank = rank_preferences(pref, reverse = True)
+
+            elif method.__class__.__name__ == 'PROSA_C':
+                pref = method(matrix, new_weights, types)
+                rank = rank_preferences(pref, reverse = True)
+
+            else:
+                print('There is no available sensitivity analysis for this method')
+                return
             
             # Assign calculated ranking to column with value of j criterion weight change in `data_sens` dataframe
             data_sens['{:.2f}'.format(val)] = rank

@@ -42,6 +42,9 @@ def plot_barplot(df_plot, legend_title):
     ax.grid(True, linestyle = ':')
     ax.set_axisbelow(True)
     plt.tight_layout()
+    legend_title = legend_title.replace("$", "")
+    legend_title = legend_title.replace("{", "")
+    legend_title = legend_title.replace("}", "")
     plt.savefig('./results/' + 'bar_chart_' + legend_title + '.eps')
     plt.show()
 
@@ -91,6 +94,9 @@ def plot_barplot_sensitivity(df_plot, method_name, criterion_name, filename = ""
     ax.grid(True, linestyle = ':')
     ax.set_axisbelow(True)
     plt.tight_layout()
+    criterion_name = criterion_name.replace("$", "")
+    criterion_name = criterion_name.replace("{", "")
+    criterion_name = criterion_name.replace("}", "")
     plt.savefig('./results/' + 'sensitivity_' + 'hist_' + method_name + '_' + criterion_name + '_' + filename + '.eps')
     plt.show()
 
@@ -142,6 +148,9 @@ def plot_lineplot_sensitivity(data_sens, method_name, criterion_name, x_title, f
     plt.title(method_name + ', modification of ' + criterion_name + ' weight')
     plt.grid(True, linestyle = ':')
     plt.tight_layout()
+    criterion_name = criterion_name.replace("$", "")
+    criterion_name = criterion_name.replace("{", "")
+    criterion_name = criterion_name.replace("}", "")
     plt.savefig('./results/' + 'sensitivity_' + 'lineplot_' + method_name + '_' + criterion_name + '_' + filename + '.eps')
     plt.show()
 
@@ -171,6 +180,7 @@ def draw_heatmap(df_new_heatmap, title):
     plt.xlabel('Methods')
     plt.title('Correlation: ' + title)
     plt.tight_layout()
+    title = title.replace("$", "")
     plt.savefig('./results/' + 'correlations_' + title + '.eps')
     plt.show()
 

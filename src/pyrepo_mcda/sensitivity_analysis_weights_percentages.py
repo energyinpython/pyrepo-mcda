@@ -149,6 +149,42 @@ class Sensitivity_analysis_weights_percentages():
                 elif method.__class__.__name__ == 'WASPAS':
                     pref = method(matrix, weights_copy, types)
                     rank = rank_preferences(pref, reverse = True)
+
+                elif method.__class__.__name__ == 'ARAS':
+                    pref = method(matrix, weights_copy, types)
+                    rank = rank_preferences(pref, reverse = True)
+
+                elif method.__class__.__name__ == 'COPRAS':
+                    pref = method(matrix, weights_copy, types)
+                    rank = rank_preferences(pref, reverse = True)
+
+                elif method.__class__.__name__ == 'CRADIS':
+                    pref = method(matrix, weights_copy, types)
+                    rank = rank_preferences(pref, reverse = True)
+
+                elif method.__class__.__name__ == 'MARCOS':
+                    pref = method(matrix, weights_copy, types)
+                    rank = rank_preferences(pref, reverse = True)
+
+                elif method.__class__.__name__ == 'CRADIS':
+                    pref = method(matrix, weights_copy, types)
+                    rank = rank_preferences(pref, reverse = True)
+
+                elif method.__class__.__name__ == 'SAW':
+                    pref = method(matrix, weights_copy, types)
+                    rank = rank_preferences(pref, reverse = True)
+
+                elif method.__class__.__name__ == 'PROMETHEE_II':
+                    pref = method(matrix, weights_copy, types)
+                    rank = rank_preferences(pref, reverse = True)
+
+                elif method.__class__.__name__ == 'PROSA_C':
+                    pref = method(matrix, weights_copy, types)
+                    rank = rank_preferences(pref, reverse = True)
+
+                else:
+                    print('There is no available sensitivity analysis for this method')
+                    return
                 
                 # Assign calculated ranking to column with value of j criterion weight change in `data_sens` dataframe
                 data_sens['{:.0f}'.format(dir * change_val * 100) + '%'] = rank

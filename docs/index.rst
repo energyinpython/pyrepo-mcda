@@ -15,6 +15,14 @@ This library includes:
 	- ``WASPAS``
 	- ``EDAS``
 	- ``SPOTIS``
+	- ``AHP``
+	- ``ARAS``
+	- ``COPRAS``
+	- ``CRADIS``
+	- ``MARCOS``
+	- ``PROMETHEE II``
+	- ``PROSA C``
+	- ``SAW``
 	
 - Distance metrics:
 
@@ -55,11 +63,21 @@ This library includes:
 	- ``vector_normalization`` (Vector normalization)
 	- ``multimoora_normalization`` (Normalization method dedicated for the MULTIMOORA method)
 	
-- Methods for determination of criteria weights (weighting methods):
+- Objective weighting methods for determining criteria weights required by Multi-Criteria Decision Analysis (MCDA) methods:
 
+	- ``equal_weighting`` (Equal weighting method)
 	- ``entropy_weighting`` (Entropy weighting method)
-	- ``std_weighting`` (Standard Deviation weighting method)
+	- ``std_weighting`` (Standard deviation weighting method)
 	- ``critic_weighting`` (CRITIC weighting method)
+	- ``gini_weighting`` (Gini coefficient-based weighting method)
+	- ``merec_weighting`` (MEREC weighting method)
+	- ``stat_var_weighting`` (Statistical variance weighting method)
+	- ``cilos_weighting`` (CILOS weighting method)
+	- ``idocriw_weighting`` (IDOCRIW weighting method)
+	- ``angle_weighting`` (Angle weighting method)
+	- ``coeff_var_weighting`` (Coefficient of variation weighting method)
+	
+- Stochastic Multicriteria Acceptability Analysis Method - SMAA combined with VIKOR (``VIKOR_SMAA``)
 	
 - Methods for determination of compromise rankings based on several rankings obtained with different MCDA methods:
 
