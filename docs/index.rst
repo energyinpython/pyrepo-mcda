@@ -109,5 +109,7 @@ Contents
 	:maxdepth: 2
 	
 	usage
-	example
+	example_pyrepo_mcda
+	example_pyrepo_mcda_update
+	example_crispyn
 	autoapi/index
