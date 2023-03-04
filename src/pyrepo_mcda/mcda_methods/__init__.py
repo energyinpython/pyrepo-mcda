@@ -1,6 +1,7 @@
 from . import mcda_method
 from .ahp import AHP
 from .aras import ARAS
+from .cocoso import COCOSO
 from .codas import CODAS
 from .copras import COPRAS
 from .cradis import CRADIS

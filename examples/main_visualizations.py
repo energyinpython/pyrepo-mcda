@@ -224,6 +224,52 @@ def plot_boxplot(data):
     plt.show()
 
 
+def plot_boxplot_1(data):
+    """
+    Display boxplot showing distribution of criteria weights determined with different methods.
+
+    Parameters
+    ----------
+    data : dataframe
+        dataframe with correlation values between compared rankings
+    """
+    
+    plt.figure(figsize = (7, 4))
+    
+    ax = data.boxplot()
+    ax.grid(True, linestyle = '--')
+    ax.set_axisbelow(True)
+    plt.tight_layout()
+    plt.show()
+
+
+def plot_boxplot_2(data):
+    """
+    Display boxplot showing distribution of criteria weights determined with different methods.
+
+    Parameters
+    ----------
+    data : dataframe
+        dataframe with correlation values between compared rankings
+    """
+    
+    plt.figure(figsize = (7, 4))
+    
+    plt.boxplot(data)
+    plt.xticks(np.arange(1, data.shape[1] + 1), data.columns)
+    plt.grid(True, linestyle = '--')
+    plt.tight_layout()
+    plt.show()
+
+
+def plot_boxenplot(data):
+    ax = sns.boxenplot(data = data)
+    ax.grid(True)
+    ax.set_axisbelow(True)
+    plt.tight_layout()
+    plt.show()
+
+
 # heat maps with correlations
 def draw_heatmap(df_new_heatmap):
     """
@@ -245,6 +291,11 @@ def draw_heatmap(df_new_heatmap):
     plt.yticks(va="center")
     plt.tight_layout()
     plt.show()
+
+
+
+# TODO add violin plot z losowaniem czegos na przyklad ARAS COPRAS i normalizations
+# to co mialo byc na jakas konfe
 
 def main():
 
@@ -357,6 +408,10 @@ def main():
 
     # distribution of criteria weights
     plot_boxplot(df_weights.T)
+    plot_boxplot_1(df_weights.T)
+    plot_boxplot_2(df_weights.T)
+    print(df_weights.T)
+    plot_boxenplot(df_weights.T)
     # bar chart of criteria weights values for different weighting methods
     plot_barplot(df_weights.T, stacked = True)
 
