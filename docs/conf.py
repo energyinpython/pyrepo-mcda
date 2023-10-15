@@ -4,7 +4,7 @@
 
 project = 'pyrepo-mcda'
 copyright = '2023, energyinpython'
-author = 'energyinpython'
+author = 'Aleksandra Bączkiewicz'
 
 release = '0.1'
 version = '0.1.4'
