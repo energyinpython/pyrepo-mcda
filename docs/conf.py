@@ -19,7 +19,6 @@ extensions = [
     'sphinx.ext.intersphinx',
 	'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
-	'nbsphinx',
 	'autoapi.extension',
 ]
 autoapi_type = 'python'
