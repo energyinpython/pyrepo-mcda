@@ -2,8 +2,6 @@
 
 # -- Project information
 
-import sphinx-autoapi
-
 project = 'pyrepo-mcda'
 copyright = '2023, energyinpython'
 author = 'Aleksandra Bączkiewicz'
