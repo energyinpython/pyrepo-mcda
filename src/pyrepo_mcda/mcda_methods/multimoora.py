@@ -185,7 +185,7 @@ class MULTIMOORA(MCDA_method):
                 Criteria types. Profit criteria are represented by 1 and cost by -1.
 
         Returns
-        -------
+        --------
             ndrarray
                 Preference values of each alternative. The best alternative has the highest preference value. 
 

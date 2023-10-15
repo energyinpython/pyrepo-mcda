@@ -1166,7 +1166,111 @@ Output
 
 	Preference values:  [0.099  0.1101 0.4581 0.3328]
 	Ranking:  [4 3 1 2]
+	
+	
+The COCOSO method
+___________________________________
 
+.. code-block:: python
+
+	# Provide decision matrix
+	matrix = np.array([[60, 0.4, 2540, 500, 990],
+	[6.35, 0.15, 1016, 3000, 1041],
+	[6.8, 0.1, 1727.2, 1500, 1676],
+	[10, 0.2, 1000, 2000, 965],
+	[2.5, 0.1, 560, 500, 915],
+	[4.5, 0.08, 1016, 350, 508],
+	[3, 0.1, 1778, 1000, 920]])
+
+	# Provide criteria weights
+	weights = np.array([0.036, 0.192, 0.326, 0.326, 0.12])
+
+	# Provide criteria types
+	types = np.array([1, -1, 1, 1, 1])
+
+	# Initialize the COCOSO method object
+	cocoso = COCOSO()
+	
+	# Calculate preference values
+	pref = cocoso(matrix, weights, types)
+	
+	# Rank alternatives according to preference values. Best scored alternative has the highest preference value
+	rank = rank_preferences(pref, reverse = True)
+
+	print('Preference values: ', np.round(pref, 4))
+	print('Ranking: ', rank)
+	
+Output
+
+.. code-block:: console
+
+	Preference values:  [2.0413 2.788  2.8823 2.416  1.2987 1.4431 2.5191]
+	Ranking:  [5 2 1 4 7 6 3]
+	
+	
+The VMCM method
+___________________________________________
+
+Application of the VMCM method requires providing a decision matrix, criteria weights, criteria types, pattern, and anti-pattern. It is recommended to eliminate criteria with
+low values of significance coefficient calculated with ``vmcm._elimination`` function. Criteria weights can be determined using ``vmcm._weighting`` function. Pattern and anti-pattern
+can be calculated using ``vmcm._pattern_determination`` function. Classes are assigned to evaluated objects with ``vmcm._classification`` function.
+
+
+.. code-block:: python
+
+	# Provide decision matrix
+	matrix = np.array([[60, 0.4, 2540, 500, 990],
+	[6.35, 0.15, 1016, 3000, 1041],
+	[6.8, 0.1, 1727.2, 1500, 1676],
+	[10, 0.2, 1000, 2000, 965],
+	[2.5, 0.1, 560, 500, 915],
+	[4.5, 0.08, 1016, 350, 508],
+	[3, 0.1, 1778, 1000, 920]])
+
+	# Provide criteria types
+	types = np.array([1, -1, 1, 1, 1])
+
+	# Initialize the VMCM method object
+	vmcm = VMCM()
+
+	# Print the criteria to be eliminated
+	vmcm._elimination(matrix)
+
+	# Determine criteria weights
+	weights = vmcm._weighting(matrix)
+
+	# Determine pattern and anti-pattern
+	pattern, antipattern = vmcm._pattern_determination(matrix, types)
+
+	# Calculate value of the synthetic measure for each object
+	pref = vmcm(matrix, weights, types, pattern, antipattern)
+
+	# Classify evaluated objects according to synthetic measure values
+	classes = vmcm._classification(pref)
+
+	# Rank evaluated objects according to synthetic measure values. Best scored alternative has the highest preference value
+	rank = rank_preferences(pref, reverse = True)
+
+	print('Preference values: ', np.round(pref, 4))
+	print('Classes: ', classes)
+	print('Ranking: ', rank)
+	
+	
+Output
+
+.. code-block:: console
+
+	Elimination of variables stage (significance coefficient of features):
+	C1 = 1.5590
+	C2 = 0.6994
+	C3 = 0.4878
+	C4 = 0.7698
+	C5 = 0.3446
+	Criteria to eliminate:
+	None
+	Preference values:  [ 0.5427  1.04    1.0445  0.558  -0.091   0.0133  0.6857]
+	Classes:  [2. 1. 1. 2. 4. 4. 2.]
+	Ranking:  [5 2 1 4 7 6 3]
 
 
 

@@ -40,7 +40,7 @@ class AHP(MCDA_method):
         types: ndarray
             Criteria types. Profit criteria are represented by 1 and cost by -1.
 
-        Results
+        Returns
         ---------
             ndrarray
                 Preference values of each alternative. The best alternative has the highest preference value. 
@@ -278,7 +278,7 @@ class AHP(MCDA_method):
         types: ndarray
             Criteria types. Profit criteria are represented by 1 and cost by -1.
 
-        Results
+        Returns
         ---------
             ndrarray
                 Preference values of each alternative. The best alternative has the highest preference value. 

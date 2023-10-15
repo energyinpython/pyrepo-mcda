@@ -23,6 +23,8 @@ This library includes:
 	- ``PROMETHEE II``
 	- ``PROSA C``
 	- ``SAW``
+	- ``VMCM``
+	- ``COCOSO``
 	
 - Distance metrics:
 
@@ -112,4 +114,5 @@ Contents
 	example_pyrepo_mcda
 	example_pyrepo_mcda_update
 	example_crispyn
+	example_pyrepo_mcda_update2
 	autoapi/index

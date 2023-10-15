@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="pyrepo-mcda",
-    version="0.1.3",
+    version="0.1.4",
     author="Aleksandra Bączkiewicz",
     author_email="aleksandra.baczkiewicz@phd.usz.edu.pl",
     description="Python library for Multi-Criteria Decision Analysis.",
@@ -19,6 +19,6 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.4",
-	install_requires=['numpy', 'pandas']
+    python_requires=">=3.6",
+	install_requires=['numpy', 'pandas', 'scipy']
 )

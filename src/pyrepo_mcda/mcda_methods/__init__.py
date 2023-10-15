@@ -16,5 +16,6 @@ from .saw import SAW
 from .spotis import SPOTIS
 from .topsis import TOPSIS
 from .vikor import VIKOR
+from .vmcm import VMCM
 from .waspas import WASPAS
 from .vikor_smaa import VIKOR_SMAA

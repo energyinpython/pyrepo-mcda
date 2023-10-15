@@ -33,7 +33,7 @@ class SAW(MCDA_method):
                 Vector with criteria types. Profit criteria are represented by 1 and cost by -1.
 
         Returns
-        -------
+        --------
             ndrarray
                 Vector with preference values of each alternative. The best alternative has the highest preference value. 
         

@@ -1,47 +1,50 @@
 Detecting python files..
-Analyzing 38 files using 8 processes..
-~2, ~3       D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\docs\conf.py
-2.2, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\examples\example_weighting_methods.py
-2.2, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\examples\main.py
-2.2, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\examples\main_mcda_v1.py
-~2, ~3       D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\examples\visualizations.py
-!2, 3.0      D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\setup.py
-~2, ~3       D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\__init__.py
-2.4, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\additions.py
-2.6, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\compromise_rankings.py
-2.3, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\correlations.py
-2.6, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\distance_metrics.py
-~2, ~3       D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\mcda_methods\__init__.py
-2.4, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\mcda_methods\ahp.py
-2.4, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\mcda_methods\aras.py
-2.6, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\mcda_methods\codas.py
-2.4, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\mcda_methods\copras.py
-2.4, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\mcda_methods\cradis.py
-~2, ~3       D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\mcda_methods\edas.py
-~2, ~3       D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\mcda_methods\mabac.py
-2.4, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\mcda_methods\marcos.py
-!2, 3.4      D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\mcda_methods\mcda_method.py
-2.4, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\mcda_methods\multimoora.py
-2.6, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\mcda_methods\promethee.py
-2.6, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\mcda_methods\prosa_c.py
-2.4, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\mcda_methods\saw.py
-2.4, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\mcda_methods\spotis.py
-2.4, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\mcda_methods\topsis.py
-2.4, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\mcda_methods\vikor.py
-2.4, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\mcda_methods\vikor_smaa.py
-2.4, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\mcda_methods\waspas.py
-~2, ~3       D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\normalizations.py
-2.6, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\sensitivity_analysis_weights_percentages.py
-2.6, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\sensitivity_analysis_weights_values.py
-2.6, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\src\pyrepo_mcda\weighting_methods.py
-2.1, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\tests\test_correlations.py
-2.1, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\tests\test_mcda_methods_1.py
-2.1, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\tests\test_mcda_methods_2.py
-2.1, 3.0     D:\HUAWEI\PYREPO_UPDATE_SOFTX\pyrepo_mcda_update_softx\tests\test_weighting_methods.py
+Analyzing 41 files using 8 processes..
+~2, ~3       D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\docs\conf.py
+2.3, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\examples\main_crispyn.py
+2.3, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\examples\main_pyrepo_mcda.py
+2.3, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\examples\main_pyrepo_mcda_update.py
+2.3, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\examples\main_visualizations.py
+2.3, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\examples\visualizations.py
+!2, 3.0      D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\setup.py
+~2, ~3       D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\__init__.py
+2.4, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\additions.py
+2.6, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\compromise_rankings.py
+2.3, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\correlations.py
+2.6, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\distance_metrics.py
+~2, ~3       D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\mcda_methods\__init__.py
+2.4, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\mcda_methods\ahp.py
+2.4, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\mcda_methods\aras.py
+2.4, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\mcda_methods\cocoso.py
+2.6, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\mcda_methods\codas.py
+2.4, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\mcda_methods\copras.py
+2.4, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\mcda_methods\cradis.py
+~2, ~3       D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\mcda_methods\edas.py
+~2, ~3       D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\mcda_methods\mabac.py
+2.4, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\mcda_methods\marcos.py
+!2, 3.4      D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\mcda_methods\mcda_method.py
+2.4, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\mcda_methods\multimoora.py
+2.6, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\mcda_methods\promethee.py
+2.6, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\mcda_methods\prosa_c.py
+2.4, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\mcda_methods\saw.py
+2.4, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\mcda_methods\spotis.py
+2.4, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\mcda_methods\topsis.py
+2.4, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\mcda_methods\vikor.py
+2.4, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\mcda_methods\vikor_smaa.py
+!2, 3.6      D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\mcda_methods\vmcm.py
+2.4, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\mcda_methods\waspas.py
+~2, ~3       D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\normalizations.py
+2.6, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\sensitivity_analysis_weights_percentages.py
+2.6, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\sensitivity_analysis_weights_values.py
+2.6, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\src\pyrepo_mcda\weighting_methods.py
+2.1, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\tests\test_correlations.py
+2.3, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\tests\test_mcda_methods_1.py
+2.1, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\tests\test_mcda_methods_2.py
+2.1, 3.0     D:\HUAWEI\PYREPO_MCDA_VMCM_UPDATE_2023\pyrepo-mcda\tests\test_weighting_methods.py
 
 Tips:
 - Since '# novm' or '# novermin' weren't used, a speedup can be achieved using: --no-parse-comments
 (disable using: --no-tips)
 
-Minimum required versions: 3.4
+Minimum required versions: 3.6
 Incompatible versions:     2

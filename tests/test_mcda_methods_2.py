@@ -1,9 +1,10 @@
 import unittest
 import numpy as np
 
-from pyrepo_mcda.mcda_methods import CRADIS, AHP, MARCOS, PROMETHEE_II, PROSA_C, SAW, ARAS, COPRAS
+from pyrepo_mcda.mcda_methods import CRADIS, AHP, MARCOS, PROMETHEE_II, PROSA_C, SAW, ARAS, COPRAS, COCOSO, VMCM
 
 from pyrepo_mcda import normalizations as norms
+from pyrepo_mcda.additions import rank_preferences
 
 
 # Test for the PROMETHEE II method
@@ -412,6 +413,33 @@ class Test_COPRAS(unittest.TestCase):
         self.assertEqual(list(np.round(test_result, 5)), list(real_result))
 
 
+# Test for the COCOSO method
+class Test_COCOSO(unittest.TestCase):
+
+    def test_cocoso(self):
+        """Test based on paper Yazdani, M., Zarate, P., Kazimieras Zavadskas, E., & Turskis, Z. (2019). 
+        A combined compromise solution (CoCoSo) method for multi-criteria decision-making problems. 
+        Management Decision, 57(9), 2501-2519.
+        DOI: https://doi.org/10.1108/MD-05-2017-0458"""
+
+        matrix = np.array([[60, 0.4, 2540, 500, 990],
+        [6.35, 0.15, 1016, 3000, 1041],
+        [6.8, 0.1, 1727.2, 1500, 1676],
+        [10, 0.2, 1000, 2000, 965],
+        [2.5, 0.1, 560, 500, 915],
+        [4.5, 0.08, 1016, 350, 508],
+        [3, 0.1, 1778, 1000, 920]])
+
+        weights = np.array([0.036, 0.192, 0.326, 0.326, 0.12])
+
+        types = np.array([1, -1, 1, 1, 1])
+
+        method = COCOSO()
+        test_result = method(matrix, weights, types)
+        real_result = np.array([2.041, 2.788, 2.882, 2.416, 1.3, 1.443, 2.52])
+        self.assertEqual(list(np.round(test_result, 1)), list(np.round(real_result, 1)))
+
+
 
 def main():
     test_promethee_II = Test_PROMETHEE_II()
@@ -446,6 +474,9 @@ def main():
 
     test_copras = Test_COPRAS()
     test_copras.test_copras()
+
+    test_cocoso = Test_COCOSO()
+    test_cocoso.test_cocoso()
 
 
 if __name__ == '__main__':
