@@ -2,6 +2,8 @@
 
 # -- Project information
 
+import autoapi
+
 project = 'pyrepo-mcda'
 copyright = '2023, energyinpython'
 author = 'Aleksandra Bączkiewicz'
@@ -11,16 +13,7 @@ version = '0.1.4'
 
 # -- General configuration
 
-extensions = [
-    'sphinx.ext.duration',
-    'sphinx.ext.doctest',
-    'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
-    'sphinx.ext.intersphinx',
-	'sphinx.ext.napoleon',
-    'sphinx.ext.viewcode',
-	'autoapi.extension',
-]
+extensions = ['autoapi.extension']
 autoapi_type = 'python'
 autoapi_dirs = ["../src"]  # location to parse for API reference
 
