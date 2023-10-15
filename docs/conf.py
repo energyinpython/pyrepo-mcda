@@ -11,7 +11,9 @@ version = '0.1.4'
 
 # -- General configuration
 
-extensions = ['autoapi.extension']
+extensions = ['autoapi.extension',
+'sphinx_rtd_theme',
+]
 autoapi_type = 'python'
 autoapi_dirs = ["../src"]  # location to parse for API reference
 
