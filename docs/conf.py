@@ -12,6 +12,7 @@ version = '0.1.4'
 # -- General configuration
 
 extensions = ['autoapi.extension',
+'nbsphinx',
 'sphinx_rtd_theme',
 ]
 autoapi_type = 'python'
