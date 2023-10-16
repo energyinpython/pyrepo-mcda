@@ -1135,6 +1135,10 @@ you can use the AHP method like other MCDA methods (for example, SAW):
 
 .. code-block:: python
 
+	import numpy as np
+	from pyrepo_mcda.mcda_methods import AHP
+	from pyrepo_mcda.additions import rank_preferences
+
 	# provide decision matrix in array numpy.darray
 	matrix = np.array([[0.75, 0.50, 0.75, 0, 0, 0, 1],
 	[0.75, 1, 0.75, 0, 0, 0, 0.75],
@@ -1172,6 +1176,9 @@ The COCOSO method
 ___________________________________
 
 .. code-block:: python
+
+	import numpy as np
+	from pyrepo_mcda.mcda_methods import COCOSO
 
 	# Provide decision matrix
 	matrix = np.array([[60, 0.4, 2540, 500, 990],
@@ -1217,6 +1224,9 @@ can be calculated using ``vmcm._pattern_determination`` function. Classes are as
 
 
 .. code-block:: python
+
+	import numpy as np
+	from pyrepo_mcda.mcda_methods import VMCM
 
 	# Provide decision matrix
 	matrix = np.array([[60, 0.4, 2540, 500, 990],
