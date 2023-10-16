@@ -23,6 +23,7 @@ This library includes:
 	- ``PROMETHEE II``
 	- ``PROSA C``
 	- ``SAW``
+	- ``VIKOR_SMAA``
 	- ``VMCM``
 	- ``COCOSO``
 	
