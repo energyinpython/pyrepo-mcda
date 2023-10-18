@@ -1237,14 +1237,14 @@ can be calculated using ``vmcm._pattern_determination`` function. Classes are as
 	[4.5, 0.08, 1016, 350, 508],
 	[3, 0.1, 1778, 1000, 920]])
 
-	# Provide criteria types
-	types = np.array([1, -1, 1, 1, 1])
-
 	# Initialize the VMCM method object
 	vmcm = VMCM()
 
 	# Print the criteria to be eliminated
 	vmcm._elimination(matrix)
+
+	# Provide criteria types
+	types = np.array([1, -1, 1, 1, 1])
 
 	# Determine criteria weights
 	weights = vmcm._weighting(matrix)

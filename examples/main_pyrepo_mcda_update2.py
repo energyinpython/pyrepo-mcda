@@ -57,7 +57,6 @@ def main():
     # Load data including decision matrix and criteria types
     data = pd.read_csv('dataset_waste.csv', index_col = 'Alternative')
     df_data = data.iloc[:len(data) - 1, :]
-    types = data.iloc[len(data) - 1, :].to_numpy()
 
     matrix = df_data.to_numpy()
 
@@ -66,6 +65,9 @@ def main():
 
     # Print the criteria to be eliminated
     vmcm._elimination(matrix)
+
+    # Provide criteria types
+    types = data.iloc[len(data) - 1, :].to_numpy()
 
     # Determine criteria weights
     weights = vmcm._weighting(matrix)
