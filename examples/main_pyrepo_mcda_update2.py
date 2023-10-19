@@ -74,6 +74,9 @@ def main():
 
     df_vmcm = pd.DataFrame(index=df_data.index)
 
+    normalized_matrix = vmcm._normalization(matrix)
+    print(normalized_matrix)
+
     # Determine pattern and anti-pattern
     pattern, antipattern = vmcm._pattern_determination(matrix, types)
 

@@ -66,6 +66,31 @@ class VMCM(MCDA_method):
         return v / np.sum(v)
     
 
+    def _normalization(self, matrix):
+        """
+        Calculates normalized matrix
+
+        Parameters
+        --------------
+            matrix : ndarray
+                Decision matrix with m alternatives in rows and n criteria in columns.
+
+        Returns
+        ---------------
+            ndarray
+                Normalized matrix
+
+        Examples
+        ---------------
+        >>> vmcm = VMCM()
+        >>> norm_matrix = vmcm._normalization(matrix)
+        """
+
+        norm_matrix = (matrix - np.mean(matrix, axis = 0)) / np.std(matrix, axis = 0, ddof = 1)
+
+        return norm_matrix
+    
+
     def _pattern_determination(self, matrix, types):
         """
         Automatic determination of pattern and anti-pattern
@@ -87,7 +112,7 @@ class VMCM(MCDA_method):
         """
 
         # Normalization of variables
-        norm_matrix = (matrix - np.mean(matrix, axis = 0)) / np.std(matrix, axis = 0, ddof = 1)
+        norm_matrix = self._normalization(matrix)
 
         # Determination of pattern and anti-pattern
         q1 = np.quantile(norm_matrix, 0.25, axis = 0)
@@ -172,13 +197,13 @@ class VMCM(MCDA_method):
         """
 
         VMCM._verify_input_data(matrix, weights, types)
-        return VMCM._vmcm(matrix, weights, types, pattern, anti_pattern)
+        return VMCM._vmcm(self, matrix, weights, types, pattern, anti_pattern)
 
 
     @staticmethod
-    def _vmcm(matrix, weights, types, pattern, anti_pattern):
+    def _vmcm(self, matrix, weights, types, pattern, anti_pattern):
         # Normalization of variables
-        norm_matrix = (matrix - np.mean(matrix, axis = 0)) / np.std(matrix, axis = 0, ddof = 1)
+        norm_matrix = self._normalization(matrix)
 
         # Construction of the synthetic measure
         m = np.sum((norm_matrix - anti_pattern) * (pattern - anti_pattern), axis = 1) / np.sum((pattern - anti_pattern)**2)
