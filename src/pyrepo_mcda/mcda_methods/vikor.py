@@ -85,7 +85,15 @@ class VIKOR(MCDA_method):
         # Calculate the Q values
         Sstar = np.min(S)
         Smin = np.max(S)
+        if (Sstar == Smin):
+            Sstar = 0.
+            Smin = 1.
+
         Rstar = np.min(R)
         Rmin = np.max(R)
+        if (Rstar == Rmin):
+            Rstar = 0.
+            Rmin = 1.
+
         Q = v * (S - Sstar) / (Smin - Sstar) + (1 - v) * (R - Rstar) / (Rmin - Rstar)
         return Q
