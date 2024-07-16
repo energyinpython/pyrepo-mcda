@@ -19,3 +19,4 @@ from .vikor import VIKOR
 from .vmcm import VMCM
 from .waspas import WASPAS
 from .vikor_smaa import VIKOR_SMAA
+from .pvm import PVM

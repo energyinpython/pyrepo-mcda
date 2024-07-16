@@ -205,7 +205,10 @@ class VMCM(MCDA_method):
         # Normalization of variables
         norm_matrix = self._normalization(matrix)
 
+        # Weighting of normalized matrix
+        weighted_matrix = norm_matrix * weights
+
         # Construction of the synthetic measure
-        m = np.sum((norm_matrix - anti_pattern) * (pattern - anti_pattern), axis = 1) / np.sum((pattern - anti_pattern)**2)
+        m = np.sum((weighted_matrix - anti_pattern) * (pattern - anti_pattern), axis = 1) / np.sum((pattern - anti_pattern)**2)
 
         return m

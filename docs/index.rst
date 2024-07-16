@@ -26,6 +26,7 @@ This library includes:
 	- ``VIKOR_SMAA``
 	- ``VMCM``
 	- ``COCOSO``
+	- ``PVM``
 	
 - Distance metrics:
 

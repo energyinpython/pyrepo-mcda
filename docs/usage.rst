@@ -1278,9 +1278,65 @@ Output
 	C5 = 0.3446
 	Criteria to eliminate:
 	None
-	Preference values:  [ 0.5427  1.04    1.0445  0.558  -0.091   0.0133  0.6857]
-	Classes:  [2. 1. 1. 2. 4. 4. 2.]
-	Ranking:  [5 2 1 4 7 6 3]
+	Preference values:  [0.539  0.648  0.6061 0.5583 0.4377 0.4539 0.5502]
+	Classes:  [3. 1. 2. 2. 4. 4. 2.]
+	Ranking:  [5 1 2 3 7 6 4]
+	
+	
+The PVM method
+___________________________________________
+
+The PVM method requires providing a decision matrix, criteria weights, and criteria types. Criteria types are determined differently from the other MCDA methods. Accepted
+criteria types are: 'm' for motivating criteria, 'dm' for demotivating criteria, 'd' for desirable criteria, and 'nd' for non-desirable criteria. Neutral criteria should not
+be considered. If the criterion is considered neutral, it should be removed from the decision matrix before calculations. Preference vectors psi and phi can be provided
+by decision-makers as in the example below. Vector psi is motivating and vector phi is demotivating. It is optional. If preference vectors are not provided, they are determined by the PVM based on data in the decision matrix.
+
+
+.. code-block:: python
+
+	import numpy as np
+	from pyrepo_mcda.mcda_methods import PVM
+	from pyrepo_mcda.additions import rank_preferences
+
+	# provide decision matrix
+	matrix = np.array([
+		[326, 27.5, 24.3, 48.83],
+		[253, 22, 18.3, 51.11],
+		[561, 26, 50, 52.42],
+		[405, 21.7, 35.6, 29.12],
+		[479, 18, 41, 64.08]
+	])
+
+	# provide criteria weights
+	weights = np.array([0.1667, 0.1667, 0.3333, 0.3333])
+
+	# determine criteria character
+	types = ['dm', 'd', 'd', 'dm']
+
+	# determine psi vector (optional)
+	psi = np.array([300, 21.5, 18.3, 41.5325])
+
+	# determine phi vector (optional)
+	phi = np.array([500, 18, 20, 52.0925])
+
+	# Initialize the PVM method object
+	pvm = PVM()
+
+	# Calculate the importance factor for each alternative
+	pref = pvm(matrix, weights, types)
+
+	# Rank evaluated alternatives according to the importance factor. Best scored alternative has the highest importance factor value.
+	rank = rank_preferences(pref, reverse=True)
+	print('Importance factor: ', np.round(pref, 4))
+	print('Ranking: ', rank)
+	
+	
+Output
+
+.. code-block:: console
+
+	Importance factor:  [-0.0485 -0.0596 -0.0049 -0.0268 -0.0253]
+	Ranking:  [4 5 1 3 2]
 
 
 

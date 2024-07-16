@@ -152,13 +152,7 @@ def chebyshev(A, B):
     >>> distance = chebyshev(A, B)
     """
 
-    max_h = -np.inf
-    for i, j in itertools.product(range(len(A)), range(len(B))):
-        d = np.abs(A[i] - B[j])
-        if d > max_h:
-            max_h = d
-
-    return max_h
+    return max(abs(A - B))
 
 
 # standardized Euclidean distance
