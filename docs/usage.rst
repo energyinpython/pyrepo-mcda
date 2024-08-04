@@ -1323,7 +1323,7 @@ by decision-makers as in the example below. Vector psi is motivating and vector 
 	pvm = PVM()
 
 	# Calculate the importance factor for each alternative
-	pref = pvm(matrix, weights, types)
+	pref = pvm(matrix, weights, types, psi = psi, phi = phi)
 
 	# Rank evaluated alternatives according to the importance factor. Best scored alternative has the highest importance factor value.
 	rank = rank_preferences(pref, reverse=True)
@@ -1335,8 +1335,8 @@ Output
 
 .. code-block:: console
 
-	Importance factor:  [-0.0485 -0.0596 -0.0049 -0.0268 -0.0253]
-	Ranking:  [4 5 1 3 2]
+	Importance factor:  [-0.0004  0.019  -0.0715 -0.0156 -0.0529]
+	Ranking:  [2 1 5 3 4]
 
 
 

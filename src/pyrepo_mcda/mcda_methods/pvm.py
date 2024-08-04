@@ -46,7 +46,7 @@ class PVM():
     def _pvm(matrix, weights, types, psi, phi):
 
         # Determining the preference vector
-        if psi == None or phi == None:
+        if (psi is None) or (phi is None):
             psi = np.zeros(matrix.shape[1])
             phi = np.zeros(matrix.shape[1])
 
