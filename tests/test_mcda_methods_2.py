@@ -1,7 +1,7 @@
 import unittest
 import numpy as np
 
-from pyrepo_mcda.mcda_methods import CRADIS, AHP, MARCOS, PROMETHEE_II, PROSA_C, SAW, ARAS, COPRAS, COCOSO, VMCM
+from pyrepo_mcda.mcda_methods import CRADIS, AHP, MARCOS, PROMETHEE_II, PROSA_C, SAW, ARAS, COPRAS, COCOSO, VMCM, PVM
 
 from pyrepo_mcda import normalizations as norms
 from pyrepo_mcda.additions import rank_preferences
@@ -440,6 +440,36 @@ class Test_COCOSO(unittest.TestCase):
         self.assertEqual(list(np.round(test_result, 1)), list(np.round(real_result, 1)))
 
 
+# Test for the PVM method
+class Test_PVM(unittest.TestCase):
+
+    def test_pvm(self):
+        """Nermend, K. (2023). The Issue of Multi-criteria and Multi-dimensionality in Decision Support. 
+        In: Multi-Criteria and Multi-Dimensional Analysis in Decisions . Vector Optimization. Springer, 
+        Cham. https://doi.org/10.1007/978-3-031-40538-9_1"""
+
+        matrix = np.array([
+            [326, 27.5, 24.3, 48.83],
+            [253, 22, 18.3, 51.11],
+            [561, 26, 50, 52.42],
+            [405, 21.7, 35.6, 29.12],
+            [479, 18, 41, 64.08]
+        ])
+
+        weights = np.array([0.1667, 0.1667, 0.3333, 0.3333])
+
+        types = ['dm', 'd', 'd', 'dm']
+
+        psi = np.array([300, 21.5, 18.3, 41.5325])
+
+        phi = np.array([500, 18, 20, 52.0925])
+
+        method = PVM()
+        test_result = method(matrix, weights, types, psi = psi, phi = phi)
+        
+        real_result = np.array([-0.0004,  0.019,  -0.0715, -0.0156, -0.0529])
+        self.assertEqual(list(np.round(test_result, 4)), list(np.round(real_result, 4)))
+
 
 def main():
     test_promethee_II = Test_PROMETHEE_II()
@@ -477,6 +507,9 @@ def main():
 
     test_cocoso = Test_COCOSO()
     test_cocoso.test_cocoso()
+
+    test_pvm = Test_PVM()
+    test_pvm.test_pvm()
 
 
 if __name__ == '__main__':
