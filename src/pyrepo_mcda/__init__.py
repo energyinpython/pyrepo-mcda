@@ -7,3 +7,4 @@ from . import normalizations
 from . import sensitivity_analysis_weights_percentages
 from . import sensitivity_analysis_weights_values
 from . import weighting_methods
+from . import promethee_preference_functions

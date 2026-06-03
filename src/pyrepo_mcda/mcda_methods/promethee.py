@@ -1,6 +1,7 @@
 import itertools
-import numpy as np
+
 from .mcda_method import MCDA_method
+from ..promethee_preference_functions import *
 
 
 class PROMETHEE_II(MCDA_method):
@@ -39,54 +40,29 @@ class PROMETHEE_II(MCDA_method):
     # alternatives are indifferent only if they are equal to each other
     # otherwise there is a strong preference for one of them
     def _usual_function(self, d, p, q):
-        if d <= 0:
-            return 0
-        else:
-            return 1
+        return preference_usual_function(d, p, q)
 
     # Preference function type 2 (U-shape criterion) requires indifference threshold (q)
     def _ushape_function(self, d, p, q):
-        if d <= q:
-            return 0
-        else:
-            return 1
+        return preference_ushape_function(d, p, q)
 
     # Preference function type 3 (V-shape criterion) requires threshold of absolute preference (p) 
     def _vshape_function(self, d, p, q):
-        if d <= 0:
-            return 0
-        elif 0 <= d <= p:
-            return d / p
-        elif d > p:
-            return 1
+        return preference_vshape_function(d, p, q)
 
     # preference function type 4 (Level criterion) requires both preference and indifference thresholds (p and q)
     def _level_function(self, d, p, q):
-        if d <= q:
-            return 0
-        elif q < d <= p:
-            return 0.5
-        elif d > p:
-            return 1
+        return preference_level_function(d, p, q)
 
     # Preference function type 5 (V-shape with indifference criterion also known as linear)
     # requires both preference and indifference thresholds (p and q)
     def _linear_function(self, d, p, q):
-        if d <= q:
-            return 0
-        elif q < d <= p:
-            return (d - q) / (p - q)
-        elif d > p:
-            return 1
+        return preference_linear_function(d, p, q)
 
     # preference function type 6 (Gaussian criterion)
     # requires to fix parameter s which is an intermediate value between q and p
     def _gaussian_function(self, d, p, q):
-        if d <= 0:
-            return 0
-        elif d > 0:
-            s = (p + q) / 2
-            return 1 - np.exp(-((d ** 2) / (2 * s ** 2)))
+        return preference_gaussian_function(d, p, q)
 
 
     @staticmethod
