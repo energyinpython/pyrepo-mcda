@@ -4,18 +4,19 @@ from typing import Callable
 import numpy as np
 import pandas as pd
 
+from pyrepo_mcda.additions import rank_preferences
 from pyrepo_mcda.mcda_methods import Temporal_PROMETHEE_II
-from pyrepo_mcda.promethee_preference_functions import preference_linear_function
+from pyrepo_mcda.promethee_preference_functions import preference_linear_function, preference_usual_function, \
+    preference_ushape_function, preference_vshape_function, preference_level_function, preference_gaussian_function
 from pyrepo_mcda.weighting_methods import equal_weighting
 
 CSV_DELIMITER = ','
-FORMAT = 'png'
 
 class TemporalPrometheeExample:
     key: str
     performances: dict[str, pd.DataFrame]
     types: list[int]
-    _weights: list[float|int]
+    _weights: list[float | int]
     preferenceFunctions: list[Callable] | None
 
     def __init__(
@@ -23,7 +24,7 @@ class TemporalPrometheeExample:
             key: str,
             performance_paths: dict[str, str],
             types: list[int],
-            weights: list[float|int] | Callable,
+            weights: list[float | int] | Callable,
             preference_functions: list[Callable] | None = None,
     ):
         self.key = key
@@ -35,7 +36,8 @@ class TemporalPrometheeExample:
             df: pd.DataFrame = pd.read_csv(path, delimiter=CSV_DELIMITER, index_col=0, header=0)
 
             if len(df.columns) != len(types):
-                raise ValueError(f"Number of criteria in performance data does not match number of types and weights provided.")
+                raise ValueError(
+                    f"Number of criteria in performance data does not match number of types and weights provided.")
 
             self.performances[year] = df
 
@@ -48,7 +50,7 @@ class TemporalPrometheeExample:
         return self._weights
 
     @weights.setter
-    def weights(self, weights: list[float|int] | Callable):
+    def weights(self, weights: list[float | int] | Callable):
         if isinstance(weights, list):
             self._weights = weights
         elif isinstance(weights, Callable):
@@ -79,8 +81,38 @@ class TemporalPrometheeExample:
             preference_functions=self.preferenceFunctions,
             alt_names=self.alternatives,
         )
+        ranks = rank_preferences(scores, reverse=True)
 
-        pass
+        alt_index = all_net_flows_df.index
+
+        # Save individual CSV files
+        scores_df = pd.DataFrame({'scores': scores, 'ranks': ranks}, index=alt_index)
+        scores_df.index.name = 'Alternatives'
+        scores_df.to_csv(os.path.join(self.output_dir, 'scores.csv'), float_format='%.4f')
+
+        G_df = pd.DataFrame({'G': G}, index=alt_index)
+        G_df.index.name = 'Alternatives'
+        G_df.to_csv(os.path.join(self.output_dir, 'G.csv'), float_format='%.4f')
+
+        dir_df = pd.DataFrame({'dir': dir}, index=alt_index)
+        dir_df['dir_arrow'] = dir_df['dir'].map({
+            -1: '$\\downarrow$',
+            0: '$\\rightarrow$',
+            1: '$\\uparrow$',
+        })
+        dir_df.index.name = 'Alternatives'
+        dir_df.to_csv(os.path.join(self.output_dir, 'dir.csv'))
+
+        all_net_flows_df.to_csv(os.path.join(self.output_dir, 'all_net_flows.csv'), float_format='%.4f')
+
+        # Save all merged into a single file
+        all_data = all_net_flows_df.copy()
+        all_data['G'] = G
+        all_data['dir'] = dir
+        all_data['dir_arrow'] = dir_df['dir_arrow']
+        all_data['scores'] = scores
+        all_data['ranks'] = ranks
+        all_data.to_csv(os.path.join(self.output_dir, 'all_data.csv'), float_format='%.4f')
 
     @property
     def weights_np(self) -> np.ndarray:
@@ -97,8 +129,48 @@ class TemporalPrometheeExample:
         else:
             return list(next(iter(self.performances.values())).index)
 
+
 if __name__ == '__main__':
-    NUM_CRITERIA = 9
+    NUM_CRITERIA_PERIODS = 3
+    study_periods = TemporalPrometheeExample(
+        'periods',
+        {
+            '$t_1$': 'example_v_1_4/periods/periods_1.csv',
+            '$t_2$': 'example_v_1_4/periods/periods_2.csv',
+            '$t_3$': 'example_v_1_4/periods/periods_3.csv',
+        },
+        types=[1 for i in range(NUM_CRITERIA_PERIODS)],
+        weights=equal_weighting,
+        preference_functions=[preference_usual_function for pf in range(NUM_CRITERIA_PERIODS)],
+    )
+    study_periods.run()
+
+    NUM_CRITERIA_PFS = 3
+
+    pfs = {
+        'usual': preference_usual_function,
+        'ushape': preference_ushape_function,
+        'vshape': preference_vshape_function,
+        'level': preference_level_function,
+        'linear': preference_linear_function,
+        'gaussian': preference_gaussian_function,
+    }
+
+    for pf_name, pf_function in pfs.items():
+        study_pfs = TemporalPrometheeExample(
+            f"pfs_{pf_name}",
+            {
+                '$t_1$': 'example_v_1_4/pfs/pfs.csv',
+                '$t_2$': 'example_v_1_4/pfs/pfs.csv',
+                '$t_3$': 'example_v_1_4/pfs/pfs.csv',
+            },
+            types=[1 for i in range(NUM_CRITERIA_PFS)],
+            weights=equal_weighting,
+            preference_functions=[pf_function for pf in range(NUM_CRITERIA_PFS)],
+        )
+        study_pfs.run()
+
+    NUM_CRITERIA_SHARES = 9
     study = TemporalPrometheeExample(
         'shares',
         {
@@ -111,9 +183,9 @@ if __name__ == '__main__':
             '2019': 'example_v_1_4/shares/shares_2019.csv',
             '2020': 'example_v_1_4/shares/shares_2020.csv',
         },
-        types=[1 for i in range(NUM_CRITERIA)],
+        types=[1 for i in range(NUM_CRITERIA_SHARES)],
         weights=equal_weighting,
-        preference_functions=[preference_linear_function for pf in range(NUM_CRITERIA)],
+        preference_functions=[preference_linear_function for pf in range(NUM_CRITERIA_SHARES)],
     )
 
     study.run()
