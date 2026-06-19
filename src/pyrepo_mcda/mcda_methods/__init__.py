@@ -20,3 +20,5 @@ from .vmcm import VMCM
 from .waspas import WASPAS
 from .vikor_smaa import VIKOR_SMAA
 from .pvm import PVM
+from .daria import DARIA
+from .temporal_promethee import Temporal_PROMETHEE_II
