@@ -123,8 +123,8 @@ class DARIA():
         """
 
         # Calculate the standard deviation of each criterion in decision matrix
-        stdv = np.sqrt((np.sum(np.square(R - np.mean(R, axis = 0)), axis = 0)) / R.shape[0])
-        return stdv
+        std = np.std(R, axis=0, ddof=1)
+        return std
 
 
     # statistical variance variability measure
@@ -191,8 +191,8 @@ class DARIA():
 
 
     # Direction of variability
-    # for MCDA methods type = 1: descending order: higher is better, type -1: opposite
-    def _direction(self, R, type = 1):
+    # for MCDA methods preference_type = 1: descending order: higher is better, preference_type -1: opposite
+    def _direction(self, R, preference_type = 1):
         """
         Determine the direction of the variability of alternatives scores obtained in the following 
         periods of time.
@@ -202,7 +202,7 @@ class DARIA():
             R : ndarray
                 Matrix with preference values obtained with MCDA method (for example, TOPSIS)
                 with `t` periods of time in rows and `m` alternatives in columns.
-            type : int
+            preference_type : int
                 The variable represents the ordering of alternatives by the MCDA method. It can be equal to
                 1 or -1. 1 means that the MCDA method sorts options in descending order
                 according to preference values (for example, the TOPSIS method). -1 means that 
@@ -224,7 +224,7 @@ class DARIA():
         Examples
         ---------
         >>> daria = DARIA()
-        >>> dir_list, dir_class = daria._direction(matrix, type)
+        >>> dir_list, dir_class = daria._direction(matrix, preference_type)
         """
 
         t, m = np.shape(R)
@@ -240,7 +240,7 @@ class DARIA():
             dir_class[i] = np.sign(thresh)
             
         direction_array = copy.deepcopy(dir_class)
-        direction_array = direction_array * type
+        direction_array = direction_array * preference_type
         for i in range(len(direction_array)):
             if direction_array[i] == 1:
                 direction_list.append(r'$\uparrow$')
@@ -251,7 +251,7 @@ class DARIA():
         return direction_list, dir_class
 
 
-    def _update_efficiency(self, S, G, dir):
+    def _update_efficiency(self, scores, variability, direction):
         """
         Calculate final aggregated preference values of alternatives of DARIA method.
         Obtained preference values can be sorted according to chosen MCDA method rule to generate
@@ -259,13 +259,13 @@ class DARIA():
         
         Parameters
         -----------
-            S : ndarray
+            scores : ndarray
                 Vector with preference values of alternatives from the most recent year analyzed
                 obtained by chosen MCDA method.
-            G : ndarray
+            variability : ndarray
                 Vector with variability values of alternatives preferences obtained in investigated
                 periods.
-            dir : ndarray
+            direction : ndarray
                 Vector with numerical values of the direction of variability in values of alternatives 
                 preferences obtained in investigated periods. 1 represents increasing in following
                 preference values, and -1 means decreasing in following preference values.
@@ -278,8 +278,8 @@ class DARIA():
         
         Examples
         ----------
-        >>> final_S = daria._update_efficiency(S, G, dir)
-        >>> rank = rank_preferences(final_S, reverse = True)
+        >>> updated_scores = daria._update_efficiency(scores, variability, direction)
+        >>> rank = rank_preferences(updated_scores, reverse = True)
         """
 
-        return S + G * dir
+        return scores + variability * direction

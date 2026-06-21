@@ -81,10 +81,13 @@ class PROMETHEE_II(MCDA_method):
             preference_functions : list
                 List with methods containing preference functions for calculating the
                 preference degree for each criterion.
+                If None, default PROMETHEE preference function (usual) is applied.
             p : ndarray
                 Vector with values representing the threshold of absolute preference.
+                If None, default PROMETHEE preference thresholds are applied.
             q : ndarray
                 Vector with values representing the threshold of indifference.
+                If None, default PROMETHEE indifference thresholds are applied.
         
         Returns
         --------
