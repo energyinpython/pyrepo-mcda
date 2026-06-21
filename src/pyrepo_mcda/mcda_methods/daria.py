@@ -123,8 +123,9 @@ class DARIA():
         """
 
         # Calculate the standard deviation of each criterion in decision matrix
-        std = np.std(R, axis=0, ddof=1)
-        return std
+        stdv = np.sqrt((np.sum(np.square(R - np.mean(R, axis = 0)), axis = 0)) / R.shape[0])
+        # std = np.std(R, axis=0, ddof=1)
+        return stdv
 
 
     # statistical variance variability measure
