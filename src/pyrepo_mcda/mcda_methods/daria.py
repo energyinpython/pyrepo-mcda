@@ -7,6 +7,11 @@ from pyrepo_mcda import normalizations as norms
 
 
 class DARIA():
+    """
+    Data vARIability Assessment (DARIA) method for analyzing variability 
+    and temporal changes in alternative preferences.
+    """
+    
     def __init__(self):
         """
         Create the DARIA object

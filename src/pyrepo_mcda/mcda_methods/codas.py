@@ -7,6 +7,11 @@ from .mcda_method import MCDA_method
 
 
 class CODAS(MCDA_method):
+    """
+    Combinative Distance-based Assessment (CODAS) method for ranking
+    alternatives based on their distances from the negative ideal solution.
+    """
+    
     def __init__(self, normalization_method = linear_normalization, distance_metric = euclidean, tau = 0.02):
         """
         Create the CODAS method object and select normalization method `normalization_method`, default

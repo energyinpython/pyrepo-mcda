@@ -6,6 +6,11 @@ from ..normalizations import sum_normalization
 
 
 class ARAS(MCDA_method):
+    """
+    Additive Ratio Assessment (ARAS) method used to evaluate and rank
+    alternatives according to their utility degree relative to the ideal solution.
+    """
+    
     def __init__(self, normalization_method = sum_normalization):
         """
         Create the ARAS method object

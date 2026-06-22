@@ -5,6 +5,11 @@ from .mcda_method import MCDA_method
 
 
 class COCOSO(MCDA_method):
+    """
+    Combined Compromise Solution (CoCoSo) method for evaluating and ranking
+    alternatives using a combination of additive and multiplicative aggregation strategies.
+    """
+    
     def __init__(self, normalization_method = minmax_normalization, lambda_param = 0.5):
         """
         Create the COCOSO method object and select value of lambda parameter called `lambda_param`.

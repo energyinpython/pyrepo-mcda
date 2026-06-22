@@ -4,6 +4,12 @@ from .mcda_method import MCDA_method
 
 
 class MARCOS(MCDA_method):
+    """
+    Measurement Alternatives and Ranking according to Compromise Solution (MARCOS)
+    method for ranking alternatives based on their utility degrees relative to
+    ideal and anti-ideal solutions.
+    """
+    
     def __init__(self):
         """
         Create the MARCOS method object

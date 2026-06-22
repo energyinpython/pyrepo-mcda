@@ -2,6 +2,12 @@ import numpy as np
 from .mcda_method import MCDA_method
 
 class SPOTIS(MCDA_method):
+    """
+    Stable Preference Ordering Towards Ideal Solution (SPOTIS) method
+    for ranking alternatives according to their distances from the ideal
+    solution defined within criterion bounds.
+    """
+    
     def __init__(self):
         """Create SPOTIS method object.
         """

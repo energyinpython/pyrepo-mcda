@@ -7,6 +7,11 @@ from .mcda_method import MCDA_method
 
 
 class MULTIMOORA_RS(MCDA_method):
+    """
+    Ratio System component of the MULTIMOORA method for multi-criteria
+    decision analysis.
+    """
+    
     def __init__(self):
         """Create object of the MULTIMOORA Ratio System (RS) method. This method is an integral part of the 
         MULTIMOORA method. This method is the same as the MOORA method, and it can be used 
@@ -155,6 +160,12 @@ class MULTIMOORA_FMF(MCDA_method):
 
 
 class MULTIMOORA(MCDA_method):
+    """
+    Multi-Objective Optimization on the basis of Ratio Analysis
+    (MULTIMOORA) method for ranking alternatives using the Ratio System,
+    Reference Point, and Full Multiplicative Form approaches.
+    """
+    
     def __init__(self, compromise_rank_method = dominance_directed_graph):
         """Create object of the MULTIMOORA method.
 

@@ -1,6 +1,12 @@
 import numpy as np
 
 class PVM():
+    """
+    Preference Vector Method (PVM) for evaluating and ranking alternatives
+    based on their similarity to motivating and dissimilarity to demotivating
+    preference vectors.
+    """
+    
     def __init__(self):
         """
         Create the PVM method object

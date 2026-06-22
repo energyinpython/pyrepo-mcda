@@ -5,6 +5,12 @@ from ..promethee_preference_functions import *
 
 
 class PROMETHEE_II(MCDA_method):
+    """
+    Preference Ranking Organization Method for Enrichment Evaluation II
+    (PROMETHEE II) for ranking alternatives based on positive, negative,
+    and net preference flows.
+    """
+    
     def __init__(self):
         """
         Create the PROMETHEE II method object

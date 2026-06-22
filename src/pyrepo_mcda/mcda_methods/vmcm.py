@@ -2,6 +2,12 @@ import numpy as np
 from .mcda_method import MCDA_method
 
 class VMCM(MCDA_method):
+    """
+    Vector Measure Construction Method (VMCM) for evaluating and ranking
+    alternatives using vector-based measures of their performance across
+    multiple criteria.
+    """
+    
     def __init__(self):
         """
         Create the VMCM method object.

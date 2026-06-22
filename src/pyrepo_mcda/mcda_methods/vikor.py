@@ -4,6 +4,12 @@ from .mcda_method import MCDA_method
 
 
 class VIKOR(MCDA_method):
+    """
+    VIseKriterijumska Optimizacija I Kompromisno Resenje (VIKOR)
+    method for ranking alternatives and identifying compromise solutions
+    based on group utility and individual regret measures.
+    """
+    
     def __init__(self, normalization_method = None, v = 0.5):
         """Create the VIKOR method object.
 

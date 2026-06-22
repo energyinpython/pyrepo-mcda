@@ -5,6 +5,12 @@ from ..normalizations import linear_normalization
 
 
 class CRADIS(MCDA_method):
+    """
+    Compromise Ranking of Alternatives from Distance to Ideal Solution (CRADIS)
+    method for ranking alternatives according to their distances from ideal
+    and anti-ideal solutions.
+    """
+    
     def __init__(self, normalization_method = linear_normalization):
         """
         Create the CRADIS method object

@@ -4,6 +4,11 @@ from .mcda_method import MCDA_method
 
 
 class COPRAS(MCDA_method):
+    """
+    Complex Proportional Assessment (COPRAS) method for evaluating and
+    ranking alternatives based on their proportional significance and utility degree.
+    """
+    
     def __init__(self, normalization_method = sum_normalization):
         """
         Create the COPRAS method object and select normalization method `normalization_method`

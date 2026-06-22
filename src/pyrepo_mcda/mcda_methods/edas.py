@@ -3,6 +3,12 @@ from .mcda_method import MCDA_method
 
 
 class EDAS(MCDA_method):
+    """
+    Evaluation based on Distance from Average Solution (EDAS) method
+    for ranking alternatives according to their positive and negative
+    distances from the average solution.
+    """
+    
     def __init__(self):
         """Create object of the EDAS method"""
         pass

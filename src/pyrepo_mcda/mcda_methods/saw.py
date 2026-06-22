@@ -6,6 +6,11 @@ from ..normalizations import linear_normalization
 
 
 class SAW(MCDA_method):
+    """
+    Simple Additive Weighting (SAW) method for ranking alternatives based on
+    the weighted sum of normalized criterion values.
+    """
+    
     def __init__(self, normalization_method = linear_normalization):
         """
         Create the SAW method object and select normalization method `normalization_method`.

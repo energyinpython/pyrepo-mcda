@@ -8,6 +8,11 @@ from ..normalizations import minmax_normalization
 
 
 class AHP(MCDA_method):
+    """
+    Analytic Hierarchy Process (AHP) method for calculating criteria weights
+    from pairwise comparisons and supporting multi-criteria decision analysis.
+    """
+
     def __init__(self, normalization_method = minmax_normalization):
         """
         Create the AHP method object

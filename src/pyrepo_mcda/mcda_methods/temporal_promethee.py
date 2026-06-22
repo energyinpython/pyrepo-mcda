@@ -3,10 +3,15 @@ from typing import Callable
 import numpy as np
 import pandas as pd
 
-from pyrepo_mcda.mcda_methods import PROMETHEE_II, DARIA
+from .promethee import PROMETHEE_II
+from .daria import DARIA
 
 
 class Temporal_PROMETHEE_II:
+    """
+    Temporal extension of the PROMETHEE II method that incorporates
+    variability of preferences over multiple time periods using DARIA.
+    """
 
     def __init__(self):
         """
@@ -191,7 +196,6 @@ class Temporal_PROMETHEE_II:
             all_net_flows_df.index = alt_names
 
         all_net_flows_df = all_net_flows_df.rename_axis("Alternatives")
-
 
         # perform DARIA calculations
 

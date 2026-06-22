@@ -5,6 +5,12 @@ from ..distance_metrics import euclidean
 from .mcda_method import MCDA_method
 
 class TOPSIS(MCDA_method):
+    """
+    Technique for Order Preference by Similarity to Ideal Solution (TOPSIS)
+    method for ranking alternatives according to their distances from
+    ideal and anti-ideal solutions.
+    """
+    
     def __init__(self, normalization_method = minmax_normalization, distance_metric = euclidean):
         """
         Create the TOPSIS method object and select normalization method `normalization_method` and

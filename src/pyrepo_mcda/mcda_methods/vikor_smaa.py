@@ -5,6 +5,11 @@ from ..additions import rank_preferences
 
 
 class VIKOR_SMAA():
+    """
+    VIKOR method combined with Stochastic Multicriteria Acceptability Analysis
+    (SMAA) for ranking alternatives under uncertain criteria weights.
+    """
+
     def __init__(self, normalization_method = None, v = 0.5):
         """Create the VIKOR method object.
 

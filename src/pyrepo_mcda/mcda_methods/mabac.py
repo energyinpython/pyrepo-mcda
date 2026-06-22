@@ -4,6 +4,12 @@ from .mcda_method import MCDA_method
 
 
 class MABAC(MCDA_method):
+    """
+    Multi-Attributive Border Approximation Area Comparison (MABAC) method
+    for ranking alternatives according to their distances from the border
+    approximation area.
+    """
+    
     def __init__(self, normalization_method = minmax_normalization):
         """
         Create the MABAC method object and select normalization method `normalization_method` from

@@ -4,7 +4,6 @@ import numpy as np
 from .promethee import PROMETHEE_II
 
 
-
 # PROSA Examining Sustainability at the Criteria Level (PROSA-C)
 class PROSA_C(PROMETHEE_II):
     def __init__(self):
@@ -51,37 +50,37 @@ class PROSA_C(PROMETHEE_II):
         Score alternatives provided in the decision matrix `matrix` using criteria `weights` and criteria `types`.
         
         Parameters
-        -----------
-            matrix : ndarray
-                Decision matrix with m alternatives in rows and n criteria in columns.
-            weights: ndarray
-                Criteria weights. The sum of weights must be equal to 1.
-            types: ndarray
-                Criteria types. Profit criteria are represented by 1 and cost by -1.
-            preference_functions : list
-                List with methods containing preference functions for calculating the
-                preference degree for each criterion.
-            p : ndarray
-                Vector with values representing the threshold of absolute preference.
-            q : ndarray
-                Vector with values representing the threshold of indifference.
-            s : ndarray
-                Vector with values of the coefficient sj for the criteria
+        ----------
+        matrix : ndarray
+            Decision matrix with m alternatives in rows and n criteria in columns.
+        weights: ndarray
+            Criteria weights. The sum of weights must be equal to 1.
+        types: ndarray
+            Criteria types. Profit criteria are represented by 1 and cost by -1.
+        preference_functions : list
+            List with methods containing preference functions for calculating the
+            preference degree for each criterion.
+        p : ndarray
+            Vector with values representing the threshold of absolute preference.
+        q : ndarray
+            Vector with values representing the threshold of indifference.
+        s : ndarray
+            Vector with values of the coefficient sj for the criteria
         
         Returns
-        --------
-            ndrarray
-                Preference values of each alternative. The best alternative has the highest preference value. 
+        -------
+        ndrarray
+            Preference values of each alternative. The best alternative has the highest preference value.
         
         Examples
-        ----------
+        --------
         >>> prosa_c = PROSA_C()
         >>> preference_functions = [prosa_c._linear_function for pf in range(len(weights))]
         >>> u = np.sqrt(np.sum(np.square(np.mean(matrix, axis = 0) - matrix), axis = 0) / matrix.shape[0])
         >>> p = 2 * u
         >>> q = 0.5 * u
         >>> s = np.repeat(0.3, len(weights))
-        >>> pref = promethee_II(matrix, weights, types, preference_functions, p = p, q = q, s = s)
+        >>> pref = prosa_c(matrix, weights, types, preference_functions, p = p, q = q, s = s)
         >>> rank = rank_preferences(pref, reverse = True)
         """
 
