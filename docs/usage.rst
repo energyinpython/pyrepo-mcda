@@ -1337,6 +1337,94 @@ Output
 
 	Importance factor:  [-0.0004  0.019  -0.0715 -0.0156 -0.0529]
 	Ranking:  [2 1 5 3 4]
+	
+	
+The Temporal PROMETHEE II method
+___________________________________________
+
+The Temporal PROMETHEE II method requires providing decision matrices representing consecutive time periods, criteria weights, and criteria types. 
+All decision matrices must have the same dimensions and represent the same alternatives and criteria. PROMETHEE II net flows are calculated for each period 
+and subsequently adjusted using variability and direction information derived from the DARIA method. By default, variability is measured using the standard deviation, 
+although other DARIA variability measures may also be used. The method returns updated temporal preference scores together with variability information and PROMETHEE II 
+net flows for all analyzed periods.
+
+.. code-block:: python
+
+	# Import required packages
+	import numpy as np
+	import pandas as pd
+
+	from pyrepo_mcda.mcda_methods import Temporal_PROMETHEE_II, DARIA
+	from pyrepo_mcda.additions import rank_preferences
+	from pyrepo_mcda.weighting_methods import equal_weighting
+	from pyrepo_mcda.promethee_preference_functions import preference_usual_function
+
+	# Three decision matrices are prepared for three consecutive years.
+	# Rows represent alternatives and columns represent criteria. The same alternatives and criteria must be present in all periods.
+	matrices = {
+		"2022": np.array([
+			[70, 70, 70],
+			[50, 55, 60],
+			[90, 90, 85],
+			[86, 88, 87]
+		]),
+		"2023": np.array([
+			[71, 70, 69],
+			[68, 70, 72],
+			[78, 76, 74],
+			[86, 88, 87]
+		]),
+		"2024": np.array([
+			[70, 71, 70],
+			[86, 88, 87],
+			[65, 63, 60],
+			[86, 88, 87]
+		])
+	}
+
+	alternative_names = ["A1", "A2", "A3", "A4"]
+
+	# Weights and criteria types
+	# The first criterion is a profit criterion. The second criterion is a cost criterion. The third criterion is a profit criterion.
+	# Equal weighting is used.
+
+	weights = equal_weighting(matrices["2022"])
+
+	types = np.array([
+		1,   # profit criterion
+	   -1,   # cost criterion
+		1   # profit criterion
+	])
+
+	# Create the Temporal PROMETHEE II object
+	tp = Temporal_PROMETHEE_II()
+
+	# Calculate temporal preference scores
+	# Standard deviation is used as the default variability measure
+	scores, (variability, direction, net_flows) = tp(
+		matrices = matrices,
+		weights = weights,
+		types = types,
+		preference_functions = [
+			preference_usual_function,
+			preference_usual_function,
+			preference_usual_function
+		],
+		alt_names = alternative_names
+	)
+
+	# Display scores and ranking
+	# Scores
+	print('Scores: ', np.round(scores, 4))
+	# Ranking
+	print('Ranking :', rank_preferences(scores, reverse = True))
+	
+Output
+
+.. code-block:: console
+
+	Scores:  [-0.1111  0.4622 -0.5428  0.1698]
+	Ranking : [3 1 4 2]
 
 
 

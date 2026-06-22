@@ -3,11 +3,11 @@
 # -- Project information
 
 project = 'pyrepo-mcda'
-copyright = '2023, energyinpython'
+copyright = '2026, energyinpython'
 author = 'Aleksandra Bączkiewicz'
 
 release = '0.1'
-version = '0.1.5'
+version = '0.1.12'
 
 # -- General configuration
 

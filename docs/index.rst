@@ -27,6 +27,7 @@ This library includes:
 	- ``VMCM``
 	- ``COCOSO``
 	- ``PVM``
+	- ``Temporal PROMETHEE II``
 	
 - Distance metrics:
 
@@ -117,4 +118,5 @@ Contents
 	example_pyrepo_mcda_update
 	example_crispyn
 	example_pyrepo_mcda_update2
+	illustrative_example_pyrepo_mcda_update_1.4
 	autoapi/index
