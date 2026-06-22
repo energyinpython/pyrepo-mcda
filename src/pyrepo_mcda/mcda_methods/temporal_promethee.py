@@ -125,7 +125,6 @@ class Temporal_PROMETHEE_II:
         --------
         >>> import numpy as np
         >>> from pyrepo_mcda.mcda_methods import Temporal_PROMETHEE_II, DARIA
-
         >>> matrices = {
         ...     "2022": np.array([
         ...         [10, 5],
@@ -143,22 +142,17 @@ class Temporal_PROMETHEE_II:
         ...         [10, 9]
         ...     ])
         ... }
-
         >>> weights = np.array([0.6, 0.4])
         >>> types = np.array([1, -1])
-
         >>> tp = Temporal_PROMETHEE_II()
         >>> daria = DARIA()
-
         >>> scores, (variability, direction, net_flows) = tp(
         ...     matrices=matrices,
         ...     weights=weights,
         ...     types=types,
         ...     variability_function=daria._gini
         ... )
-
         >>> scores
-        array(...)
         """
 
         # Ensure that at least one decision matrix is provided
