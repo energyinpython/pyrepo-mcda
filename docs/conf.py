@@ -7,7 +7,7 @@ copyright = '2026, energyinpython'
 author = 'Aleksandra Bączkiewicz'
 
 release = '0.1'
-version = '0.1.12'
+version = '0.1.13'
 
 # -- General configuration
 
