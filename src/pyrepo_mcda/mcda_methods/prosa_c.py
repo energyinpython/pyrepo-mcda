@@ -6,6 +6,12 @@ from .promethee import PROMETHEE_II
 
 # PROSA Examining Sustainability at the Criteria Level (PROSA-C)
 class PROSA_C(PROMETHEE_II):
+    """
+    PROMETHEE for Sustainability Assessment - Criteria (PROSA-C)
+    method for ranking alternatives using preference flows and a
+    compensation coefficient.
+    """
+
     def __init__(self):
         """
         Create the PROSA method object
