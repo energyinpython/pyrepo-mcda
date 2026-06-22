@@ -10,15 +10,15 @@ class MCDA_method(ABC):
 
         Parameters
         ----------
-            matrix : ndarray
-                decision matrix with performance values for m alternatives in rows and n criteria 
-                in columns
-            weights : ndarray
-                matrix with criteria weights vectors with number of columns equal to 
-                number of columns n of `matrix`
-            types : ndarray
-                vector with criteria types containing values of 1 for profit criteria and -1 for 
-                cost criteria with size equal to number of columns n of `matrix`
+        matrix : ndarray
+            decision matrix with performance values for m alternatives in rows and n criteria 
+            in columns
+        weights : ndarray
+            matrix with criteria weights vectors with number of columns equal to 
+            number of columns n of `matrix`
+        types : ndarray
+            vector with criteria types containing values of 1 for profit criteria and -1 for 
+            cost criteria with size equal to number of columns n of `matrix`
         """
         pass
 

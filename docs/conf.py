@@ -14,6 +14,7 @@ version = '0.1.12'
 extensions = ['autoapi.extension',
 'nbsphinx',
 'sphinx_rtd_theme',
+"sphinx.ext.intersphinx",
 ]
 autoapi_type = 'python'
 autoapi_dirs = ["../src"]  # location to parse for API reference
@@ -21,6 +22,9 @@ autoapi_dirs = ["../src"]  # location to parse for API reference
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3/', None),
     'sphinx': ('https://www.sphinx-doc.org/en/master/', None),
+    "numpy": ("https://numpy.org/doc/stable/", None),
+    "pandas": ("https://pandas.pydata.org/pandas-docs/stable/", None),
+    "pandas": ("https://pandas.pydata.org/docs/", None),
 }
 intersphinx_disabled_domains = ['std']
 

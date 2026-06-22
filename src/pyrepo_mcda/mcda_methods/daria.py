@@ -33,7 +33,6 @@ class DARIA():
 
         Examples
         ----------
-
         >>> daria = DARIA()
         >>> variability = daria._gini(matrix)
         """
@@ -65,6 +64,7 @@ class DARIA():
         """
         
         Calculate variability values measured by the Entropy in scores obtained by each evaluated option.
+        
         Parameters
         -----------
             R : ndarray
@@ -103,18 +103,18 @@ class DARIA():
     # standard deviation variability measure
     def _std(self, R):
         """
-        
         Calculate variability values measured by the Standard Deviation in scores obtained by each evaluated option.
+        
         Parameters
         -----------
-            R : ndarray
-                Matrix with preference values obtained with MCDA method (for example, TOPSIS)
-                with `t` periods of time in rows and `m` alternatives in columns.
+        R : ndarray
+            Matrix with preference values obtained with MCDA method (for example, TOPSIS)
+            with `t` periods of time in rows and `m` alternatives in columns.
         
         Returns
         --------
-            ndarray
-                Vector with Standard Deviation values for each alternative.
+        ndarray
+            Vector with Standard Deviation values for each alternative.
         
         Examples
         ----------
@@ -134,18 +134,18 @@ class DARIA():
         Calculate variability values measured by the Statistical Variance in scores obtained by each evaluated option.
         
         Parameters
-        -----------
-            R : ndarray
-                Matrix with preference values obtained with MCDA method (for example, TOPSIS)
-                with `t` periods of time in rows and `m` alternatives in columns.
+        ----------
+        R : ndarray
+            Matrix with preference values obtained with MCDA method (for example, TOPSIS)
+            with `t` periods of time in rows and `m` alternatives in columns.
         
         Returns
-        --------
-            ndarray
-                Vector with Statistical Variance values for each alternative.
+        -------
+        ndarray
+            Vector with Statistical Variance values for each alternative.
         
         Examples
-        ----------
+        --------
         >>> daria = DARIA()
         >>> variability = daria._stat_var(matrix)
         """
@@ -161,18 +161,18 @@ class DARIA():
         Calculate variability values measured by the Coefficient of Variation in scores obtained by each evaluated option.
         
         Parameters
-        -----------
-            R : ndarray
-                Matrix with preference values obtained with MCDA method (for example, TOPSIS)
-                with `t` periods of time in rows and `m` alternatives in columns.
+        ----------
+        R : ndarray
+            Matrix with preference values obtained with MCDA method (for example, TOPSIS)
+            with `t` periods of time in rows and `m` alternatives in columns.
         
         Returns
-        --------
-            ndarray
-                Vector with Coefficient of Variation values for each alternative.
+        -------
+        ndarray
+            Vector with Coefficient of Variation values for each alternative.
         
         Examples
-        ----------
+        --------
         >>> daria = DARIA()
         >>> variability = daria._coeff_var(matrix)
         """
@@ -199,31 +199,31 @@ class DARIA():
         periods of time.
         
         Parameters
-        ------------
-            R : ndarray
-                Matrix with preference values obtained with MCDA method (for example, TOPSIS)
-                with `t` periods of time in rows and `m` alternatives in columns.
-            preference_type : int
-                The variable represents the ordering of alternatives by the MCDA method. It can be equal to
-                1 or -1. 1 means that the MCDA method sorts options in descending order
-                according to preference values (for example, the TOPSIS method). -1 means that 
-                the MCDA method sorts options in ascending order according to preference values 
-                (for example, the VIKOR method). 
+        ----------
+        R : ndarray
+            Matrix with preference values obtained with MCDA method (for example, TOPSIS)
+            with `t` periods of time in rows and `m` alternatives in columns.
+        preference_type : int
+            The variable represents the ordering of alternatives by the MCDA method. It can be equal to
+            1 or -1. 1 means that the MCDA method sorts options in descending order
+            according to preference values (for example, the TOPSIS method). -1 means that 
+            the MCDA method sorts options in ascending order according to preference values 
+            (for example, the VIKOR method).
         
         Returns
-        --------
-            direction_list : list
-                List with strings representing the direction of variability in the form of the
-                arrow up for improvement, arrow down for worsening, and = for stability.
-                It is useful for results presentation.
-            dir_class : ndarray
-                Vector with numerical values representing the direction of variability. 1 represents
-                increasing preference values, and -1 means decreasing preference values.
-                It is used to calculate final aggregated preference values using DARIA method in
-                next stage of DARIA method.
+        -------
+        direction_list : list
+            List with strings representing the direction of variability in the form of the
+            arrow up for improvement, arrow down for worsening, and = for stability.
+            It is useful for results presentation.
+        dir_class : ndarray
+            Vector with numerical values representing the direction of variability. 1 represents
+            increasing preference values, and -1 means decreasing preference values.
+            It is used to calculate final aggregated preference values using DARIA method in
+            next stage of DARIA method.
         
         Examples
-        ---------
+        --------
         >>> daria = DARIA()
         >>> dir_list, dir_class = daria._direction(matrix, preference_type)
         """
@@ -259,26 +259,26 @@ class DARIA():
         ranking of alternatives.
         
         Parameters
-        -----------
-            scores : ndarray
-                Vector with preference values of alternatives from the most recent year analyzed
-                obtained by chosen MCDA method.
-            variability : ndarray
-                Vector with variability values of alternatives preferences obtained in investigated
-                periods.
-            direction : ndarray
-                Vector with numerical values of the direction of variability in values of alternatives 
-                preferences obtained in investigated periods. 1 represents increasing in following
-                preference values, and -1 means decreasing in following preference values.
+        ----------
+        scores : ndarray
+            Vector with preference values of alternatives from the most recent year analyzed
+            obtained by chosen MCDA method.
+        variability : ndarray
+            Vector with variability values of alternatives preferences obtained in investigated
+            periods.
+        direction : ndarray
+            Vector with numerical values of the direction of variability in values of alternatives 
+            preferences obtained in investigated periods. 1 represents increasing in following
+            preference values, and -1 means decreasing in following preference values.
         
         Returns
-        --------
-            ndarray
-                Final aggregated preference values of alternatives considering variability in
-                preference values obtained in the following periods.
+        -------
+        ndarray
+            Final aggregated preference values of alternatives considering variability in
+            preference values obtained in the following periods.
         
         Examples
-        ----------
+        --------
         >>> updated_scores = daria._update_efficiency(scores, variability, direction)
         >>> rank = rank_preferences(updated_scores, reverse = True)
         """
