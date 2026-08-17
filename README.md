@@ -1,5 +1,11 @@
 # pyrepo-mcda
 
+[![GitHub](https://img.shields.io/badge/github-repo-blue?logo=github)](https://github.com/energyinpython/pyrepo-mcda)
+[![PyPI](https://img.shields.io/pypi/v/pyrepo-mcda.svg)](https://pypi.org/project/pyrepo-mcda/)
+[![Documentation](https://img.shields.io/badge/docs-passing-brightgreen)](https://pyrepo-mcda.readthedocs.io/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/energyinpython/pyrepo-mcda/blob/main/LICENSE)
+[![DOI](https://img.shields.io/badge/DOI-10.1016%2Fj.softx.2022.101107-blue)](https://doi.org/10.1016/j.softx.2022.101107)
+
 The Python 3 library for Multi-Criteria Decision Analysis.
 
 ## Installation
