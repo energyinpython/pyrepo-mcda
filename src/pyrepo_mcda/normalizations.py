@@ -49,12 +49,36 @@ def minmax_normalization(matrix, types):
     ----------
     >>> nmatrix = minmax_normalization(matrix, types)
     """
-    x_norm = np.zeros((matrix.shape[0], matrix.shape[1]))
-    x_norm[:, types == 1] = (matrix[:, types == 1] - np.amin(matrix[:, types == 1], axis = 0)
-                             ) / (np.amax(matrix[:, types == 1], axis = 0) - np.amin(matrix[:, types == 1], axis = 0))
+    matrix = np.asarray(matrix, dtype=float)
+    x_norm = np.ones_like(matrix)
 
-    x_norm[:, types == -1] = (np.amax(matrix[:, types == -1], axis = 0) - matrix[:, types == -1]
-                           ) / (np.amax(matrix[:, types == -1], axis = 0) - np.amin(matrix[:, types == -1], axis = 0))
+    # Profit criteria
+    profit = types == 1
+    if np.any(profit):
+        mins = matrix[:, profit].min(axis=0)
+        maxs = matrix[:, profit].max(axis=0)
+        ranges = maxs - mins
+
+        x_norm[:, profit] = np.divide(
+            matrix[:, profit] - mins,
+            ranges,
+            out=np.ones_like(matrix[:, profit]),
+            where=ranges != 0
+        )
+
+    # Cost criteria
+    cost = types == -1
+    if np.any(cost):
+        mins = matrix[:, cost].min(axis=0)
+        maxs = matrix[:, cost].max(axis=0)
+        ranges = maxs - mins
+
+        x_norm[:, cost] = np.divide(
+            maxs - matrix[:, cost],
+            ranges,
+            out=np.ones_like(matrix[:, cost]),
+            where=ranges != 0
+        )
 
     return x_norm
 
