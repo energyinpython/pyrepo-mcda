@@ -74,6 +74,10 @@ class VIKOR(MCDA_method):
             fmin[types == 1] = minimums_matrix[types == 1]
             fmin[types == -1] = maximums_matrix[types == -1]
 
+            mask = (fstar == fmin)
+            fstar[mask] = 1
+            fmin[mask] = 0
+
             # Calculate the weighted matrix
             weighted_matrix = weights * ((fstar - matrix) / (fstar - fmin))
         else:
@@ -81,6 +85,10 @@ class VIKOR(MCDA_method):
             norm_matrix = normalization_method(matrix, types)
             fstar = np.amax(norm_matrix, axis = 0)
             fmin = np.amin(norm_matrix, axis = 0)
+
+            mask = (fstar == fmin)
+            fstar[mask] = 1
+            fmin[mask] = 0
 
             # Calculate the weighted matrix
             weighted_matrix = weights * ((fstar - norm_matrix) / (fstar - fmin))
