@@ -24,6 +24,8 @@ class VIKOR(MCDA_method):
             v : float
                 parameter that is weight of strategy of the majority of criteria (the maximum group utility)
         """
+        if not 0 <= v <= 1:
+            raise ValueError("Parameter v must be between 0 and 1.")
         self.v = v
         self.normalization_method = normalization_method
 
@@ -59,7 +61,7 @@ class VIKOR(MCDA_method):
     @staticmethod
     def _vikor(matrix, weights, types, normalization_method, v):
         # Without special normalization method
-        if normalization_method == None:
+        if normalization_method is None:
 
             # Determine the best `fstar` and the worst `fmin` values of all criterion function
             maximums_matrix = np.amax(matrix, axis = 0)
@@ -74,24 +76,25 @@ class VIKOR(MCDA_method):
             fmin[types == 1] = minimums_matrix[types == 1]
             fmin[types == -1] = maximums_matrix[types == -1]
 
-            mask = (fstar == fmin)
-            fstar[mask] = 1
-            fmin[mask] = 0
+            data_matrix = matrix
 
-            # Calculate the weighted matrix
-            weighted_matrix = weights * ((fstar - matrix) / (fstar - fmin))
         else:
             # With special normalization method
-            norm_matrix = normalization_method(matrix, types)
-            fstar = np.amax(norm_matrix, axis = 0)
-            fmin = np.amin(norm_matrix, axis = 0)
+            data_matrix = normalization_method(matrix, types)
 
-            mask = (fstar == fmin)
-            fstar[mask] = 1
-            fmin[mask] = 0
+            fstar = np.amax(data_matrix, axis=0)
+            fmin = np.amin(data_matrix, axis=0)
 
-            # Calculate the weighted matrix
-            weighted_matrix = weights * ((fstar - norm_matrix) / (fstar - fmin))
+        # Calculate the weighted matrix
+        mask = (fstar != fmin)
+
+        weighted_matrix = np.zeros_like(data_matrix, dtype=float)
+
+        weighted_matrix[:, mask] = (
+            weights[mask] *
+            (fstar[mask] - data_matrix[:, mask]) /
+            (fstar[mask] - fmin[mask])
+        )
 
         # Calculate the `S` and `R` values
         S = np.sum(weighted_matrix, axis = 1)
@@ -99,15 +102,19 @@ class VIKOR(MCDA_method):
         # Calculate the Q values
         Sstar = np.min(S)
         Smin = np.max(S)
-        if (Sstar == Smin):
-            Sstar = 0.
-            Smin = 1.
+
+        if Sstar == Smin:
+            S_normalized = np.zeros_like(S)
+        else:
+            S_normalized = (S - Sstar) / (Smin - Sstar)
 
         Rstar = np.min(R)
         Rmin = np.max(R)
-        if (Rstar == Rmin):
-            Rstar = 0.
-            Rmin = 1.
 
-        Q = v * (S - Sstar) / (Smin - Sstar) + (1 - v) * (R - Rstar) / (Rmin - Rstar)
+        if Rstar == Rmin:
+            R_normalized = np.zeros_like(R)
+        else:
+            R_normalized = (R - Rstar) / (Rmin - Rstar)
+
+        Q = v * S_normalized + (1 - v) * R_normalized
         return Q
